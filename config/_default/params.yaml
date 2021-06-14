@@ -126,6 +126,7 @@ comments:
     project: true
     publication: true
     event: true
+    teaching: true
   disqus:
     shortname: 'yabin-da'
     show_count: true
@@ -139,7 +140,7 @@ search:
     index_name: ''
     show_logo: false
 map:
-  provider: 'Google Maps'
+  provider: 'google'
   api_key: ''
   zoom: 15
 marketing:
