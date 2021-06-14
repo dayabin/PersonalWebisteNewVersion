@@ -140,7 +140,7 @@ search:
     show_logo: false
 map:
   provider: 'Google Maps'
-  api_key: 'AIzaSyAd7-sA5gn8ulwAoOJfJZjz1H3OXbNCRQ0'
+  api_key: ''
   zoom: 15
 marketing:
   google_analytics: ''
