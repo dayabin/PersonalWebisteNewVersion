@@ -32,7 +32,6 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(grid)
 library(tiff)
-library(citr)
 library(kableExtra)
 library(tidyverse)
 

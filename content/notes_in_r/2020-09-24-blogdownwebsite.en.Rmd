@@ -11,7 +11,7 @@ tags:
 subtitle: ''
 summary: 'Some tips on building your personal website with R blogdown'
 authors: [Yabin Da]
-lastmod: '2020-12-06T10:53:13-05:00'
+lastmod: '2021-06-27T10:53:13-05:00'
 featured: no
 draft: false
 math: true
@@ -34,6 +34,11 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
+**Note that this article is outdated. Lots of things have changed. Please refer to the wowchemy [documentation](https://wowchemy.com/docs/) for the most updated method to create a website**. 
+
+
 
 ### Why I chose blogdown to build my personal website
 

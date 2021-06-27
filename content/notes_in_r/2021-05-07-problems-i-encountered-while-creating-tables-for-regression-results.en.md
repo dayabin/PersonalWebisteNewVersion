@@ -9,7 +9,7 @@ tags: []
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-05-09T23:05:59-05:00'
+lastmod: '2021-06-27T23:05:59-05:00'
 featured: no
 image:
   caption: ''
@@ -72,6 +72,8 @@ This can be done by using the `keep` or `omit` parameter in `stargazer`. My feel
 keep = c('dfallhigh','frez_spring','penalty_dfallhigh','penalty_frez_spring')
 
 ```
+**You need to pay particular attention here**. The variable names should be specified carefully to make sure that `keep` and `omit` work. Try to aviod variable names like `log(x)`, `I(x^2)`, etc. In contrast to using variable names, you can also use a numeric vector to indicate the positions of variables in the regression with full varaibles, i.e. `keep = c(1:5)`. 
+
 Following that, you can further specify the names\lables to be presented in the table. 
 
 ```
