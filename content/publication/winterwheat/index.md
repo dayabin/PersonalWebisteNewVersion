@@ -20,7 +20,7 @@ publishDate: 2021-05-20T22:45:47-06:00
 publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication: "Job Market Paper"
+publication: "*Job Market Paper*"
 publication_short: ""
 
 abstract: "This paper examines the impacts of climate change on winter wheat, one of the most widely planted crops, using Chinese data. We examine potentially differential climatic impacts depending on crop growth stage as it progresses throughout the year. We find that heat in the fall and freezing days in the spring are the most significant drivers of yield reductions. Our findings suggest that reductions in the number of freezing days have strong implications for winter wheat yields. From a long-run perspective, we find a 0.4% yield gain under projected climate change when we look at benefits from reductions in freezing days as opposed to a 4.1% yield reduction when freezing days are omitted. We also find adaptation effects could possibly reverse the sign of climate impacts on winter wheat, i.e. future yield projections using long-run impacts show small yield gains ranging from 0.4%-3%, whereas projections with short-run impacts indicate yield reductions of 1.1%-7%. "
