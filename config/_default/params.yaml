@@ -20,8 +20,8 @@ twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: dayabin@tamu.edu
-phone:
+#email: dayabin@tamu.edu
+#phone:
 address:
   street: 600 John Kimbrough Blvd
   city: College Station
@@ -133,15 +133,15 @@ comments:
   commento:
     url: ''
 search:
-  provider: wowchemy
+  provider: 'wowchemy'
   algolia:
     app_id: ''
     api_key: ''
     index_name: ''
     show_logo: false
 map:
-  provider: 'google'
-  api_key: 'AIzaSyAOrcf9FjY0VGt3NG9NPJgNFetJ4djPgNA'
+  provider: ''
+  api_key: ''
   zoom: 15
 marketing:
   google_analytics: 'UA-174643868-2'
