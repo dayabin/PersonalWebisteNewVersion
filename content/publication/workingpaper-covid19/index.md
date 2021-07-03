@@ -37,7 +37,6 @@ featured: false
 
 
 
-url_pdf: https://iopscience.iop.org/article/10.1088/1748-9326/abcf76/pdf
 url_code:
 url_dataset:
 url_poster:

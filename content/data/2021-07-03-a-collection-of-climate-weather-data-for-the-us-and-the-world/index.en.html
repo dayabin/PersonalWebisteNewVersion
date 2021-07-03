@@ -1,0 +1,52 @@
+---
+title: A collection of climate/weather data for the US and the world
+author: admin
+date: '2021-07-03'
+slug: a-collection-of-climate-weather-data-for-the-us-and-the-world
+categories:
+  - Data
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-07-03T15:07:40-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+
+
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 3
+
+
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#gridmet-university-of-idaho-gridded-surface-meteorological-dataset">GRIDMET: University of Idaho Gridded Surface Meteorological Dataset</a></li>
+</ul>
+</div>
+
+<p>This post is to collect the climate/weather data I have seen in the literature for the United States and probably the world. This collection differs from the data sources that are well known by scholars, such as data from NOAA (mostly observations from ground stations). Instead, it covers gridded data that are climate model output. I will also attach the associated paper that uses the data.</p>
+<div id="gridmet-university-of-idaho-gridded-surface-meteorological-dataset" class="section level1">
+<h1>GRIDMET: University of Idaho Gridded Surface Meteorological Dataset</h1>
+<p>This dataset provides high spatial resolution (roughly 4km) daily surface fields of temperature, precipitation, wind, humidity and radiation across the contiguous United States from 1979 to present. The dataset blends the <a href="https://prism.oregonstate.edu/">PRISM</a> with the high temporal resolution data from the National Land Data Assimilation System (<a href="https://ldas.gsfc.nasa.gov/">NLDAS</a>). See the <a href="https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET#description">website</a> for more details.</p>
+<p>This dataset is an ideal source for “secondary” weather data, including wind speed, humidity (relative and specific), and radiation. While temperature and precipitation are the most widely used data in the climate change assessment literature, those secondary variables could be critical in certain cases.</p>
+<ul>
+<li>Coverage: The Contiguous United States</li>
+<li>Temporal resolution: Daily</li>
+<li>Spatial resolution: 4km * 4km</li>
+<li>Variables: Precipitation, maximum relative humidity, minimum relative humidity, specific humidity, surface downward shortwave radiation, wind direction, minimum temperature, maximum temperature. wind velocity at 10m, etc. See the full list from <a href="https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET#bands">here</a></li>
+</ul>
+<p>Related reference</p>
+<ul>
+<li>David B. Lobell and Jennifer A. Burney, 2021. Cleanter air has contributed one-fifth of US maize and soybean yield gains since 1999. Environmental Research Letters. <a href="https://iopscience.iop.org/article/10.1088/1748-9326/ac0fa4/pdf">Link</a>.</li>
+</ul>
+</div>

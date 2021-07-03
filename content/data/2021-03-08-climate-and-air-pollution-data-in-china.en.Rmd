@@ -9,7 +9,7 @@ tags: []
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-04-06T15:56:13-06:00'
+lastmod: '2021-07-03T15:56:13-06:00'
 featured: no
 image:
   caption: ''
@@ -43,6 +43,23 @@ To access the data set, click this [link](https://sedac.ciesin.columbia.edu/data
 Spatial resolution: Global; Gridded at 0.01 degree * 0.01 degree (Note that analysis using this fine scale is not recommended. Users are encouraged to aggregate the fine-scaled data to perform analysis at larger spatial scales).
 
 Temporal resolution: Annually (1998-2016)
+
+
+#### MODIS Moderate Resolution Imaging Spectroradiometer
+
+This dataset provides a rich colletion of data in the form of satellite images. While the dataset does not directly provide PM2.5/10 data, such data is represented by aerosol optical depth. The readers are encouraged to check out the [website](https://modis.gsfc.nasa.gov/data/) for more information due to its richness of data provided. 
+
+The data are classified to multiple categories, including MODIS level 1 data (geolocation, cloud mask, and atmosphere products), MODIS land products, MODIS cryosphere products, and MODIS ocean color and sea surface temperature products. The aerosol data is located in the MODIS level 1. 
+
+To access the data, click the [link](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/science-domain/aerosol/).
+
+Spatial resolution: Global; Gridded at 10km * 10km. Note that product with a spatial resolution of 3km * 3km is also provided which is beneficial for air quality analysis. 10km * 10km data are primarily used for climate analysis. Also note that preliminary analysis indicates that the 3 km product tends to be noiser than the 10 km product. Comparisons of the global mean AOD from the two products shows that the 3 km AOD is 0.01 to 0.02 higher over land. Over ocean, it was found that there was more very low AOD with the 3 km product (see [here](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/MOD04_3K/)).
+
+Temporal resolution: Daily (2000-01-01 to present).
+
+Related papers
+
+- Eric Yongchen Zou, 2021. Unwatched pollution: The effect of intermittent monitoring on air quality. American Economic Review. [Link](https://www.aeaweb.org/articles?id=10.1257/aer.20181346&&from=f)
 
 
 #### Tracking Air Pollution in China
