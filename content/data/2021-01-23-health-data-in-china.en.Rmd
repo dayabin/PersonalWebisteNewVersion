@@ -18,7 +18,9 @@ projects: []
 ---
 
 
-The health impacts of climate change and air pollution have gained privilege in the environmental economics arena. While the availability of climate and air pollution are getting better and better, the health data are very limited. In this post, I collected useful health data from the literature. I will update this post accordingly. 
+The impacts of climate change and air pollution on human health have gained privilege in the environmental economics literature. While the availability of climate and air pollution are getting better and better, the health data are very limited. In this post, I collected useful health data from the literature. I will update this post accordingly. 
+
+**It turns out that most of the health data collected in this post are NOT publicly available**.
 
 ### An integrated national mortality surveillance system by CCDC
 
@@ -38,6 +40,19 @@ The health impacts of climate change and air pollution have gained privilege in 
   
 - **Applications**
    - Maoyong Fan, Guojun He, Maigeng Zhou. The winter choke: Coal-Fired heating, air pollution, and mortality in China. Journal of Health Economics 71 (2020). [Link](https://doi.org/10.1016/j.jhealeco.2020.102316)
+   
+   
+### China Health Insurance Research Association (CHIRA)
+
+This data source complies a random sample of inpatient vist for those insured under two policies: Urban Resident Basic Medical Insurance (URBMI) and Urban Employee Basic Medical Insurance (UEBMI) in 2008-2010. In 2010, their total enrollees reached 432.06 million, accounting for approximately 65% of China's urban population. 
+
+Each record includes information on the admission and discharge dates, diagnosis, gender, and birth date of patients. On the cost side, the data contains total spending, spending covered by the URBMI or UEBMI, patients' payments, other costs. 
  
  
+- **Access to the data**
+
+ I obtained the data information from the application paper below. The paper did not disclose the website/archive of the data. Again, the data are confidential. 
  
+ 
+- **Applications**
+   - Sumit Agarwal, Yu Qin, Luwen Shi, Guoxu Wei, Hongjia Zhu. Impact of temperature on morbidity: New evidence from China. Journal of Environmental Economics and Management 71 (2020). [Link](https://www.sciencedirect.com/science/article/pii/S009506962100070X)
