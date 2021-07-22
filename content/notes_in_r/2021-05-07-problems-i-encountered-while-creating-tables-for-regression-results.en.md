@@ -56,12 +56,7 @@ add.lines = list(c('County fixed effect','Yes','Yes','Yes'),
 
 The created table looks like below. 
 
-```{r, echo=F, fig.align='default', fig.show='hold'}
-
-knitr::include_graphics("/notes_in_r/2021-05-07-problems-i-encountered-while-creating-tables-for-regression-results.en_files/reg_table.png", error = F)
-
-
-```
+![](/notes_in_r/2021-05-07-problems-i-encountered-while-creating-tables-for-regression-results.en_files/reg_table.png)
 
 
 #### Select variables to be reported in the table
