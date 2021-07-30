@@ -3,8 +3,11 @@
 
 title: "How do weather and climate change impact the COVID-19 pandemic? Evidence from the Chinese mainland"
 authors:
+- Jingli Fan
 - admin
-- Jingli Fan et al.
+- Bin Zeng
+- Hao Zhang
+- Zhu Liu et al
 
 date: 2021-1-17T11:17:33-06:00
 url_pdf: https://iopscience.iop.org/article/10.1088/1748-9326/abcf76/pdf
