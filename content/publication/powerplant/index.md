@@ -8,10 +8,10 @@ authors:
 - Jingli Fan
 
 date: 2021-07-29T23:00:25-06:00
-doi: "https://doi.org/10.1039/D1EE01475G"
+doi: https://doi.org/10.1039/D1EE01475G
 
 # Schedule page publish date (NOT publication's date).
-publishDate: 2021-08-07T23:00:25-06:00
+publishDate: 2021-08-07T10:00:25-06:00
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
