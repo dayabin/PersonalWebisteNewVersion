@@ -1,7 +1,7 @@
 ---
 title: A collection of climate/weather data for the US and the world
 author: admin
-date: '2021-07-30'
+date: '2021-08-29'
 slug: a-collection-of-climate-weather-data-for-the-us-and-the-world
 categories:
   - Data
@@ -9,7 +9,7 @@ tags: []
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2021-07-30T15:07:40-05:00'
+lastmod: '2021-08-29T21:51:18-05:00'
 featured: no
 image:
   caption: ''
@@ -17,18 +17,20 @@ image:
   preview_only: no
 projects: []
 
-
 output:
   blogdown::html_page:
     toc: true
-    toc_depth: 3
+
+
 
 
 ---
 
 This post is to collect the climate/weather data I have seen in the literature for the United States and probably the world. This collection differs from the data sources that are well known by scholars, such as data from NOAA (mostly observations from ground stations). Instead, it covers gridded data that are climate model output. I will also attach the associated paper that uses the data. 
 
-# Historical data
+In addition to the climate and weather data, I will also post some natural disaster data, such as storm, wildfire, hail, tornado, etc. The ideal data should not only include the information of the disasters, but the associated damages. 
+
+# Historical climate/weather data
 
 ## gridMET
 
@@ -45,7 +47,7 @@ Related reference
 - David B. Lobell and Jennifer A. Burney, 2021. Cleanter air has contributed one-fifth of US maize and soybean yield gains since 1999. Environmental Research Letters. [Link](https://iopscience.iop.org/article/10.1088/1748-9326/ac0fa4/pdf).
 
 
-# Projected data
+# Projected climate/weather data
 
 ## MACA
 
@@ -63,9 +65,12 @@ The dataset embraces 20 CMIP5 GCMs that provided daily output for historical (19
 
 
 
+# Natural disaster data
 
+I just read a paper by Dr. Tatyana Deryugina and her coauthor about charitable donations and deadly tornadoes. The question is do those tornadoes trigger a relocation of existing donations or increase the donations? In the paper, they used an informative disaster dataset provided by NOAA. 
 
+The database covers overall 48 disasters spanning from January 1950 to May 2021, as entered by NOAA's National Weather Service (NWS). More importantly, it also covers the damages caused by the disaster, such as deaths, injuries, damages on property and a lot of others. 
 
-
+Check the website [here](https://www.ncdc.noaa.gov/stormevents/). 
 
 
