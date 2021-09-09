@@ -6,7 +6,7 @@ authors:
 - admin
 - Yangyang Xu
 - Bruce McCarl
-date: 2021-05-19T22:45:42-06:00
+date: 2021-09-08T22:45:42-06:00
 #doi: ""
 
 # Schedule page publish date (NOT publication's date).
@@ -19,7 +19,7 @@ publishDate: 2021-05-19T22:45:42-06:00
 publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Revised and resubmitted to Environmental and Resource Economics*"
+publication: "*Second Round R & R at Environmental and Resource Economics*"
 publication_short: ""
 
 abstract: "Surface ozone pollution has been proven to impose significant damages on crops. However, the quantification of the damages was extensively derived from chamber experiments, which is not representative of actual results in farm fields due to the limitations of spatial scale, time window, etc. Additionally, the relative impacts of ozone trends and future climate change remain poorly understood. In this work, we attempt to empirically fill this gap using county level data in the United States from 1980 to 2015. We explore ozone impacts on corn, soybeans, spring wheat, winter wheat, barley, cotton, peanuts, rice, sorghum, and sunflower. We also incorporate a variety of climate variables to investigate potential ozone-climate interactions. More importantly, we shed light on future yield consequences of ozone and climate change individually and jointly under a moderate warming scenario. Our findings suggest significant negative impacts of ozone exposure for eight of the ten crops we examined, excepting barley and winter wheat, which contradicts experimental results. The average annual damages were estimated at $6.03 billion (in 2015 U.S. dollar) from 1980 to 2015. We also find rising temperatures tend to worsen ozone damages while water supply would mitigate that. Finally, elevated ozone driven by future climate change would cause much smaller damages than the direct effects of climate change itself."
