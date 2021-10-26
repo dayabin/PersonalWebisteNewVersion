@@ -1,34 +1,4 @@
----
-title: How to do clustering for panel data model in R
-author: Yabin Da
-date: '2020-12-27'
-slug: how-to-do-clustering-for-panel-data-model-in-r
-categories:
-  - Data
-tags:
-  - Panel data
-  - Clustering standard errors
-subtitle: 'Clustering standard errors in R'
-summary: ''
-authors: []
-lastmod: '2020-12-27T23:17:39-06:00'
-featured: no
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-projects: []
-draft: false
-math: true
-
-output:
-  blogdown::html_page:
-    toc: true
-    toc_depth: 4
-
----
-
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="2020-12-27-how-to-do-clustering-for-panel-data-model-in-r.en_files/header-attrs-2.9/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -59,7 +29,7 @@ output:
 <p>Before we perform clustering, we need to run the panel data model first. You can either use the <code>lm</code> function or the <code>plm</code> function from the <code>plm</code> package. I personally prefer the latter over the former. Thus, in this post, I am going to stick with the <code>plm</code> package.</p>
 <div id="importing-the-data" class="section level4">
 <h4>Importing the data</h4>
-<p>I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from <a href="https://drive.google.com/file/d/1Y8gxJVhkyzX1rEznbXq3atC75ndhlGUz/view?usp=sharing">here</a>.</p>
+<p>I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from <a href="https://drive.google.com/file/d/1DFU30lRmoVEbjJpYtEMIFP29f3K1PV8A/view?usp=sharing">here</a>.</p>
 <pre class="r"><code>library(tidyverse) 
 library(plm)
 library(lmtest)

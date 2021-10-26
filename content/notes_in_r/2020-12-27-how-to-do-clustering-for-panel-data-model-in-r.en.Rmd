@@ -54,7 +54,7 @@ Before we perform clustering, we need to run the panel data model first. You can
 
 #### Importing the data
 
-I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from [here](https://drive.google.com/file/d/1Y8gxJVhkyzX1rEznbXq3atC75ndhlGUz/view?usp=sharing).
+I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from [here](https://drive.google.com/file/d/1DFU30lRmoVEbjJpYtEMIFP29f3K1PV8A/view?usp=sharing).
 
 
 ```{r library, message=FALSE, warning=FALSE}
