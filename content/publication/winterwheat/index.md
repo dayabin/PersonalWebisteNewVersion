@@ -34,13 +34,13 @@ featured: false
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
-#   url: https://twitter.com
+links:
+ - name: Job Market Paper
+   url: https://drive.google.com/file/d/1u4Ffq1CC1xcT8vYiolV1avcsM42hg3Mg/view?usp=sharing 
 #   icon_pack: fab
 #   icon: twitter
 
-url_pdf: https://drive.google.com/file/d/1u4Ffq1CC1xcT8vYiolV1avcsM42hg3Mg/view?usp=sharing
+# url_pdf: https://drive.google.com/file/d/1u4Ffq1CC1xcT8vYiolV1avcsM42hg3Mg/view?usp=sharing
 # url_code:
 # url_dataset:
 # url_poster:

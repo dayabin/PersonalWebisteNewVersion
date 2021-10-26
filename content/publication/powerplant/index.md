@@ -43,7 +43,7 @@ featured: false
 #   icon_pack: fab
 #   icon: twitter
 
-# url_pdf:
+url_pdf: https://pubs.rsc.org/en/content/articlelanding/2021/ee/d1ee01475g
 # url_code:
 # url_dataset:
 # url_poster:
