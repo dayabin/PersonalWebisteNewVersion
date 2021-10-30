@@ -127,6 +127,10 @@ comments:
     publication: true
     event: true
     teaching: true
+    notes_in_r: true
+    regular_post: true
+    data: true
+
   disqus:
     shortname: 'yabin-da'
     show_count: true

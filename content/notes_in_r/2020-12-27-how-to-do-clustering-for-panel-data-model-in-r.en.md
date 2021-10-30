@@ -20,7 +20,6 @@ image:
 projects: []
 draft: false
 math: true
-commentable: true
 
 output:
   blogdown::html_page:
