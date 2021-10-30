@@ -20,6 +20,7 @@ image:
 projects: []
 draft: false
 math: true
+commentable: true
 
 output:
   blogdown::html_page:
@@ -106,7 +107,7 @@ There are three functions available to do the clustering.
 - You can use the `vcovHC` function in the `plm` package to construct the variance-covariance matrix. 
 - Alternatively, you can use the `vcovHC` function from the `sandwich` package to do the task.
 - Or `vcovCR` function from the `clubSandwich` package to do the task.
- 
+
 
 ```{r plm vcov, echo=TRUE, warning=F, message=FALSE}
 
