@@ -24,7 +24,6 @@ draft: false
 
 links:
 - name: Web of Science Highly Cited Paper
-  url: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -59,7 +58,7 @@ abstract: It is an important task for China to allocate carbon emission quotas a
   region and the Eastern region should be paid close attention. These results may
   provide insightful support for decision makers to promote collaborative carbon reduction
   and allocate carbon quotas in China.
-publication: '*Energy Policy* 74 (2014): 454-464'
+publication: '*Energy Policy* 74: 454-464'
 url_pdf: http://www.sciencedirect.com/science/article/pii/S0301421514004595
 doi: 10.1016/j.enpol.2014.08.006
 ---

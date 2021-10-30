@@ -37,8 +37,8 @@ featured: false
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
+links:
+ - name: Shared First Authorship
 #   url: https://twitter.com
 #   icon_pack: fab
 #   icon: twitter

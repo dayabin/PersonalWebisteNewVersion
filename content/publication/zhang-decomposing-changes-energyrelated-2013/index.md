@@ -54,7 +54,7 @@ abstract: In order to investigate the main drivers of CO2 emissions changes in C
   only slight influence on CO2 emissions overall. In the end, we put forward some
   policy recommendations for China’s government to reduce CO2 emissions intensity
   in the future.
-publication: '*Natural Hazards* 69 (2013): 1109-1122'
+publication: '*Natural Hazards* 69: 1109-1122'
 url_pdf: https://doi.org/10.1007/s11069-013-0752-5
 doi: 10.1007/s11069-013-0752-5
 ---

@@ -25,7 +25,7 @@ tags:
 - '"Risk management"'
 - '"Vulnerability"'
 categories: []
-date: '2014-01-01'
+date: '2015-01-01'
 lastmod: 2020-09-24T17:54:27-05:00
 featured: false
 draft: false
@@ -57,7 +57,7 @@ abstract: 'Flood disaster has become one of the most damaging natural disasters 
   aspects: physical protection measurement and organization and management measurement.
   Moreover, this paper develops a highway flood disaster risk management system by
   using the ArcGIS technology.'
-publication: '*Natural Hazards* 75 (2015): 391-397'
+publication: '*Natural Hazards* 75: 391-397'
 url_pdf: https://doi.org/10.1007/s11069-014-1488-6
 doi: 10.1007/s11069-014-1488-6
 ---

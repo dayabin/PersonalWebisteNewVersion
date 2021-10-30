@@ -69,7 +69,7 @@ abstract: 'Little attention has been given to the carbon emissions issues of ‘
   higher in China than in the other three groups. In addition, this promoting effect
   exhibited a decrease over time, indicating a decoupling between economic development
   and CO2 emissions.'
-publication: '*Applied Energy* 239 (2019): 268-279'
+publication: '*Applied Energy* 239: 268-279'
 url_pdf: http://www.sciencedirect.com/science/article/pii/S0306261919302144
 doi: 10.1016/j.apenergy.2019.01.201
 ---

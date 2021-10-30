@@ -25,7 +25,6 @@ draft: false
 # Customize links
 links:
 - name: Web of Science Highly Cited Paper
-  url: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -62,7 +61,7 @@ abstract: In order to find the efficient ways to reduce carbon emission intensit
   appeared the absolute decoupling effect in 1997, 2000 and 2001, which implied that
   the economy grew while carbon emissions decreased; whereas no decoupling effect
   was identified in 2003 and 2004.
-publication: '*Renewable and Sustainable Energy Reviews* 41 (2015): 1255-1266'
+publication: '*Renewable and Sustainable Energy Reviews* 41: 1255-1266'
 url_pdf: http://www.sciencedirect.com/science/article/pii/S1364032114007941
 doi: 10.1016/j.rser.2014.09.021
 
