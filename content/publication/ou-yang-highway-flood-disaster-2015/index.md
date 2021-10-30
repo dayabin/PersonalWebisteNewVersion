@@ -57,7 +57,7 @@ abstract: 'Flood disaster has become one of the most damaging natural disasters 
   aspects: physical protection measurement and organization and management measurement.
   Moreover, this paper develops a highway flood disaster risk management system by
   using the ArcGIS technology.'
-publication: '*Natural Hazards*'
+publication: '*Natural Hazards* 75 (2015): 391-397'
 url_pdf: https://doi.org/10.1007/s11069-014-1488-6
 doi: 10.1007/s11069-014-1488-6
 ---
