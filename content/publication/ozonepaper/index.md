@@ -37,9 +37,9 @@ featured: false
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
-# - name: Follow
-#   url: https://twitter.com
+links:
+ - name: Job Marke Paper
+   url: https://drive.google.com/file/d/1IZ0JKjsvQK27BbdOu_AXGwA5V-Jpy2h3/view?usp=sharing
 #   icon_pack: fab
 #   icon: twitter
 

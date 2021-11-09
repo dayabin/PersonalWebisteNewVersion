@@ -67,9 +67,9 @@ highlight_name: true
 
 I am a PhD Candidate at the Department of Agricultural Economics, Texas A&M University, under the supervision of [Dr. Bruce McCarl](https://agecon2.tamu.edu/people/faculty/mccarl-bruce/).
 
-My research mainly focuses on environmental economics and applied econometrics. Most of my works closely relate to climate change. I have covered three topics: The economic driving forces of climate change, the impacts of climate change, and how to use market-incentive mechanisms to curb emissions. I also have a particular interest on casual studies (policy evaluations to be more precise). 
+My research mainly focuses on environmental economics and applied econometrics. Most of my works closely relate to climate change. I have covered three topics: The economic driving forces of climate change, the impacts of climate change (on the agricultural sector and energy sector), and how to use market-incentive mechanisms to curb emissions. I also have a particular interest on casual studies (policy evaluations, to be more precise). 
 
-Currently, I am working on a project which examines the effects of ozone exposure (that is "bad" ozone on the surface, not the "good" ozone in the space) on crop yields in both the United States and China. The latter one is funded by the Fifth Round of IPCC Scholarship Programme and the [Cuomo Foundation](https://www.cuomo.foundation/), please find more information from [here](https://www.ipcc.ch/about/scholarship/).
+Currently, I am working on a project which examines the effects of ozone exposure (that is "bad" ozone on the surface, not the "good" ozone in the space) on crop yields in both the United States and China. The latter one is funded by the Fifth Round of [IPCC](https://www.ipcc.ch/about/scholarship/) Scholarship Programme and the [Cuomo Foundation](https://www.cuomo.foundation/), please find more information from [here](https://www.ipcc.ch/about/scholarship/).
 
 **I am currently on the job market and will be available for interviews at the 2022 ASSA annual meeting.**
 
