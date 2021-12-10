@@ -7,20 +7,20 @@ authors:
 - Yangyang Xu
 - Fujin Yi
 - Bruce McCarl
-date: 2021-09-09T22:45:47-06:00
+date: 2021-11-09T22:45:47-06:00
 #doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: 2021-05-20T22:45:47-06:00
+publishDate: 2021-11-09T22:45:47-06:00
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "Revise requested from *Journal of Environmental Economics and Management*"
+publication: "Revision requested by *Journal of Environmental Economics and Management*"
 publication_short: ""
 
 abstract: "This paper examines the impacts of climate change on winter wheat, one of the most widely planted crops, using Chinese data. We examine potentially differential climatic impacts depending on crop growth stage as it progresses throughout the year. We find that heat in the fall and freezing days in the spring are the most significant drivers of yield reductions. Our findings suggest that reductions in the number of freezing days have strong implications for winter wheat yields. From a long-run perspective, we find a 0.4% yield gain under projected climate change when we look at benefits from reductions in freezing days as opposed to a 4.1% yield reduction when freezing days are omitted. We also find adaptation effects could possibly reverse the sign of climate impacts on winter wheat, i.e. future yield projections using long-run impacts show small yield gains ranging from 0.4%-3%, whereas projections with short-run impacts indicate yield reductions of 1.1%-7%. "
