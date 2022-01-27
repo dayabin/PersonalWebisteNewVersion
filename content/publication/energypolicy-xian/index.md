@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Energypolicy Xian"
+title: "The impact of different incentive policies on New Energy Vehicle demand in China’s gigantic cities"
 authors: 
 - Yujiao Xian
 - Qian Wang
