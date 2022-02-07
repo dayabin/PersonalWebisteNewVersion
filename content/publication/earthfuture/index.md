@@ -11,7 +11,7 @@ authors:
 - admin
 - Xi Liang et al.
 date: 2022-02-01T22:45:08-06:00
-#doi: ""
+doi: "https://doi.org/10.1016/j.ecolecon.2022.107357"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: 2022-01-26T22:45:08-06:00
@@ -23,7 +23,7 @@ publishDate: 2022-01-26T22:45:08-06:00
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "Accepted in *Ecological Economics* 195: 107357" 
+publication: "*Ecological Economics* 195: 107357" 
 publication_short: ""
 
 abstract: "It is increasingly common to use the inclusive wealth index (IWI) to comprehensively evaluate national sustainability; however, highly aggregated components and limited regional cases restrict its wider application and effectiveness in achieving the Sustainable Development Goals (SDGs). This study proposes an improved IWI framework consisting of six disaggregated components. We further apply the framework in China and evaluate sustainability at the provincial level. The results show that China is developing sustainably, with the per capita IWI growing at a 2.3% annual rate from 2000 to 2016, which is still slow compared with growth in GDP, especially after 2005. The increase of IWI is hindered by aggravating gender inequality and benefited from the advanced product feature. The results also suggest significant heterogeneity in provincial IWI mainly due to differences in economic development stages, geographic locations, and uneven IWI growth. Different driving factors lead to diverse wealth accumulation patterns. The significant IWI growth is largely driven by stimulating wealth accumulation related effectively to more human capital and advanced produced capital. In contrast, the insufficient IWI growth is often caused by lots of ordinary produced capital or the continued decline in the natural capital. Our findings provide a basis for tracking progress towards the SDGs and measuring the heterogeneity of regional socio-economic development in China."
@@ -48,7 +48,7 @@ featured: false
 #   icon_pack: fab
 #   icon: twitter
 
-# url_pdf:
+url_pdf: https://www.sciencedirect.com/science/article/pii/S0921800922000192
 # url_code:
 # url_dataset:
 # url_poster:
