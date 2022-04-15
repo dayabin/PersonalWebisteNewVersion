@@ -103,7 +103,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 - Year of survey
 
-  2003 to 2017 (data for 2017 was recently available in Oct. 2020), except for 2004.
+  2003 to 2018, except for 2004.
   
 - Summary of data
 
