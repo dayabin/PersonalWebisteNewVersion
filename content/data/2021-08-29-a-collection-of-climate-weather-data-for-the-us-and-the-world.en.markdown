@@ -30,7 +30,7 @@ output:
 
 This post is to collect the climate/weather data I have seen in the literature for the United States and the world. Additionally, I will also post some natural disaster data, such as storm, wildfire, hail, tornado, etc. The ideal data should not only include the information of the disasters, but the associated (economic) damages. 
 
-# Climate data
+### Climate data
 
 ## gridMET (historical)
 
