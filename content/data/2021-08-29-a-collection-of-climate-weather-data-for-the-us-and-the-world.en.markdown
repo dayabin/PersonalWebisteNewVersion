@@ -1,6 +1,6 @@
 ---
 title: A collection of climate, disaster, and nature resources data for the US and the world
-author: admin
+author: Yabin Da
 date: '2021-08-29'
 slug: a-collection-of-climate-weather-data-for-the-us-and-the-world
 categories:
@@ -8,9 +8,11 @@ categories:
 tags: []
 subtitle: ''
 summary: ''
-authors: []
-lastmod: '2022-05-10T12:34:18-05:00'
+authors: [Yabin Da]
+lastmod: '2022-05-10T16:00:18-05:00'
 featured: no
+draft: false
+math: true
 image:
   caption: ''
   focal_point: ''
@@ -18,6 +20,7 @@ image:
 projects: []
 
 output:
+  blogdown::html_page:
     toc: true
 
 
