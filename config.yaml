@@ -43,18 +43,8 @@ permalinks:
   publication_types: '/publication-type/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, JSON, headers, redirects]
+  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
-markup:
-  defaultMarkdownHandler: goldmark
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    codeFences: false
-  tableOfContents:
-    startLevel: 1
-    endLevel: 4
 imaging:
   resampleFilter: lanczos
   quality: 75
@@ -65,6 +55,8 @@ taxonomies:
   category: categories
   publication_type: publication_types
   author: authors
+markup:
+  _merge: deep
 related:
   threshold: 80
   includeNewer: true
@@ -74,3 +66,7 @@ related:
       weight: 100
     - name: categories
       weight: 70
+security:
+  _merge: deep
+sitemap:
+  _merge: deep
