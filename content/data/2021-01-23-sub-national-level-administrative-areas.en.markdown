@@ -22,6 +22,7 @@ output:
 
 ---
 
+ `{{< toc >}}`
 
 This post documents an interesting source for sub-national level administrative areas, such as city-level shapefiles. This could be particularly useful when you are trying to downscale gridded data to city-level. 
 

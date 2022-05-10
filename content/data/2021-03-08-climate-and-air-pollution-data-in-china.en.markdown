@@ -21,7 +21,7 @@ projects: []
 
 ---
 
-[TOC]
+ `{{< toc >}}`
 
 There is an increasing body of literature investigating the environmental problems in China, including air pollution, water pollution, etc. The studies cover a range of topics, such as evaluations of environmental regulations, the health effects of air pollution, and such. 
 

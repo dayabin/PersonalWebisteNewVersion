@@ -21,9 +21,11 @@ image:
   preview_only: no
 projects: []
 
+output
+
 ---
 
-[TOC]
+ `{{< toc >}}`
 
 # Introduction
 
