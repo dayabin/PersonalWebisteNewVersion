@@ -17,9 +17,7 @@ image:
 projects: []
 ---
 
- `{{< toc >}}`
-
-The impacts of climate change and air pollution on human health have gained privilege in the environmental economics literature. While the availability of climate and air pollution are getting better and better, the health data are very limited. In this post, I collected useful health data from the literature. I will update this post accordingly. 
+ The impacts of climate change and air pollution on human health have gained privilege in the environmental economics literature. While the availability of climate and air pollution are getting better and better, the health data are very limited. In this post, I collected useful health data from the literature. I will update this post accordingly. 
 
 **It turns out that most of the health data collected in this post are NOT publicly available**.
 

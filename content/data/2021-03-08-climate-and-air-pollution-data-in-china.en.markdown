@@ -21,8 +21,6 @@ projects: []
 
 ---
 
- `{{< toc >}}`
-
 There is an increasing body of literature investigating the environmental problems in China, including air pollution, water pollution, etc. The studies cover a range of topics, such as evaluations of environmental regulations, the health effects of air pollution, and such. 
 
 I have also repeatedly seen paper discussing the environmental regulations in the political economy arena. For instance, a recent paper by [Wu and Cao (2021)](https://www.sciencedirect.com/science/article/pii/S0095069621000231?dgcid=raven_sd_aip_email) examine the effect of local environment regulation outcomes, i.e., local pollution, on leaders' chances of promotion.

@@ -22,8 +22,6 @@ output:
 
 ---
 
- `{{< toc >}}`
-
 This post documents an interesting source for sub-national level administrative areas, such as city-level shapefiles. This could be particularly useful when you are trying to downscale gridded data to city-level. 
 
 The database is [GADM](https://gadm.org/) (Database of Global Administrative Areas). It provides maps and spatial data for all countries and their sub-divisions. You can browse our maps or download the data to make your own maps.

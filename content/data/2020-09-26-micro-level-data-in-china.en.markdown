@@ -21,11 +21,8 @@ image:
   preview_only: no
 projects: []
 
-output
 
 ---
-
- `{{< toc >}}`
 
 # Introduction
 
