@@ -18,6 +18,11 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 4
 ---
 
  `{{< toc >}}`
