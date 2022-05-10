@@ -21,13 +21,11 @@ image:
   preview_only: no
 projects: []
 
-
-output:
-    toc: true
-
 ---
 
-### Introduction
+[TOC]
+
+# Introduction
 
 This section is designated to summerize commonly used mirco data for China. Most of the data were collected through surveys conducted by government and universities. I will update this document when I find new data sources in the literature. I will also attach papers that adpoted these data set.
 
@@ -36,7 +34,7 @@ Note that Chinese National Survey Data Arhive provides plenty of mrico-data. Mos
 The Open Research Data Platform of Peking University holds the China Survey Data Archive, from which you might find some data that are not commonly used. See the [website](https://opendata.pku.edu.cn/dataverse/CSDA) for details.
 
 
-### China Health and Nutrition Survey (CHNS)
+## China Health and Nutrition Survey (CHNS)
 
 
 - Year of survey
@@ -65,7 +63,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### **Chinese Longitudinal Healthy Longevity Survey (CLHLS)**
+## **Chinese Longitudinal Healthy Longevity Survey (CLHLS)**
 
 - Year of survey
 
@@ -91,7 +89,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### Chinese General Social Survey (CGSS)
+## Chinese General Social Survey (CGSS)
 
 - Year of survey
 
@@ -117,7 +115,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### Urban Household Survey (UHS)
+## Urban Household Survey (UHS)
 
 - Year of survey
 
@@ -145,7 +143,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
   The Rural Household Survey should also exist, yet I did not find.
 
 
-### **Chinese Family Panel Studies (CFPS)**
+## **Chinese Family Panel Studies (CFPS)**
 
 - Year of survey
 
@@ -173,7 +171,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
   Registeration form
 
 
-### **China Health and Retirement Longitudinal Study (CHARLS)**
+## **China Health and Retirement Longitudinal Study (CHARLS)**
 
 - Year of survey
 
@@ -197,7 +195,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
   Registeration required
 
 
-### China Longitudinal Aging Social Survey (CLASS)
+## China Longitudinal Aging Social Survey (CLASS)
 
 - Year of survey
 
@@ -222,7 +220,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
   Registeration required
 
 
-### The China Urban Labor Survey (CULS)
+## The China Urban Labor Survey (CULS)
 
 - Year of survey
 
@@ -249,7 +247,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### The Chinese Social Survey (CSS)
+## The Chinese Social Survey (CSS)
 
 - Year of survey
 
@@ -273,7 +271,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### **Rural-Urban Migration in China**
+## **Rural-Urban Migration in China**
 
 - Year of survey
 
@@ -300,7 +298,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
   See the website above for detailed information.
 
 
-### **China Education Panel Survey**
+## **China Education Panel Survey**
 
 - Year of survey
 
@@ -333,7 +331,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### **Chinese Household Income Project**
+## **Chinese Household Income Project**
 
 - Year of survey
 
@@ -364,7 +362,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 
 
 
-### **Chinese Household Income Project**
+## **Chinese Household Income Project**
 
 - Year of survey
 

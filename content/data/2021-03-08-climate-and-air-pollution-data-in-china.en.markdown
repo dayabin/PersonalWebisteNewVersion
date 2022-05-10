@@ -8,22 +8,20 @@ categories:
 tags: []
 subtitle: ''
 summary: ''
-authors: []
+authors: [Yabin Da]
 lastmod: '2021-07-03T15:56:13-06:00'
 featured: no
+draft: false
+math: true
 image:
   caption: ''
   focal_point: ''
   preview_only: no
 projects: []
 
-output:
-  blogdown::html_page:
-    toc: true
-    toc_depth: 3
-
-
 ---
+
+[TOC]
 
 There is an increasing body of literature investigating the environmental problems in China, including air pollution, water pollution, etc. The studies cover a range of topics, such as evaluations of environmental regulations, the health effects of air pollution, and such. 
 
@@ -33,8 +31,6 @@ This post intends to collect and summarize the sources for pollutants (primarily
 
 
 ### Data on PM5.2
-
-
 
 #### Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, v1 (1998 –2016)
 
@@ -120,6 +116,6 @@ This [paper](https://www.nature.com/articles/s41598-021-81754-y) was also publis
 
 
 
-  
+
 
 

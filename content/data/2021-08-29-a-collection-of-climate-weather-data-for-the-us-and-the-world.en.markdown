@@ -19,19 +19,18 @@ image:
   preview_only: no
 projects: []
 
-output:
-    toc: true
-
 
 
 
 ---
 
- `{{< toc >}}`
+ 
+
+[TOC]
 
 This post is to collect the climate/weather data I have seen in the literature for the United States and the world. Additionally, I will also post some natural disaster data, such as storm, wildfire, hail, tornado, etc. The ideal data should not only include the information of the disasters, but the associated (economic) damages. 
 
-### Climate data
+# Climate data
 
 ## gridMET (historical)
 
@@ -118,6 +117,8 @@ This dataset provides the long-term beta global burned area (BA) dataset generat
 Related Reference
 
 - Hemant Pullabhotla, Mustafa Zahid, Sam Heft-Neal, Vaibhav Rathi, Marshall, Burke. 2022. Global biomass fires and infant mortality. Submitted to Nature.
+
+# Natural Resource Data
 
 ## FAO Land Data - Global Agro-Ecological Zones (GAEZ v4)
 
