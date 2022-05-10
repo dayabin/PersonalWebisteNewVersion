@@ -23,8 +23,6 @@ output:
   blogdown::html_page:
     toc: true
     toc_depth: 4
-
-
 ---
 
 
@@ -41,7 +39,7 @@ knitr::include_graphics("/post/2020-09-29-start-your-first-post-with-blogdown-we
 
 
 ```
-  
+
 It's followed by an interface, see the figure below. You can easily fill up the basic information for your new post, such as `Title`, `Author`, and `Date`. The `Subdirectory` will allow you to specify the type of this new post, either it can be a post or publication or talk etc.  
 
 The `Categories` and `Tags` fields will automatically display the existing categories and tags. But you can add new ones directly in the fields. The `Filename` will be automatically generated. Finally, you are free to choose the `Format` you are comfortable with. The differences between these three formats are explained [here](https://bookdown.org/yihui/blogdown/output-format.html)
@@ -128,5 +126,4 @@ knitr::include_graphics("/post/2020-09-29-start-your-first-post-with-blogdown-we
                         error = FALSE)
 
 ```
-
 
