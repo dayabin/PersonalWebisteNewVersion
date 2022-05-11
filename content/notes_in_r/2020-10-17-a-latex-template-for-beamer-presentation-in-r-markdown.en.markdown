@@ -28,18 +28,6 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(grid)
-library(tiff)
-library(kableExtra)
-library(tidyverse)
-
-```
-
-
-
-
 ### Introduction
 
 I really like beamer presentations (slides) in the LaTex manner. It's very neat and looks pretty professional. These beamer presentations are particularly preferable in academics. 
