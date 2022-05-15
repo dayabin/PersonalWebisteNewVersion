@@ -112,7 +112,7 @@ Related Reference
 
 - Hemant Pullabhotla, Mustafa Zahid, Sam Heft-Neal, Vaibhav Rathi, Marshall, Burke. 2022. Global biomass fires and infant mortality. Submitted to Nature.
 
-# **Natural Resource Data**
+# **Natural resource data**
 
 ## **FAO Land Data - Global Agro-Ecological Zones (GAEZ v4)**
 
