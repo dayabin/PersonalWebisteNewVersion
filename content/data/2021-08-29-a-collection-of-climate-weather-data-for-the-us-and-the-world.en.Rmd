@@ -89,6 +89,25 @@ Related Reference
 
 This collection includes data on but not limited to storms, wildfires, floods, hurricanes, hail, tornado, etc.
 
+
+## **EM-DAT: A complete dataset for disasters**
+
+This database documents a long list of many disasters **globally**, including natural disasters, technological disaster (i.e., transport accident, industrial accident, etc.), and complex disaster (i.e., famine).
+
+The database has several levels of data entry. The disaster level records general information about the disaster, including its type (i.e., earthquake, storm, flood, etc.) and group (i.e., geophysical, meteorological, hydrological, etc.). The county-level provides information on the specific location of the disaster and the temporal information (i.e., starting and ending date) as well as the magnitude scale of the disaster. Level three data provide the source of information, human impact, and economic impacts. 
+
+Note that the disasters are collected into the database if they meet one of the following criteria:
+
+- Deaths: 10 or more people deaths
+
+- Affected: 100 or more people affected/injured/homeless.
+
+- Declaration/international appeal: Declaration by the country of a state of emergency and/or an appeal for international assistance.
+
+The dataset is publically assessable. But you need to first register an account on the [website](https://public.emdat.be/).
+
+
+
 ## **NOAA NCEI Storm Events Database**
 
 The Storm Events Database covers overall **48 disasters** (mostly storms) spanning from **January 1950 to January 2022**, as entered by NOAA's National Weather Service (NWS). More importantly, it also covers the damages caused by the disaster, such as deaths, injuries, damages on property and a lot of others. Refer to the [Database Details](https://www.ncdc.noaa.gov/stormevents/) page for more information.
@@ -102,7 +121,9 @@ Related Reference
 
 ## **Fire and Resource Assessment Program (FRAP) in California**
 
-This program provides the most complete digital record of fire perimeters in California. For each fire, the data includes the year of the fires, the cause of the fires, and a GIS layers depicting the area burned. See the [website](https://frap.fire.ca.gov/) for more details.
+This program provides the most complete digital record of fire perimeters in California. For each fire, the data includes the year of the fires, the cause of the fires, and a GIS layers depicting the area burned. See the [website](https://frap.fire.ca.gov/) for more details. The data are regularly updated. As of May 2022, the newest data is 2017. 
+
+Besides the fire perimeter data, the program also provides projected (2030-2050) fire probability and discloses information of properities with high risks of fire.   
 
 Related Reference
 
