@@ -71,7 +71,5 @@ My research mainly focuses on environmental economics and applied econometrics. 
 
 Currently, I am working on a project which examines the effects of ozone exposure (that is "bad" ozone on the surface, not the "good" ozone in the space) on crop yields in both the United States and China. The latter one is funded by the Fifth Round of [IPCC](https://www.ipcc.ch/about/scholarship/) Scholarship Programme and the [Cuomo Foundation](https://www.cuomo.foundation/), please find more information from [here](https://www.ipcc.ch/about/scholarship/).
 
-**I am currently on the job market and will be available for interviews at the 2022 ASSA annual meeting.**
-
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/yabinda.pdf" "newtab" >}}CV{{< /staticref >}}
