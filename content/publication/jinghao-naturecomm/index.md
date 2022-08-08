@@ -7,8 +7,7 @@ authors:
 - Xiaohan Li
 - admin
 - Jiali Yu
-- Bin Long
-- et al.
+- Bin Long et al
 date: 2022-07-28T07:07:49-06:00
 doi: "https://doi.org/10.1038/s41467-022-31881-5"
 
