@@ -165,6 +165,7 @@ The Open Research Data Platform of Peking University holds the China Survey Data
 - Related papers
   - Yang et al., 2021. Does income inequality aggravate the impacts of air pollution on physical health? Evidence from China. _Environment, Development and Sustainability_. [Link](https://link.springer.com/article/10.1007/s10668-021-01522-w).
   - Zheng et al., 2022. When left-behind children become adults and parents: The long-term human capital consequences of parental absence in China. _China Economic Review_. [Link](https://doi.org/10.1016/j.chieco.2022.101821).
+  - Huang Wei and Liu Hong, 2022. Early childhood exposure to health insurance and adolescent outcomes: Evidence from rural China. _Journal of Development Economics_. [Link](https://www.sciencedirect.com/science/article/pii/S0304387822000815#fn1)
 
 
 - Availiability
