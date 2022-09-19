@@ -1,5 +1,5 @@
 ---
-title: A collection of climate, disaster, and nature resources data for the US and the world
+title: A collection of climate, air pollution, disaster, and nature resources data for the US and the world
 author: Yabin Da
 date: '2021-08-29'
 slug: a-collection-of-climate-weather-data-for-the-us-and-the-world
@@ -9,7 +9,7 @@ tags: []
 subtitle: ''
 summary: ''
 authors: [Yabin Da]
-lastmod: '2022-07-04T16:00:18-05:00'
+lastmod: '2022-09-019T10:00:18-05:00'
 featured: no
 draft: false
 math: true
@@ -100,6 +100,25 @@ Also note a new dataset developed for CMIP6 is also availiable, which consists o
 Related Reference
 
 - Garth Heutel, Nolan H. Miller, David Molitor; Adaptation and the Mortality Effects of Temperature across U.S. Climate Regions. The Review of Economics and Statistics 2021; 103 (4): 740–753. [link](https://doi.org/10.1162/rest_a_00936).
+
+
+# **Air pollution data**
+
+While the focus of this post is climate data and natural disaster data, I will also try to cover some air pollution data. Empirically, we would prefer "real" air pollution data, i.e., readings from monitor stations. The problem is that those data are usually not consistent in spatial and temporal scales. For instance, monitors tend to be placed in urban areas with high pollution density, whereas monitors in rural areas are pretty limited. Also due to regular maintenance and unexpected events, monitors may miss records to a large extent. 
+
+To address the above concerns, practitioners could turn to model-based air pollution data. An alternaive is [MERRA-2](https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/) which contains a long list of air pollutants that are available at a wide variety of spatial and temporal resolutions. 
+
+Besides the model-generated data, I will also cover alternative data sources, especially those featuring machine learning. A recent [study](https://www.sciencedirect.com/science/article/pii/S0160412019300650?via%3Dihub#!) intergrates multiple machine learning algorithms and predictor variables (i.e., satellite data, meteorological variables, land-use variables, chemical transport model predictions, reanalysis datasets, etc.) to estimate daily PM2.5 at a resolution of 1km * 1km across the contiguous United States. 
+
+- Coverage: Contiguous United States
+- Temporal resolution: Daily
+- Spatial resolution: 1km * 1km
+- Variables: PM2.5
+
+- Qian Di et al. An ensemble-based model of PM2.5 concentration across the contiguous United States with high spatiotemporal resolution. Environment International 2019; 130: 104909. [link](https://www.sciencedirect.com/science/article/pii/S0160412019300650?via%3Dihub#!).
+
+- A Patrick Behrer and David Lobell. Higher levels of no-till agriculture associated with lower PM2.5 in the Corn Belt. Environmental Research Letters 2022; 17: 094012. [Link](https://iopscience.iop.org/article/10.1088/1748-9326/ac816f/meta#references).
+
 
 
 
