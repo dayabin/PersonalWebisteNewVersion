@@ -6,32 +6,35 @@ title: Yabin Da
 superuser: true
 
 # Role/position/tagline
-role: PhD Candidate in Agricultural Economics
+role: Assistant Professor
 
 # Organizations/Affiliations to show in About widget
 organizations:
-- name: Texas A&M University
-  url: https://www.tamu.edu/
+- name: Renmin University of China
+  url: https://www.ruc.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Research interests include Environmental Economics, Applied Econometrics, and Causal Inference.
+bio: Research interests include Environmental Economics (Climate Change), Applied Econometrics, and Causal Inference.
 
 # Interests to show in About widget
 interests:
 - Environmental Economics
+- Climate Change
 - Applied Econometrics
 - Casual Inference
-- Climate Change
 
 # Education to show in About widget
 education:
   courses:
   - course: PhD in Agricultural Economics
     institution: Texas A&M University 
-    year: 2017-
+    year: 2017 - 2022
   - course: MA in Public Management
     institution: Beijing Institute of Technology
-    year: 2015
+    year: 2012 - 2015
+  - course: BA in Information Management and Information System
+    institution: North China University of Science and Technology
+    year: 2008 - 2012
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
@@ -65,11 +68,11 @@ email: "dayabin@tamu.edu"
 highlight_name: true
 ---
 
-I am a PhD Candidate at the Department of Agricultural Economics, Texas A&M University, under the supervision of [Dr. Bruce McCarl](https://agecon2.tamu.edu/people/faculty/mccarl-bruce/).
+I am an assistant professor at the School of Agricultural Economics and Rural Development, Renmin University of China. I obtained my Ph.D. degree in Agricultural Economics from Texas A&M University in May 2022, under the supervision of [Dr. Bruce McCarl](https://agecon2.tamu.edu/people/faculty/mccarl-bruce/).
 
-My research mainly focuses on environmental economics and applied econometrics. Most of my works closely relate to climate change. I have covered three topics: The economic driving forces of climate change, the impacts of climate change (on the agricultural sector and energy sector), and how to use market-incentive mechanisms to curb emissions. I also have a particular interest on casual studies (policy evaluations, to be more precise). 
+My research mainly focuses on environmental economics (with a particular interest in climate change) and applied econometrics. Projects I am currently working on include: 1) estimating the potential and effectiveness of adaptation actions to climate change; 2) quantifying the effects of climate change-induced extreme incidences on our society; 3) identifying overlooked consequences of environmental regulations to non-targeted sectors (such "welfare" impacts, in certain cases, could be substantial).
 
-Currently, I am working on a project which examines the effects of ozone exposure (that is "bad" ozone on the surface, not the "good" ozone in the space) on crop yields in both the United States and China. The latter one is funded by the Fifth Round of [IPCC](https://www.ipcc.ch/about/scholarship/) Scholarship Programme and the [Cuomo Foundation](https://www.cuomo.foundation/), please find more information from [here](https://www.ipcc.ch/about/scholarship/).
+P.S. This website is still being updated though not as frequently as before. Most of the updates lie in the data sections. Hope that saves you some time from data searching. 
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/yabinda.pdf" "newtab" >}}CV{{< /staticref >}}
