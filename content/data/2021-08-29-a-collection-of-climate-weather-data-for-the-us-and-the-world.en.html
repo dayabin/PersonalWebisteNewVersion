@@ -1,5 +1,5 @@
 ---
-title: A collection of climate, disaster, and nature resources data for the US and the world
+title: A collection of climate, air pollution, disaster, and nature resources data for the US and the world
 author: Yabin Da
 date: '2021-08-29'
 slug: a-collection-of-climate-weather-data-for-the-us-and-the-world
@@ -9,7 +9,7 @@ tags: []
 subtitle: ''
 summary: ''
 authors: [Yabin Da]
-lastmod: '2022-07-04T16:00:18-05:00'
+lastmod: '2022-09-019T10:00:18-05:00'
 featured: no
 draft: false
 math: true
@@ -27,28 +27,29 @@ output:
 
 <div id="TOC">
 <ul>
-<li><a href="#climate-data"><strong>Climate data</strong></a>
+<li><a href="#climate-data" id="toc-climate-data"><strong>Climate data</strong></a>
 <ul>
-<li><a href="#gridmet-historical"><strong>gridMET (historical)</strong></a></li>
-<li><a href="#maca-projected"><strong>MACA (projected)</strong></a></li>
-<li><a href="#worldclim-historical-projected"><strong>WorldClim (historical + projected)</strong></a>
+<li><a href="#gridmet-historical" id="toc-gridmet-historical"><strong>gridMET (historical)</strong></a></li>
+<li><a href="#maca-projected" id="toc-maca-projected"><strong>MACA (projected)</strong></a></li>
+<li><a href="#worldclim-historical-projected" id="toc-worldclim-historical-projected"><strong>WorldClim (historical + projected)</strong></a>
 <ul>
-<li><a href="#historical-data"><strong>Historical data</strong></a></li>
-<li><a href="#projected-data"><strong>Projected data</strong></a></li>
+<li><a href="#historical-data" id="toc-historical-data"><strong>Historical data</strong></a></li>
+<li><a href="#projected-data" id="toc-projected-data"><strong>Projected data</strong></a></li>
 </ul></li>
-<li><a href="#nex-gddp-from-nasa"><strong>NEX-GDDP from NASA</strong></a></li>
+<li><a href="#nex-gddp-from-nasa" id="toc-nex-gddp-from-nasa"><strong>NEX-GDDP from NASA</strong></a></li>
 </ul></li>
-<li><a href="#natural-disaster-data"><strong>Natural disaster data</strong></a>
+<li><a href="#air-pollution-data" id="toc-air-pollution-data"><strong>Air pollution data</strong></a></li>
+<li><a href="#natural-disaster-data" id="toc-natural-disaster-data"><strong>Natural disaster data</strong></a>
 <ul>
-<li><a href="#em-dat-a-complete-dataset-for-disasters"><strong>EM-DAT: A complete dataset for disasters</strong></a></li>
-<li><a href="#noaa-ncei-storm-events-database"><strong>NOAA NCEI Storm Events Database</strong></a></li>
-<li><a href="#international-best-track-archive-for-climate-stewardship-ibtracs"><strong>International Best Track Archive for Climate Stewardship (IBTrACS)</strong></a></li>
-<li><a href="#fire-and-resource-assessment-program-frap-in-california"><strong>Fire and Resource Assessment Program (FRAP) in California</strong></a></li>
-<li><a href="#fireccilt11-long-term-burned-area-dataset"><strong>FireCCILT11 Long-term Burned Area Dataset</strong></a></li>
+<li><a href="#em-dat-a-complete-dataset-for-disasters" id="toc-em-dat-a-complete-dataset-for-disasters"><strong>EM-DAT: A complete dataset for disasters</strong></a></li>
+<li><a href="#noaa-ncei-storm-events-database" id="toc-noaa-ncei-storm-events-database"><strong>NOAA NCEI Storm Events Database</strong></a></li>
+<li><a href="#international-best-track-archive-for-climate-stewardship-ibtracs" id="toc-international-best-track-archive-for-climate-stewardship-ibtracs"><strong>International Best Track Archive for Climate Stewardship (IBTrACS)</strong></a></li>
+<li><a href="#fire-and-resource-assessment-program-frap-in-california" id="toc-fire-and-resource-assessment-program-frap-in-california"><strong>Fire and Resource Assessment Program (FRAP) in California</strong></a></li>
+<li><a href="#fireccilt11-long-term-burned-area-dataset" id="toc-fireccilt11-long-term-burned-area-dataset"><strong>FireCCILT11 Long-term Burned Area Dataset</strong></a></li>
 </ul></li>
-<li><a href="#natural-resource-data"><strong>Natural resource data</strong></a>
+<li><a href="#natural-resource-data" id="toc-natural-resource-data"><strong>Natural resource data</strong></a>
 <ul>
-<li><a href="#fao-land-data---global-agro-ecological-zones-gaez-v4"><strong>FAO Land Data - Global Agro-Ecological Zones (GAEZ v4)</strong></a></li>
+<li><a href="#fao-land-data---global-agro-ecological-zones-gaez-v4" id="toc-fao-land-data---global-agro-ecological-zones-gaez-v4"><strong>FAO Land Data - Global Agro-Ecological Zones (GAEZ v4)</strong></a></li>
 </ul></li>
 </ul>
 </div>
@@ -130,6 +131,20 @@ output:
 <li>Garth Heutel, Nolan H. Miller, David Molitor; Adaptation and the Mortality Effects of Temperature across U.S. Climate Regions. The Review of Economics and Statistics 2021; 103 (4): 740–753. <a href="https://doi.org/10.1162/rest_a_00936">link</a>.</li>
 </ul>
 </div>
+</div>
+<div id="air-pollution-data" class="section level1">
+<h1><strong>Air pollution data</strong></h1>
+<p>While the focus of this post is climate data and natural disaster data, I will also try to cover some air pollution data. Empirically, we would prefer “real” air pollution data, i.e., readings from monitor stations. The problem is that those data are usually not consistent in spatial and temporal scales. For instance, monitors tend to be placed in urban areas with high pollution density, whereas monitors in rural areas are pretty limited. Also due to regular maintenance and unexpected events, monitors may miss records to a large extent.</p>
+<p>To address the above concerns, practitioners could turn to model-based air pollution data. An alternaive is <a href="https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/">MERRA-2</a> which contains a long list of air pollutants that are available at a wide variety of spatial and temporal resolutions.</p>
+<p>Besides the model-generated data, I will also cover alternative data sources, especially those featuring machine learning. A recent <a href="https://www.sciencedirect.com/science/article/pii/S0160412019300650?via%3Dihub#!">study</a> intergrates multiple machine learning algorithms and predictor variables (i.e., satellite data, meteorological variables, land-use variables, chemical transport model predictions, reanalysis datasets, etc.) to estimate daily PM2.5 at a resolution of 1km * 1km across the contiguous United States.</p>
+<ul>
+<li><p>Coverage: Contiguous United States</p></li>
+<li><p>Temporal resolution: Daily</p></li>
+<li><p>Spatial resolution: 1km * 1km</p></li>
+<li><p>Variables: PM2.5</p></li>
+<li><p>Qian Di et al. An ensemble-based model of PM2.5 concentration across the contiguous United States with high spatiotemporal resolution. Environment International 2019; 130: 104909. <a href="https://www.sciencedirect.com/science/article/pii/S0160412019300650?via%3Dihub#!">link</a>.</p></li>
+<li><p>A Patrick Behrer and David Lobell. Higher levels of no-till agriculture associated with lower PM2.5 in the Corn Belt. Environmental Research Letters 2022; 17: 094012. <a href="https://iopscience.iop.org/article/10.1088/1748-9326/ac816f/meta#references">Link</a>.</p></li>
+</ul>
 </div>
 <div id="natural-disaster-data" class="section level1">
 <h1><strong>Natural disaster data</strong></h1>
