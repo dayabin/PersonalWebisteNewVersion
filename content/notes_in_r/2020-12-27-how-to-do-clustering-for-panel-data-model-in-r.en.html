@@ -28,19 +28,18 @@ output:
 
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#an-introduction-of-clustering-in-panel-data-models">An introduction of clustering in panel data models</a></li>
-<li><a href="#clustering-in-r">Clustering in R</a>
+<li><a href="#an-introduction-of-clustering-in-panel-data-models" id="toc-an-introduction-of-clustering-in-panel-data-models">An introduction of clustering in panel data models</a></li>
+<li><a href="#clustering-in-r" id="toc-clustering-in-r">Clustering in R</a>
 <ul>
-<li><a href="#importing-the-data">Importing the data</a></li>
-<li><a href="#running-the-fixed-effect-model">Running the fixed effect model</a></li>
-<li><a href="#clustering-the-standard-erros">Clustering the standard erros</a></li>
+<li><a href="#importing-the-data" id="toc-importing-the-data">Importing the data</a></li>
+<li><a href="#running-the-fixed-effect-model" id="toc-running-the-fixed-effect-model">Running the fixed effect model</a></li>
+<li><a href="#clustering-the-standard-erros" id="toc-clustering-the-standard-erros">Clustering the standard erros</a></li>
 </ul></li>
-<li><a href="#takeaways">Takeaways</a></li>
-<li><a href="#reference">Reference</a></li>
+<li><a href="#takeaways" id="toc-takeaways">Takeaways</a></li>
+<li><a href="#reference" id="toc-reference">Reference</a></li>
 </ul>
 </div>
 
@@ -70,7 +69,7 @@ df &lt;- read_csv(&#39;dataforclustering.csv&#39;,
                col_types = cols(new_code = col_character()))
 
 head(df)</code></pre>
-<pre><code>## # A tibble: 6 x 5
+<pre><code>## # A tibble: 6 × 5
 ##   new_code  Year wheat  tavg    pc
 ##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 130402    1987  1.64  8.15 103. 
@@ -159,7 +158,7 @@ comse &lt;- bind_cols(method1[,2], method2[,2], method3[,2]) %&gt;%
   rename(&#39;plm&#39; = &#39;...1&#39;,
          &#39;sandwich&#39; = &#39;...2&#39;,
          &#39;clubsandwich&#39; = &#39;...3&#39;) %&gt;% print(.)</code></pre>
-<pre><code>## # A tibble: 4 x 3
+<pre><code>## # A tibble: 4 × 3
 ##           plm    sandwich clubsandwich
 ##         &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
 ## 1 0.0721      0.0721       0.0724     
@@ -178,7 +177,7 @@ comse_time &lt;- bind_cols(method1_time[,2], method2[,2], method3_time[,2]) %&gt
   rename(&#39;plm&#39; = &#39;...1&#39;,
          &#39;sandwich&#39; = &#39;...2&#39;,
          &#39;clubsandwich&#39; = &#39;...3&#39;) %&gt;% print(.)</code></pre>
-<pre><code>## # A tibble: 4 x 3
+<pre><code>## # A tibble: 4 × 3
 ##          plm    sandwich clubsandwich
 ##        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
 ## 1 0.189      0.0721        0.208     

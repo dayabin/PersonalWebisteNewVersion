@@ -29,17 +29,16 @@ output:
 
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#why-i-chose-blogdown-to-build-my-personal-website">Why I chose blogdown to build my personal website</a></li>
-<li><a href="#resources-for-building-website-with-blogdown">Resources for building website with blogdown</a></li>
-<li><a href="#potential-problems-with-the-template">Potential problems with the template</a></li>
-<li><a href="#custermize-your-webiste">Custermize your webiste</a></li>
-<li><a href="#other-tips-that-might-be-useful-for-you">Other tips that might be useful for you</a>
+<li><a href="#why-i-chose-blogdown-to-build-my-personal-website" id="toc-why-i-chose-blogdown-to-build-my-personal-website">Why I chose blogdown to build my personal website</a></li>
+<li><a href="#resources-for-building-website-with-blogdown" id="toc-resources-for-building-website-with-blogdown">Resources for building website with blogdown</a></li>
+<li><a href="#potential-problems-with-the-template" id="toc-potential-problems-with-the-template">Potential problems with the template</a></li>
+<li><a href="#custermize-your-webiste" id="toc-custermize-your-webiste">Custermize your webiste</a></li>
+<li><a href="#other-tips-that-might-be-useful-for-you" id="toc-other-tips-that-might-be-useful-for-you">Other tips that might be useful for you</a>
 <ul>
-<li><a href="#add-publications-to-your-website">Add publications to your website</a></li>
+<li><a href="#add-publications-to-your-website" id="toc-add-publications-to-your-website">Add publications to your website</a></li>
 </ul></li>
 </ul>
 </div>
@@ -72,7 +71,7 @@ output:
 <div id="potential-problems-with-the-template" class="section level3">
 <h3>Potential problems with the template</h3>
 <p>If you follow <a href="https://annielyu.com/2020/01/12/blogdown-website/">Annie Lyu</a>’s instruction, you may encounter problems with the <code>gcushen/hugo-academic</code> template. Remember to change the template to <code>wowchemy/starter-academic</code>. See the snapshot below.</p>
-<p><img src="/post/2020-09-24-blogdownwebsite.en_files/plot1.png" width="80%" /></p>
+<p><img src="../../../../../post/2020-09-24-blogdownwebsite.en_files/plot1.png" width="80%" /></p>
 </div>
 <div id="custermize-your-webiste" class="section level3">
 <h3>Custermize your webiste</h3>
@@ -90,17 +89,17 @@ output:
 <ol style="list-style-type: decimal">
 <li><p>You need to create a list of your own publication and export it as a <code>*.bib</code> file. I highly recommend you do this with <a href="https://www.zotero.org/">Zotero</a>.</p></li>
 <li><p>If you have installed the <a href="https://www.anaconda.com/">Anaconda</a>, that says you have <code>Python</code> installed on your computer. You can proceed by installing <code>academic</code>. To do this, open your Terminal under <code>Anaconda</code> (You can find it in the Window start menu, if you are using a Windows system), see the figure below.</p>
-<p><img src="/post/2020-09-24-blogdownwebsite.en_files/plot2.png" /><!-- -->
+<p><img src="../../../../../post/2020-09-24-blogdownwebsite.en_files/plot2.png" /><!-- -->
 And then type the following command in the opened Terminal.</p>
 <pre><code>pip install -U academic
 </code></pre>
 <p>Following that, use the <code>cd</code> command to navigate to your website folder in the terminal.</p>
-<p><img src="/post/2020-09-24-blogdownwebsite.en_files/plot3.png" /><!-- --></p></li>
+<p><img src="../../../../../post/2020-09-24-blogdownwebsite.en_files/plot3.png" /><!-- --></p></li>
 <li><p>Finally, you will be able to import your publications with the command below.</p>
 <pre><code>academic import --bibtex &lt;path_to_your/publications.bib&gt;
 </code></pre>
 <p>Here <code>&lt;path_to_your/publications.bib&gt;</code> is the pah of your <code>bib</code> file. Do <strong>remove</strong> the <code>&lt;&gt;</code> while you are pasting the path to the terminal. See the figure below.</p>
-<p><img src="/post/2020-09-24-blogdownwebsite.en_files/plot4.png" /><!-- --></p></li>
+<p><img src="../../../../../post/2020-09-24-blogdownwebsite.en_files/plot4.png" /><!-- --></p></li>
 <li><p>Now you should be able to see your publications in the <code>content/publication/</code> folder of your website folder.</p>
 <p>Note that the command will automatically create separate folders for each of your publications.</p></li>
 <li><p>In each of the publication folder, you can customize the <code>index.md</code> file based on your needs, such as adding <code>author_notes</code>, <code>tags</code>, and <code>publication_types</code>.</p>
