@@ -209,6 +209,21 @@ Related Reference
 
 -   Hemant Pullabhotla, Mustafa Zahid, Sam Heft-Neal, Vaibhav Rathi, Marshall, Burke. 2022. Global biomass fires and infant mortality. Submitted to Nature.
 
+
+## **Hazard Mapping System Fire and Smoke Product (recommended)**
+
+A very nice product shows the detected hot spots and smoke plumes indicating possible fire locations. This is a blended product using algorithms for the GOES Imager, the POES AVHRR, and MODIS. **A quality control procedure is performed by an analyst on the automated fire detections**. Significant smoke plumes that are detected by the satellites are outlined by the analyst as well as an estimate of the smoke concentration provided. This product is created and updated as needed between 1 PM and 11 PM Eastern time. After 11 PM the analysis is fine-tuned as time permits. The graphical HMS product is finalized once daily.
+
+-   Coverage: US
+-   Time period: Continue
+-   Temporal resolution: Daily and discrete
+-   Spatial resolution: 4 km for certain data
+
+**Note that the product provides both active fires and historical fires as well as real-time maps. More importantly, it also provides the associated smoke data. See the [link](https://www.ospo.noaa.gov/Products/land/hms.html) for more information. 
+
+The database is maintained by the Office of Satellite and Product Operations in NOAA. The office also holds a lot more databases based on the atmosphere, land, ocean, hazards (fire and smoke, coral bleaching, volcanic ash), etc. See the [link](https://www.ospo.noaa.gov/Products/hazards.html) for more information. 
+
+
 # **Natural resource data**
 
 ## **FAO Land Data - Global Agro-Ecological Zones (GAEZ v4)**
