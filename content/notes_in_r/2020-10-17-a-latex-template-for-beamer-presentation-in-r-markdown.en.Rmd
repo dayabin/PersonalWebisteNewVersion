@@ -38,7 +38,7 @@ The advantage of LaTex is that it's very flexible, yet sometimes maybe too flexi
 
 The problem with R Markdown beamer is that the official cookbook only covers limited features. In most cases, it's better to use a LaTex **template** to start with in R Markdown. In this way, you can do all the fancy customization in the LaTex template and in R Markdown you just fill the content of your slides. 
 
-I found this nice LaTex template developed by [Dr. Steven V. Miller](http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/). He eliminated unnecessary navigation and blank lines to make the best use of available spaces. From his website, you can learn how to customize the template based on your needs.
+I found this nice LaTex template developed by [Dr. Steven V. Miller](http://svmiller.com/blog/2019/08/r-markdown-template-beamer-presentations/). He eliminated unnecessary navigation and blank lines to make the best use of available spaces. From his website, you can learn how to customize the template based on your needs.
 
 ### Download the TAMU template
 

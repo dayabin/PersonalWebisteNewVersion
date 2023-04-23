@@ -62,7 +62,7 @@ social:
   link: uploads/yabinda.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "dayabin@tamu.edu"
+email: "dayabin@ruc.edu.cn"
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
