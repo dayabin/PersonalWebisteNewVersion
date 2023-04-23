@@ -43,7 +43,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: 'mailto:dayabin@tamu.edu'
+  link: 'mailto:dayabin@ruc.edu.cn'
 - icon: graduation-cap
   icon_pack: fas
   link: https://scholar.google.com/citations?user=J2WCPOwAAAAJ&hl=en
