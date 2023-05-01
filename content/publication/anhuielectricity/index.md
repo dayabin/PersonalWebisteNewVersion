@@ -3,10 +3,10 @@
 
 title: "Heterogeneities in the impacts of climate change on residential electricity consumption: Evidence from China"
 authors: 
-- Bin Zeng
 - admin
+- Bin Zeng
 - Jingli Fan
-date: 2021-09-06T22:45:34-06:00
+date: 2023-04-30T22:45:34-06:00
 #doi: ""
 
 # Schedule page publish date (NOT publication's date).
