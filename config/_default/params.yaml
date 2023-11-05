@@ -65,7 +65,8 @@ locale:
 
 features:
   syntax_highlighter:
-    enable: true
+    theme_light: github-light
+    theme_dark: dracula
     extra_languages:
       - r
       - latex
@@ -103,10 +104,13 @@ features:
 
 extensions:
   cms:
-    branch: master
+    branch: main
     local_backend: false
-  isotope:
-    # Enable if you use the Portfolio widget or Publication filter
-    enable: true
   academicons:
     enable: true
+
+# Security
+
+security:
+  # Allow frame for embedding speaker notes in slides
+  allow_frame: true
