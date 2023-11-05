@@ -61,7 +61,7 @@ sections:
     content:
       title: Working Papers
       filters:
-        publication_type = '3'
+        publication_type = ['3']
         folders:
           - publication
         exclude_featured: true
