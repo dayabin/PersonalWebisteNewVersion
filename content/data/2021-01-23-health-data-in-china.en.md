@@ -3,7 +3,7 @@ title: Health data in China
 author: Yabin
 date: '2021-01-23'
 slug: health-data-in-china
-categories: []
+categories: ['Data']
 tags: []
 subtitle: ''
 summary: ''
@@ -15,10 +15,6 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-output:
-  blogdown::html_page:
-    toc: true
-    toc_depth: 4
 ---
 
  The impacts of climate change and air pollution on human health have gained privilege in the environmental economics literature. While the availability of climate and air pollution are getting better and better, the health data are very limited. In this post, I collected useful health data from the literature. I will update this post accordingly. 
