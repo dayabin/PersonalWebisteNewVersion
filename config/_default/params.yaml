@@ -7,8 +7,8 @@
 
 
 appearance:
-  theme_day: ocean
-  theme_night: ocean
+  theme_day: minimal
+  theme_night: minimal
   font: minimal
   font_size: M
 
