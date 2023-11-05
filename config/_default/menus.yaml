@@ -4,7 +4,7 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: "Working paper"
+  - name: "Working papers"
     url: '#workingpaper'
     weight: 21
   - name: "Publications"
@@ -16,10 +16,10 @@ main:
   - name: "Useful Data"
     url: '#data'
     weight: 31
-  - name: "Technical Notes in R"
+  - name: "Notes in R"
     url: '#notes_in_r'
     weight: 32
-  - name: "Regular Post for Fun"
+  - name: "Regular Posts"
     url: '#regular_post'
     weight: 33
 
