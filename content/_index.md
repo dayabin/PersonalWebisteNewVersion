@@ -160,7 +160,7 @@ sections:
     id: regular_post
     content:
       title: Regular Posts
-      subtitle: ''
+      subtitle: 'Although not regular anymore'
       text: ''
       # Choose how many pages you would like to display (0 = all pages)
       count: 3
