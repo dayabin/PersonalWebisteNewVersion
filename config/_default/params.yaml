@@ -7,10 +7,10 @@
 
 
 appearance:
-  theme_day: ocean
-  theme_night: ocean
+  theme_day: minimal
+  theme_night: minimal
   font: minimal
-  font_size: M
+  font_size: S
 
 # SEO
 
@@ -65,12 +65,13 @@ locale:
 
 features:
   syntax_highlighter:
-    enable: true
+    theme_light: github-light
+    theme_dark: dracula
     extra_languages:
       - r
       - latex
   math:
-    enable: false
+    enable: true
   privacy_pack:
     enable: false
   repository:
@@ -103,10 +104,13 @@ features:
 
 extensions:
   cms:
-    branch: master
+    branch: main
     local_backend: false
-  isotope:
-    # Enable if you use the Portfolio widget or Publication filter
-    enable: true
   academicons:
     enable: true
+
+# Security
+
+security:
+  # Allow frame for embedding speaker notes in slides
+  allow_frame: true

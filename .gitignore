@@ -2,11 +2,9 @@
 .idea/
 
 # Hugo
-/resources/
-/public/
+resources/
+public/
 jsconfig.json
 node_modules/
-.Rproj.user
-.DS_Store
-Thumbs.db
+go.sum
 .hugo_build.lock
