@@ -68,9 +68,7 @@ email: "dayabin@ruc.edu.cn"
 highlight_name: true
 ---
 
-I am an assistant professor at the School of Agricultural Economics and Rural Development, Renmin University of China. I obtained my Ph.D. degree in Agricultural Economics from Texas A&M University in May 2022, under the supervision of [Dr. Bruce McCarl](https://agecon2.tamu.edu/people/faculty/mccarl-bruce/).
-
-My research mainly focuses on environmental economics (with a particular interest in climate change) and applied econometrics. Projects I am currently working on include: 1) estimating the potential and effectiveness of adaptation actions to climate change; 2) quantifying the effects of climate change-induced extreme incidences on our society; 3) identifying overlooked consequences of environmental regulations to non-targeted sectors (such "welfare" impacts, in certain cases, could be substantial).
+I am currently an assistant professor at the School of Agricultural Economics and Rural Development, Renmin University of China. My research mainly focuses on environmental economics (with a particular interest in climate change) and applied econometrics.
 
 P.S. This website is still being updated though not as frequently as before. Most of the updates lie in the data sections. Hope that saves you some time from data searching. 
 
