@@ -40,8 +40,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 publishDate: '2020-09-24T22:54:26.598004Z'
-publication_types:
-- 2
+publication_types: article-journal
 abstract: It is an important task for China to allocate carbon emission quotas among
   regions so as to realize its carbon reduction targets and establish the national
   cap-and-trade carbon market. Meanwhile, it is supposed to be cost-effective to jointly

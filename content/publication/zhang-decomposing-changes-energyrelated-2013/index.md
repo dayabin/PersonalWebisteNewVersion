@@ -37,8 +37,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 publishDate: '2020-09-24T22:54:26.397557Z'
-publication_types:
-- 2
+publication_types: article-journal
 abstract: In order to investigate the main drivers of CO2 emissions changes in China
   during the 11th Five-Year Plan period (2006–2010) and seek the main ways to reduce
   CO2 emissions, we decompose the changes of energy-related CO2 emissions using the

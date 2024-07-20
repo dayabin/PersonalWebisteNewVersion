@@ -49,7 +49,7 @@ sections:
     content:
       title: Publications
       filters:
-        publication_type: '2'
+        publication_type: article-journal
         folders:
           - publication
         exclude_featured: true
@@ -58,11 +58,11 @@ sections:
       view: citation
     
   - block: collection
-    id: working_paper
+    id: workingpaper
     content:
       title: Working Papers
       filters:
-        publication_type: '3'
+        publication_type: manuscript
         folders:
           - publication
         exclude_featured: true

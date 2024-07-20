@@ -45,8 +45,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 publishDate: '2020-09-24T22:54:27.171464Z'
-publication_types:
-- 2
+publication_types: article-journal
 abstract: 'Little attention has been given to the carbon emissions issues of ‘Belt
   and Road Initiative’ countries although most countries have set explicit targets
   for Intended Nationally Determined Contributions. Taking advantage of the production

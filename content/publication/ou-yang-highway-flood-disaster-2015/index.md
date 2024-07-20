@@ -45,8 +45,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 publishDate: '2020-09-24T22:54:26.978951Z'
-publication_types:
-- 2
+publication_types: article-journal
 abstract: 'Flood disaster has become one of the most damaging natural disasters for
   the highway transportation all around the world, especially its destructive effects
   on highway infrastructures. In order to better understand the ruinous influence

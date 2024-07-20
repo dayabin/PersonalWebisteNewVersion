@@ -1,13 +1,10 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Climate change and winter wheat yields: The roles of freezing days and long-run adaptations"
+title: "The impacts of climate change on rice in Southeast Asia"
 authors:
 - admin
-- Yangyang Xu
-- Fujin Yi
-- Bruce McCarl
-date: 2024-07-09T22:45:47-06:00
+date: 2024-07-17T22:45:47-06:00
 #doi:
 
 # Schedule page publish date (NOT publication's date).
@@ -18,12 +15,12 @@ date: 2024-07-09T22:45:47-06:00
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: article-journal
+publication_types: manuscript
 
 # Publication name and optional abbreviated publication name.
-publication: "*European Review of Agricultural Economics in publication*"
+publication: "*Working paper*"
 publication_short: ""
-abstract: "This paper employs the recently proposed climate penalty model to estimate season-specific climate change impacts on Chinese winter wheat yields and also reveals the effects of long-run adaptions by comparing the short-run and long-run estimates identified from the model. We find that Spring freezing days are critical as we estimate small yield gains when considering a reduction in the number of freezing days (induced by global warming), as opposed to large yield losses when such effects are omitted. We also find substantial influences of adaptation effects that could reverse the sign of climate change impacts."
+abstract: ""
 
 # Summary. An optional shortened abstract.
 summary: ""
@@ -39,7 +36,7 @@ links:
 #   url: https://academic.oup.com/erae/advance-article/doi/10.1093/erae/jbae015/7685860 
 #   icon_pack: fab
 #   icon: twitter
-url_pdf: https://academic.oup.com/erae/advance-article/doi/10.1093/erae/jbae015/7685860  
+# url_pdf: https://academic.oup.com/erae/advance-article/doi/10.1093/erae/jbae015/7685860  
 # url_code:
 # url_dataset:
 # url_poster:

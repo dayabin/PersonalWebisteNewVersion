@@ -41,8 +41,7 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 publishDate: '2020-09-24T22:54:26.789458Z'
-publication_types:
-- 2
+publication_types: article-journal
 abstract: In order to find the efficient ways to reduce carbon emission intensity
   in China, we utilize the LMDI method to decompose the changes of China׳s carbon
   emissions and carbon emission intensity from 1996 to 2010, from the perspectives
