@@ -5,7 +5,7 @@ title: "The role of carbon trading market on energy poverty alleviation in rural
 authors:
 - Shuo Zhang
 - admin
-date: 2024-07-19T22:45:47-06:00
+date: 2024-07-18T22:45:47-06:00
 #doi:
 
 # Schedule page publish date (NOT publication's date).
