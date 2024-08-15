@@ -7,8 +7,8 @@ authors:
 - Yangyang Xu
 - Fujin Yi
 - Bruce McCarl
-date: 2024-07-09T22:45:47-06:00
-#doi:
+date: 2024-08-09T22:45:47-06:00
+doi: https://doi.org/10.1093/erae/jbae015
 
 # Schedule page publish date (NOT publication's date).
 
@@ -21,7 +21,7 @@ date: 2024-07-09T22:45:47-06:00
 publication_types: article-journal
 
 # Publication name and optional abbreviated publication name.
-publication: "*European Review of Agricultural Economics in publication*"
+publication: "*European Review of Agricultural Economics* 51: 815-843"
 publication_short: ""
 abstract: "This paper employs the recently proposed climate penalty model to estimate season-specific climate change impacts on Chinese winter wheat yields and also reveals the effects of long-run adaptions by comparing the short-run and long-run estimates identified from the model. We find that Spring freezing days are critical as we estimate small yield gains when considering a reduction in the number of freezing days (induced by global warming), as opposed to large yield losses when such effects are omitted. We also find substantial influences of adaptation effects that could reverse the sign of climate change impacts."
 

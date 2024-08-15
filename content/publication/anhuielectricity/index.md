@@ -9,7 +9,7 @@ authors:
 - Jiawei Hu
 - Lanlan Li
 date: 2023-08-01T22:45:34-06:00
-#doi: ""
+doi: https://doi.org/10.1007/s10584-023-03590-5
 
 # Schedule page publish date (NOT publication's date).
 # publishDate: 2023-07-01T22:45:34-06:00
