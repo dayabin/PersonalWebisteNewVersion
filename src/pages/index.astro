@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationRow from '../components/PublicationRow.astro';
+import { sortPublications } from '../lib/publications';
+
+const publications = sortPublications(await getCollection('publications'));
+const preferred = ['winterwheat', 'anhuielectricity', 'ozonepaper'];
+const selected = preferred
+  .map((slug) => publications.find((entry) => entry.id.startsWith(slug)))
+  .filter((entry) => entry !== undefined);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Researching how climate change reshapes economies and everyday life.</h1>
+      <p class="hero-intro">I am Yabin Da, an Assistant Professor at Renmin University of China. My work combines environmental economics, applied econometrics, and causal inference to study climate impacts and effective policy responses.</p>
+      <div class="hero-actions">
+        <a class="text-link" href="/research/">Explore my research <span aria-hidden="true">→</span></a>
+        <a class="text-link muted-link" href="/uploads/yabinda.pdf">Download CV <span aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="research-topics" aria-label="Research areas">
+        <li>Climate Change</li>
+        <li>Environmental Economics</li>
+        <li>Applied Econometrics</li>
+        <li>Causal Inference</li>
+      </ul>
+    </div>
+    <figure class="portrait-wrap">
+      <img src="/portrait-illustrated-v2.png" alt="Illustrated portrait of Yabin Da" width="1024" height="1024" />
+      <figcaption>
+        <span>Assistant Professor</span>
+        <span>Renmin University of China</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="section-block selected-work">
+    <div class="section-heading">
+      <p class="eyebrow">Selected work</p>
+      <h2>Research at the intersection of climate, energy, and agriculture.</h2>
+      <a class="text-link" href="/research/">View all research <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="publication-list">
+      {selected.map((entry, index) => <PublicationRow entry={entry} index={index} compact />)}
+    </div>
+  </section>
+
+  <section class="section-block pathways">
+    <div class="section-heading">
+      <p class="eyebrow">For students and researchers</p>
+      <h2>Open notes, data guides, and teaching materials.</h2>
+    </div>
+    <div class="pathway-grid">
+      <a class="pathway" href="/resources/">
+        <span class="pathway-index">01</span>
+        <h3>Useful Data</h3>
+        <p>Curated guides to environmental, climate, health, and administrative data.</p>
+        <span class="pathway-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="pathway" href="/resources/#notes">
+        <span class="pathway-index">02</span>
+        <h3>Notes in R</h3>
+        <p>Practical notes on econometrics, reproducible research, tables, and presentations.</p>
+        <span class="pathway-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="pathway" href="/teaching/">
+        <span class="pathway-index">03</span>
+        <h3>Teaching</h3>
+        <p>Course pages and supporting materials for economics students.</p>
+        <span class="pathway-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section-block home-gallery">
+    <div class="section-heading">
+      <p class="eyebrow">Gallery</p>
+      <h2>A visual notebook beyond research.</h2>
+      <a class="text-link" href="/gallery/">View the gallery <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="home-gallery-grid">
+      <img src="/gallery/IMG_20190918_152119.webp" alt="Photograph from Yabin Da's visual archive" loading="lazy" />
+      <img src="/gallery/PXL_20210521_175907123_2.webp" alt="Photograph from Yabin Da's visual archive" loading="lazy" />
+      <img src="/gallery/IMG_20210521_140131.webp" alt="Photograph from Yabin Da's visual archive" loading="lazy" />
+    </div>
+  </section>
+</BaseLayout>

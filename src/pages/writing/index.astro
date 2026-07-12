@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLegacyPages } from '../../lib/legacy-content';
+const posts = getLegacyPages('regular_post');
+---
+
+<BaseLayout title="Writing" description="Occasional writing by Yabin Da beyond research and teaching.">
+  <header class="page-intro">
+    <p class="eyebrow">Writing</p>
+    <h1>Occasional notes beyond research.</h1>
+    <p>Personal observations, technology notes, and other writing from the archive.</p>
+  </header>
+  <section class="section-block content-list">
+    {posts.map((post, index) => <a class="content-row" href={`/regular_post/${post.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><div><h2>{post.title}</h2><p>{post.summary}</p></div><span aria-hidden="true">↗</span></a>)}
+  </section>
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLegacyPages } from '../../lib/legacy-content';
+const courses = getLegacyPages('teaching');
+---
+
+<BaseLayout title="Teaching" description="Teaching and course materials by Yabin Da.">
+  <header class="page-intro">
+    <p class="eyebrow">Teaching</p>
+    <h1>Teaching economics through clear ideas and applied examples.</h1>
+    <p>Current and past course pages, syllabi, and supporting materials for my students.</p>
+  </header>
+  <section class="section-block content-list">
+    {courses.map((course, index) => (
+      <a class="content-row" href={`/teaching/${course.slug}/`}>
+        <span>{String(index + 1).padStart(2, '0')}</span>
+        <div><h2>{course.title}</h2><p>{course.summary}</p></div>
+        <span aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </section>
+</BaseLayout>

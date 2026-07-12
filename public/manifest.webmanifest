@@ -1,0 +1,8 @@
+{
+  "name": "Yabin Da",
+  "short_name": "Yabin Da",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#152332"
+}

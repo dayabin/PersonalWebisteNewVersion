@@ -1,0 +1,9 @@
+---
+import LegacyArticleLayout from '../../layouts/LegacyArticleLayout.astro';
+import { getLegacyPages } from '../../lib/legacy-content';
+export function getStaticPaths() {
+  return getLegacyPages('teaching').map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+const { page } = Astro.props;
+---
+<LegacyArticleLayout page={page} sectionTitle="Teaching" sectionHref="/teaching/" />

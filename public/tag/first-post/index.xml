@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>First Post | Yabin Da</title>
+    <link>https://yabin-da.com/tag/first-post/</link>
+      <atom:link href="https://yabin-da.com/tag/first-post/index.xml" rel="self" type="application/rss+xml" />
+    <description>First Post</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Tue, 29 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>First Post</title>
+      <link>https://yabin-da.com/tag/first-post/</link>
+    </image>
+    
+    <item>
+      <title>Start your first post with blogdown website</title>
+      <link>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#start-your-first-post&#34;&gt;Start your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-your-first-post&#34;&gt;Customize your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-embed-images-in-your-website&#34;&gt;How to embed images in your website&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-via-insert-image-in-addins&#34;&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-with-knitrinclude_graphic&#34;&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After you successfully create your website with &lt;code&gt;blogdown&lt;/code&gt;, you may want to start your first post right away. In this short section, I am going to briefly introduce how to create a new post with &lt;code&gt;blogdown&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;start-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Start your first post&lt;/h3&gt;
+&lt;p&gt;I highly recommend you start your post using the &lt;code&gt;New Post&lt;/code&gt; button in &lt;code&gt;Addins&lt;/code&gt; in &lt;code&gt;RStudio&lt;/code&gt;. See the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot1.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;It’s followed by an interface, see the figure below. You can easily fill up the basic information for your new post, such as &lt;code&gt;Title&lt;/code&gt;, &lt;code&gt;Author&lt;/code&gt;, and &lt;code&gt;Date&lt;/code&gt;. The &lt;code&gt;Subdirectory&lt;/code&gt; will allow you to specify the type of this new post, either it can be a post or publication or talk etc.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Categories&lt;/code&gt; and &lt;code&gt;Tags&lt;/code&gt; fields will automatically display the existing categories and tags. But you can add new ones directly in the fields. The &lt;code&gt;Filename&lt;/code&gt; will be automatically generated. Finally, you are free to choose the &lt;code&gt;Format&lt;/code&gt; you are comfortable with. The differences between these three formats are explained &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot2.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customize-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Customize your first post&lt;/h3&gt;
+&lt;p&gt;After you click &lt;code&gt;Done&lt;/code&gt;, the associated &lt;code&gt;.Rmd&lt;/code&gt; file (if you chose the &lt;code&gt;.Rmd&lt;/code&gt; format) will show up in the respective folder under the &lt;code&gt;content&lt;/code&gt; folder. The &lt;code&gt;YAML&lt;/code&gt; front matter will also be created in the &lt;code&gt;.Rmd&lt;/code&gt; file. You can easily customize the &lt;code&gt;YAML&lt;/code&gt; front matter based on your needs.&lt;/p&gt;
+&lt;p&gt;For instance, if the post is a draft and is not ready to display on your website, you can simply add &lt;code&gt;draft: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;. When you are ready to publish the post, simply delete the &lt;code&gt;draft: true&lt;/code&gt; or set &lt;code&gt;true&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;. Additionally, if you want to feature this post, just add &lt;code&gt;feature: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another useful trick is that if you are writing a long post and wish to display the table of content in the post, you can add the followings to your &lt;code&gt;YAML&lt;/code&gt; front matter.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-embed-images-in-your-website&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How to embed images in your website&lt;/h3&gt;
+&lt;p&gt;One benefit of creating website with &lt;code&gt;blogdown&lt;/code&gt; is that it allows you to execute &lt;code&gt;R&lt;/code&gt; code chunks in the &lt;code&gt;Rmd&lt;/code&gt; files. That means you can easily add &lt;code&gt;R&lt;/code&gt; plots on your website. In this section, I will focus on how to insert external images instead.&lt;/p&gt;
+&lt;p&gt;It should be noted that all static content (i.e. images, data, etc.) on your website should be stored in the &lt;code&gt;static&lt;/code&gt; folder. You can create new folders inside the &lt;code&gt;static&lt;/code&gt; folder to organize static contents for each of the post.&lt;/p&gt;
+&lt;p&gt;Also note that the static contents will be automatically copied to the &lt;code&gt;public&lt;/code&gt; folder after we deploy the website.&lt;/p&gt;
+&lt;div id=&#34;insert-images-via-insert-image-in-addins&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;This is the easiest way to do the job. In the interface below, you can specify the &lt;code&gt;Width&lt;/code&gt; and &lt;code&gt;Height&lt;/code&gt; of the figure.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;Target file path&lt;/code&gt; will be automatically created and target to the &lt;code&gt;static&lt;/code&gt; folder. That says the inserted images will be automatically copied to the &lt;code&gt;static&lt;/code&gt; folder, regardless of the original image path.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After you click &lt;code&gt;done&lt;/code&gt;, the figure will be inserted by the code below. You can see that the image is placed to the automatically created folder &lt;code&gt;static/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files&lt;/code&gt; that is associated with the post.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![](/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The images will show up on your website. (see the armadillo below).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;insert-images-with-knitrinclude_graphic&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;In some cases, you may want to insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt; which is a function rooted in &lt;code&gt;R markdown&lt;/code&gt; and more straightforward.&lt;/p&gt;
+&lt;p&gt;The trick here is to correctly specify the image path. As I mentioned in the preceding section, the default path for static content is the &lt;code&gt;static&lt;/code&gt; folder. That means &lt;code&gt;R&lt;/code&gt; will search for the image in the default &lt;code&gt;static&lt;/code&gt; folder. So in order to successfully insert the external image, you should place the image in the &lt;code&gt;static&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;As &lt;code&gt;Knitr&lt;/code&gt; does not automatically create new folder under the &lt;code&gt;static&lt;/code&gt; folder, it’s recommended that you create new folders manually and store static contents (i.e. images) separately for each post. See the code chunk below.&lt;/p&gt;
+&lt;p&gt;Please remember to set the &lt;code&gt;error = FALSE&lt;/code&gt; in the &lt;code&gt;include_graphics&lt;/code&gt;, otherwise you will end up with errors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&amp;quot;, 
+                        error = False)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next you can customize the code chunk options to add figure caption, adjust figure alignment, output width, etc. See the example below.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; alt=&#34;This is a figure with smaller size&#34; width=&#34;50%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: This is a figure with smaller size
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>China | Yabin Da</title>
+    <link>https://yabin-da.com/tag/china/</link>
+      <atom:link href="https://yabin-da.com/tag/china/index.xml" rel="self" type="application/rss+xml" />
+    <description>China</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>China</title>
+      <link>https://yabin-da.com/tag/china/</link>
+    </image>
+    
+    <item>
+      <title>Mirco-level data in China</title>
+      <link>https://yabin-da.com/data/mircochina/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/data/mircochina/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-health-and-nutrition-survey-chns&#34;&gt;China Health and Nutrition Survey (CHNS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-longitudinal-healthy-longevity-survey-clhls&#34;&gt;&lt;strong&gt;Chinese Longitudinal Healthy Longevity Survey (CLHLS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-general-social-survey-cgss&#34;&gt;Chinese General Social Survey (CGSS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#urban-household-survey-uhs&#34;&gt;Urban Household Survey (UHS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-family-panel-studies-cfps&#34;&gt;&lt;strong&gt;Chinese Family Panel Studies (CFPS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-health-and-retirement-longitudinal-study-charls&#34;&gt;&lt;strong&gt;China Health and Retirement Longitudinal Study (CHARLS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-longitudinal-aging-social-survey-class&#34;&gt;China Longitudinal Aging Social Survey (CLASS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-china-urban-labor-survey-culs&#34;&gt;The China Urban Labor Survey (CULS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-chinese-social-survey-css&#34;&gt;The Chinese Social Survey (CSS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rural-urban-migration-in-china&#34;&gt;&lt;strong&gt;Rural-Urban Migration in China&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-education-panel-survey&#34;&gt;&lt;strong&gt;China Education Panel Survey&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-household-income-project&#34;&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-household-income-project-1&#34;&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This section is designated to summerize commonly used mirco data for China. Most of the data were collected through surveys conducted by government and universities. I will update this document when I find new data sources in the literature. I will also attach papers that adpoted these data set.&lt;/p&gt;
+&lt;p&gt;Note that Chinese National Survey Data Arhive provides plenty of mrico-data. Most of the dataset below can be accessed there. See the &lt;a href=&#34;http://cnsda.ruc.edu.cn/index.php&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;The Open Research Data Platform of Peking University holds the China Survey Data Archive, from which you might find some data that are not commonly used. See the &lt;a href=&#34;https://opendata.pku.edu.cn/dataverse/CSDA&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-health-and-nutrition-survey-chns&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;China Health and Nutrition Survey (CHNS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1991, 1993, 1997, 2000, 2004, 2006, 2009, 2015, and ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The survey was designed to test the health effects of nutrition and family planning policies, and study how the role of China’s social and economic changes in the health and nutritional status of the population as a whole. Survey covering households, nutrition, health, adults, children, and communities.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, households, communities&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.cpc.unc.edu/projects/china&#34; class=&#34;uri&#34;&gt;http://www.cpc.unc.edu/projects/china&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Publicly available&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Relate applied papers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chengzheng Li and Zheng Pan (2020). How do extremely high temperatures affect labor market performance? Evidence from rural China. &lt;em&gt;Empirical Economcis&lt;/em&gt;. &lt;a href=&#34;https://link.springer.com/article/10.1007/s00181-020-01954-9#:~:text=The%20female%20labor%20force%20in,consequences%20of%20unfavorable%20temperature%20shocks.&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-longitudinal-healthy-longevity-survey-clhls&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Longitudinal Healthy Longevity Survey (CLHLS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1998, 2000, 2002, 2005 (not sure whether it’s ongoing or not)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The objectives of this project was to study the impact of human health and longevity of the social, behavioral, environmental and biological factors, to fill the gaps of scientific research on aging and health information based on health policy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://w3.pku.edu.cn/academic/ageing/index.html&#34; class=&#34;uri&#34;&gt;http://w3.pku.edu.cn/academic/ageing/index.html&lt;/a&gt;
+The website appears not working.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need to download, sign, and fax the DATA USE AGREEMENT to Dr. Liu.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-general-social-survey-cgss&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Chinese General Social Survey (CGSS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2003 to 2017 (data for 2017 was recently available in Oct. 2020), except for 2004.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The CGSS is aimed to systematically monitor the changing relationship between social structure and quality of life in both urban and rural China. Social structure refers to dimensions of social group and organization as well as networks of social relationships. Quality of life is the objective and subjective aspects of the people well-being both at the individual and aggregate levels. The CGSS aims to collect quantitative data about (1) measures of social structure, its stability and change, (2) measures of quality of life, objective and subjective, and (3) measures of underlying mechanisms linking social structure and quality of life.
+In the newest available 2017 survey, we can find data on the usage of internet for individual and household.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual and household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://cgss.ruc.edu.cn/index.php?r=index/index&#34; class=&#34;uri&#34;&gt;http://cgss.ruc.edu.cn/index.php?r=index/index&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need registeration.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;urban-household-survey-uhs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Urban Household Survey (UHS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;From 1986 to 1992; from 1993 to 1997&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The Urban Household Survey aims to study the conditions and standard of living of urban households. With the use of sampling techniques and daily accounting method, the survey collects data from non-agricultural households in different cities and counties. It records household information about income and consumption expenditure, demographic characteristics, work and employment, accommodation and other family related matters. This is a continuous, large scale social-economic survey, which can be traced back to 1955. The survey became regularized and professionalized since 1984. The USC collections start with 1986.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://ww2.usc.cuhk.edu.hk/DCS/Catalog.aspx&#34; class=&#34;uri&#34;&gt;http://ww2.usc.cuhk.edu.hk/DCS/Catalog.aspx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need to purchase from the University of Hong Kong&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Additional note&lt;/p&gt;
+&lt;p&gt;The Rural Household Survey should also exist, yet I did not find.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-family-panel-studies-cfps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Family Panel Studies (CFPS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2010-2016 ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;China Family Panel Studies (CFPS) is a nationally representative, annual longitudinal survey of Chinese communities, families, and individuals launched in 2010 by the Institute of Social Science Survey (ISSS) of Peking University, China. The CFPS is designed to collect individual-, family-, and community-level longitudinal data in contemporary China. The studies focus on the economic, as well as the non-economic, wellbeing of the Chinese population, with a wealth of information covering such topics as economic activities, education outcomes, family dynamics and relationships, migration, and health. The CFPS is funded by the Chinese government through Peking University. The CFPS promises to provide to the academic community the most comprehensive and highest-quality survey data on contemporary China. Three key features of the CFPS are worth noting here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.isss.pku.edu.cn/cfps/en/index.htm&#34; class=&#34;uri&#34;&gt;http://www.isss.pku.edu.cn/cfps/en/index.htm&lt;/a&gt;
+Another website: &lt;a href=&#34;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/45LCSO&#34; class=&#34;uri&#34;&gt;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/45LCSO&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration form&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-health-and-retirement-longitudinal-study-charls&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;China Health and Retirement Longitudinal Study (CHARLS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Starting from 2011 and conducted every two years, ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The China Health and Retirement Longitudinal Study (CHARLS) aims to collect a high quality nationally representative sample of Chinese residents ages 45 and older to serve the needs of scientific research on the elderly. The baseline national wave of CHARLS is being fielded in 2011 and includes about 10,000 households and 17,500 individuals in 150 counties/districts and 450 villages/resident committees. The individuals will be followed up every two years. All data will be made public one year after the end of data collection.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://charls.pku.edu.cn/pages/data/111/en.html&#34; class=&#34;uri&#34;&gt;http://charls.pku.edu.cn/pages/data/111/en.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-longitudinal-aging-social-survey-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;China Longitudinal Aging Social Survey (CLASS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2011 and 2012 (in trail), 2014 (baseline survey), 2016 and 2018 (following up survey)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;CLASS is a large-scale nationwide social survey project directed by NSRC. By collecting social and economic data of the Chinese aging population regularly and systematically on both individual and community level, CLASS aims at understanding various problems and challenges that Chinese people would face during the aging process, and evaluating the real effects which various social security policies have achieved in improving the life-qualities of the older population. Survey trails were conducted for 2011 and 2012. The baseline survey was conducted in 2014. The following suvery was schedualed for 2016 and 2018.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://class.ruc.edu.cn/index.php?r=Index/index&#34; class=&#34;uri&#34;&gt;http://class.ruc.edu.cn/index.php?r=Index/index&lt;/a&gt;
+Access through: &lt;a href=&#34;http://cnsda.ruc.edu.cn/&#34; class=&#34;uri&#34;&gt;http://cnsda.ruc.edu.cn/&lt;/a&gt;
+As of Oct 2, 2020, only the 2011 and 2012 data are available.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-china-urban-labor-survey-culs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The China Urban Labor Survey (CULS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2001, 2005 and 2010&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The CULS was administered in five large Chinese cities: Shanghai, Shenyang, Wuhan, Xian and Fuzhou. The survey was administered by the Institute for Population Studies at the Chinese Academy of Social Sciences (CASS-IPS), in collaboration with local offices of the National Statistical Bureau in each of the five cities. In four of the cities the surveys were conducted by the urban survey unit of the provincial statistical bureau (the cheng diao dui) and in Shenyang by the enterprise survey unit.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household, community, and China urban adult cognitive ability&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/XMFDUI&#34; class=&#34;uri&#34;&gt;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/XMFDUI&lt;/a&gt;
+Note that only the data in 2001 is available through the website above.
+Data in 2005 and 2010 should be available at Chinese Academy of Social Science (CASS), according to this &lt;a href=&#34;https://www.imf.org/external/pubs/ft/wp/2015/wp15151.pdf&#34;&gt;report&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-chinese-social-survey-css&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Chinese Social Survey (CSS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2006, 2008, 2011, 2013, 2015, 2017, and on goin&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The Chinese Social Survey was initiated by the Institute of Sociology of the Chinese Academy of Social Sciences in 2005. The survey covers 31 provinces, including 151 districts/counties, 604 villages. Each wave of survey covers 7000 to 10000 households. Information on labor empolyment, household structure, household income, social ties, social insurances, etc can be found in the data set.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access (in Chinese)&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://css.cssn.cn/css_sy/xmjs/xmgk/&#34; class=&#34;uri&#34;&gt;http://css.cssn.cn/css_sy/xmjs/xmgk/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Application is needed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rural-urban-migration-in-china&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Rural-Urban Migration in China&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Probably started from 2008 or 2009. Currently data for 2016-2018 is publicly available.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;RUMiC is a longitudinal survey conducted every year, collecting data about migrants’ health, education, employment, social networks, household income and expenditure, housing conditions, and place of origin. The annual sample size consists of 5,000 migrant households living in 15 cities across 9 major provinces with the highest level of rural to urban migration.&lt;/p&gt;
+&lt;p&gt;In 2017, SDC successfully implemented the 10th wave of RUMiC. In this wave, a Computer-Assisted Personal Interviewing (CAPI) system replaced the traditional paper-and-pencil method and significantly improved data quality. In 2018 and 2019, all households participating in the 2016 or 2017 waves were interviewed by phone using the Computer-Assisted Telephone Interviewing (CATI) system, successfully tracing about 3,000 and nearly 2,500 households, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&#34; class=&#34;uri&#34;&gt;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Application form is needed. The applicant is required to provide a research proposal.&lt;/p&gt;
+&lt;p&gt;See the website above for detailed information.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-education-panel-survey&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;China Education Panel Survey&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Currently 2013-2014, ongoing, will last for over 30 years&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The China Education Panel Survey (CEPS) is a large-scale, nationally representative, longitudinal survey starting with two cohorts – the 7th and 9th graders in the 2013-2014 academic year. Documenting educational processes and transitions by which students progress through various educational stages, the CEPS aims at explaining the linkages between individuals’ educational outcomes and multiple contexts of families, school processes, communities and social structure, and further studying the effects of educational outcomes during people’s life course.&lt;/p&gt;
+&lt;p&gt;The CEPS applies a stratified, multistage sampling design with probability proportional to size (PPS), randomly selecting a school-based, nationally representative sample of approximately 20,000 students in 438 classrooms of 112 schools in 28 county-level units in mainland China. The baseline survey of CEPS was completed in the 2013-2014 academic year, conducted by National Survey Research Center (NSRC) at Renmin University of China. The data are currently available for academic research. Follow-up surveys are annual as the sample adolescents matriculate throughout the junior-high stage and in the 1st, 3rd, 7th, 8th, 17th and 27th year after they graduate from junior-high. CEPS will last more than 30 years, during which a new cohort of 7th graders will be started in a 10-year interval.&lt;/p&gt;
+&lt;p&gt;The student questionnaire includes topics such as students’ demographic characteristics, mobility and migration status, childhood experience, health status, household structure, parent-child interactions, in-school performance, extra curricular activities, relationship with teachers and peers, social behavior development, and expectations for the future.&lt;/p&gt;
+&lt;p&gt;Parent questionnaire consists of questions about parents’ demographic characteristics and lifestyles, parent-child interactions, educational environment and investment for child, community environment, parent-teacher interactions, and parents’ perceptions of school education and expectations for the future of the child.&lt;/p&gt;
+&lt;p&gt;Information on homeroom, teach characteristics, school administrators are also provided.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&#34; class=&#34;uri&#34;&gt;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://cnsda.ruc.edu.cn/index.php?r=projects/view&amp;amp;id=72810330&#34; class=&#34;uri&#34;&gt;http://cnsda.ruc.edu.cn/index.php?r=projects/view&amp;amp;id=72810330&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-household-income-project&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1996, 2003, 2008, and 2013 covering income and expenditure information in 1988, 1995, 2002, 2007, and 2013, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;To track the dynamics of income distribution in China, the Chinese Household Income Project (CHIP) has conducted five waves of household surveys, in 1989, 1996, 2003, 2008 and 2013. They covered the income and expenditure information in 1988, 1995, 2002, 2007 and 2013 respectively and called CHIP1988, CHIP1995, CHIP2002, CHIP2007, and CHIP2013.&lt;/p&gt;
+&lt;p&gt;All the CHIP waves contain surveys of urban and rural households. In view of the increased importance of rural-to-urban migration, and because the urban and rural household subsamples do not adequately cover migrants, the 2002 survey added a survey of rural-to-urban migrants. Thus, the 2002 CHIP survey includes three subsamples. The same procedure was adopted for the 2007 survey, which is also composed of three parts: the urban household survey, the rural household survey, and the rural-to-urban migrant household survey. This structure reflects China’s urban-rural division and the increased number of rural individuals who have migrated into the urban areas, especially during the last two decades.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note that this data set includes data on rural-to-urban migration for year 2002, 2008, and 2009. The migration data should be consistent with the &lt;em&gt;Rural-Urban Migration in China&lt;/em&gt; which is also introduced in this collection. &lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed. See this &lt;a href=&#34;http://www.ciidbnu.org/chip/about.asp?lang=EN&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-household-income-project-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1996, 2003, 2008, and 2013 covering income and expenditure information in 1988, 1995, 2002, 2007, and 2013, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;To track the dynamics of income distribution in China, the Chinese Household Income Project (CHIP) has conducted five waves of household surveys, in 1989, 1996, 2003, 2008 and 2013. They covered the income and expenditure information in 1988, 1995, 2002, 2007 and 2013 respectively and called CHIP1988, CHIP1995, CHIP2002, CHIP2007, and CHIP2013.&lt;/p&gt;
+&lt;p&gt;All the CHIP waves contain surveys of urban and rural households. In view of the increased importance of rural-to-urban migration, and because the urban and rural household subsamples do not adequately cover migrants, the 2002 survey added a survey of rural-to-urban migrants. Thus, the 2002 CHIP survey includes three subsamples. The same procedure was adopted for the 2007 survey, which is also composed of three parts: the urban household survey, the rural household survey, and the rural-to-urban migrant household survey. This structure reflects China’s urban-rural division and the increased number of rural individuals who have migrated into the urban areas, especially during the last two decades.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note that this data set includes data on rural-to-urban migration for year 2002, 2008, and 2009. The migration data should be consistent with the &lt;em&gt;Rural-Urban Migration in China&lt;/em&gt; which is also introduced in this collection. &lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed. See this &lt;a href=&#34;http://www.ciidbnu.org/chip/about.asp?lang=EN&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const photographs = [
+  { src: '/gallery/IMG_20190918_152119.webp', year: '2019' },
+  { src: '/gallery/IMG_20190918_152616.webp', year: '2019' },
+  { src: '/gallery/IMG_20190920_144832.webp', year: '2019' },
+  { src: '/gallery/IMG_20210521_131110.webp', year: '2021' },
+  { src: '/gallery/IMG_20210521_140131.webp', year: '2021' },
+  { src: '/gallery/PXL_20210521_175907123_2.webp', year: '2021' },
+  { src: '/gallery/IMG_20210528_165518.webp', year: '2021' },
+  { src: '/gallery/IMG_20210529_104052.webp', year: '2021' },
+];
+---
+
+<BaseLayout title="Gallery" description="A growing visual archive by Yabin Da.">
+  <header class="page-intro gallery-intro">
+    <p class="eyebrow">Gallery</p>
+    <h1>A growing archive of places and everyday moments.</h1>
+    <p>Photographs from travels, field notes, and life outside the office. This collection will continue to grow.</p>
+  </header>
+
+  <section class="gallery-viewer" data-gallery aria-label="Photo gallery">
+    <div class="gallery-stage">
+      <figure>
+        <img data-gallery-main src={photographs[0].src} alt="Photograph 1 from Yabin Da's visual archive" />
+        <figcaption>
+          <span data-gallery-counter>01 / {String(photographs.length).padStart(2, '0')}</span>
+          <span data-gallery-year>{photographs[0].year}</span>
+        </figcaption>
+      </figure>
+      <div class="gallery-controls" aria-label="Gallery controls">
+        <button type="button" data-gallery-prev aria-label="Previous photograph">← Previous</button>
+        <button type="button" data-gallery-next aria-label="Next photograph">Next →</button>
+      </div>
+    </div>
+
+    <div class="gallery-contact-sheet">
+      <div class="gallery-contact-heading">
+        <span>Browse photos</span>
+        <span data-gallery-page>01 / {String(Math.ceil(photographs.length / 6)).padStart(2, '0')}</span>
+      </div>
+      <div class="gallery-thumbnails" aria-label="Choose a photograph">
+        {photographs.map((photo, index) => (
+          <button
+            type="button"
+            class:list={['gallery-thumbnail', index === 0 && 'active']}
+            data-gallery-thumb
+            data-src={photo.src}
+            data-year={photo.year}
+            data-index={index}
+            data-page={Math.floor(index / 6)}
+            aria-label={`Show photograph ${index + 1}`}
+            aria-pressed={index === 0 ? 'true' : 'false'}
+            hidden={index >= 6}
+          >
+            <img src={photo.src} alt="" loading={index < 4 ? 'eager' : 'lazy'} />
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </button>
+        ))}
+      </div>
+      <div class="gallery-page-controls" class:list={[photographs.length <= 6 && 'single-page']}>
+        <button type="button" data-gallery-page-prev aria-label="Previous thumbnail set">←</button>
+        <button type="button" data-gallery-page-next aria-label="Next thumbnail set">→</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const root = document.querySelector('[data-gallery]');
+    if (root) {
+      const main = root.querySelector('[data-gallery-main]');
+      const counter = root.querySelector('[data-gallery-counter]');
+      const year = root.querySelector('[data-gallery-year]');
+      const thumbs = [...root.querySelectorAll('[data-gallery-thumb]')];
+      const total = thumbs.length;
+      const pageSize = 6;
+      const pageCount = Math.ceil(total / pageSize);
+      let current = 0;
+      let thumbPage = 0;
+
+      const renderThumbPage = (nextPage) => {
+        thumbPage = (nextPage + pageCount) % pageCount;
+        thumbs.forEach((thumb) => {
+          thumb.hidden = Number(thumb.dataset.page) !== thumbPage;
+        });
+        root.querySelector('[data-gallery-page]').textContent = `${String(thumbPage + 1).padStart(2, '0')} / ${String(pageCount).padStart(2, '0')}`;
+      };
+
+      const show = (next) => {
+        current = (next + total) % total;
+        const selected = thumbs[current];
+        main.src = selected.dataset.src;
+        main.alt = `Photograph ${current + 1} from Yabin Da's visual archive`;
+        counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+        year.textContent = selected.dataset.year;
+        thumbs.forEach((thumb, index) => {
+          const active = index === current;
+          thumb.classList.toggle('active', active);
+          thumb.setAttribute('aria-pressed', String(active));
+        });
+        renderThumbPage(Math.floor(current / pageSize));
+      };
+
+      thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => show(index)));
+      root.querySelector('[data-gallery-prev]').addEventListener('click', () => show(current - 1));
+      root.querySelector('[data-gallery-next]').addEventListener('click', () => show(current + 1));
+      root.querySelector('[data-gallery-page-prev]').addEventListener('click', () => renderThumbPage(thumbPage - 1));
+      root.querySelector('[data-gallery-page-next]').addEventListener('click', () => renderThumbPage(thumbPage + 1));
+      root.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') show(current - 1);
+        if (event.key === 'ArrowRight') show(current + 1);
+      });
+    }
+  </script>
+</BaseLayout>

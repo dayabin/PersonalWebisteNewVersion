@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data | Yabin Da</title>
+    <link>https://yabin-da.com/category/data/</link>
+      <atom:link href="https://yabin-da.com/category/data/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Data</title>
+      <link>https://yabin-da.com/category/data/</link>
+    </image>
+    
+    <item>
+      <title>Creating a separate section for working papers on your website</title>
+      <link>https://yabin-da.com/notes_in_r/creating-a-section-for-working-paper/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/creating-a-section-for-working-paper/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I spent quite some time figuring out how to present publications and working papers independently in separate sections. Most importantly, I’d like working papers to be displayed in the same format as a publication. See examples on my website.&lt;/p&gt;
+&lt;p&gt;However, it turned out not easy. I first created a &lt;code&gt;workingpaper.md&lt;/code&gt; file in the &lt;code&gt;home&lt;/code&gt; folder and set the &lt;code&gt;page_type = &#34;publication&#34;&lt;/code&gt;. Simoutaounsly, I created a new folder named &lt;code&gt;workingpaper&lt;/code&gt; to store the working papers. After deployment, the website ended up displaying publications in the &lt;code&gt;publication&lt;/code&gt; folder instead of the working papers in the newly created &lt;code&gt;working paper&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;I further explored by changing the &lt;code&gt;page_type = &#34;workingpaper&#34;&lt;/code&gt;. This time the working papers were displayed on the website. The problem was that they displayed as a post NOT in a publication format.&lt;/p&gt;
+&lt;p&gt;I thus posted this question in the discussion section of the &lt;code&gt;wowchemy&lt;/code&gt;. See the original &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/discussions/2298#discussioncomment-765481&#34;&gt;post&lt;/a&gt;. The problem was solved perfectly.&lt;/p&gt;
+&lt;p&gt;Specifically,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a new &lt;code&gt;workingpaper.md&lt;/code&gt; file in &lt;code&gt;./content/home/&lt;/code&gt; folder (you can simply copy the &lt;code&gt;publications.md&lt;/code&gt; file and rename it). In the &lt;code&gt;workingpaper.md&lt;/code&gt; file, set &lt;code&gt;page_type = &#34;publication&#34;&lt;/code&gt; and also set &lt;code&gt;content.filter.publication_type = &#34;3&#34;&lt;/code&gt; (&lt;strong&gt;This is important!!&lt;/strong&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;code&gt;./content/home/publications.md&lt;/code&gt; and set &lt;code&gt;content.filter.publication_type = &#34;2&#34;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Import pulications and working papers in the &lt;code&gt;./content/publication/&lt;/code&gt; folder (following this &lt;a href=&#34;https://www.yabin-da.com/notes_in_r/blogdownwebsite/#add-publications-to-your-website&#34;&gt;post&lt;/a&gt; to import). Simply set the &lt;code&gt;publication_types: [&#34;2&#34;]&lt;/code&gt; or &lt;code&gt;publication_types: [&#34;3&#34;]&lt;/code&gt; in the associated &lt;code&gt;index.md&lt;/code&gt; file for that publication/working paper.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Deploy the website. We are all set!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Problems I encountered while creating tables for regression results in R</title>
+      <link>https://yabin-da.com/notes_in_r/problems-i-encountered-while-creating-tables-for-regression-results-in-r/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/problems-i-encountered-while-creating-tables-for-regression-results-in-r/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#select-variables-to-be-reported-in-the-table&#34;&gt;Select variables to be reported in the table&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#present-underscores-as-text&#34;&gt;Present underscores as text&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-the-t-statistics-and-p-values&#34;&gt;Customize the t statistics and p values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-lines-in-the-table&#34;&gt;Add lines in the table&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In many circumstances, we need to create nice tables from regression results and present the table in beamers. As an R user, I primarily use the &lt;code&gt;stargazer&lt;/code&gt; package to do the job. I think it is powerful enough and can accommodate most of the cases. An alternative package is &lt;code&gt;kableExtra&lt;/code&gt;, which I find is particularly useful when you are trying to create tables for data frames.&lt;/p&gt;
+&lt;p&gt;In this post, I will take notes on the problems I encountered while using the &lt;code&gt;stargazer&lt;/code&gt; to provide a reference for myself and hopefully can also help others.&lt;/p&gt;
+&lt;p&gt;Below is an example of the code. &lt;code&gt;reg&lt;/code&gt;, &lt;code&gt;rpenalty.1&lt;/code&gt;, and &lt;code&gt;rpenalty.2&lt;/code&gt; are the three regressions I report.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;stargazer(reg5, rpenalty.1, rpenalty.2, 
+no.space = T, font.size = &amp;#39;footnotesize&amp;#39;, single.row = F,
+type = &amp;#39;latex&amp;#39;, header = F,
+column.labels = c(&amp;#39;Baseline panel&amp;#39;,&amp;#39;Partial penalty&amp;#39;, &amp;#39;Full penalty&amp;#39;),
+keep = c(&amp;#39;dfallhigh&amp;#39;,&amp;#39;frez_spring&amp;#39;,&amp;#39;penalty_dfallhigh&amp;#39;,&amp;#39;penalty_frez_spring&amp;#39;),
+covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;),
+coef = list(mreg5[,1][c(4,8)], mrpenalty.1[,1][c(4,8,20,21)], mrpenalty.2[,1][c(4,8,23,27)]),
+se = list(mreg5[,2][c(4,8)], mrpenalty.1[,2][c(4,8,20,21)], mrpenalty.2[,2][c(4,8,23,27)]),
+t = list(mreg5[,3][c(4,8)], mrpenalty.1[,3][c(4,8,20,21)], mrpenalty.2[,3][c(4,8,23,27)]),
+p = list(mreg5[,4][c(4,8)], mrpenalty.1[,4][c(4,8,20,21)], mrpenalty.2[,4][c(4,8,23,27)]),
+model.names = F,dep.var.caption = &amp;#39;Winter wheat yields&amp;#39;,
+dep.var.labels.include = F,omit.stat = c(&amp;quot;rsq&amp;quot;, &amp;quot;f&amp;quot;,&amp;#39;ser&amp;#39;),
+ci = F, digits = 3, model.numbers = T,
+add.lines = list(c(&amp;#39;County fixed effect&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Linear time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Quadratic time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The created table looks like below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/notes_in_r/2021-05-07-problems-i-encountered-while-creating-tables-for-regression-results.en_files/reg_table.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div id=&#34;select-variables-to-be-reported-in-the-table&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Select variables to be reported in the table&lt;/h4&gt;
+&lt;p&gt;This can be done by using the &lt;code&gt;keep&lt;/code&gt; or &lt;code&gt;omit&lt;/code&gt; parameter in &lt;code&gt;stargazer&lt;/code&gt;. My feeling is that &lt;code&gt;keep&lt;/code&gt; is more convenient. You just need to specify the names of variables (in the regression) you want to present in the final table. See an example below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;keep = c(&amp;#39;dfallhigh&amp;#39;,&amp;#39;frez_spring&amp;#39;,&amp;#39;penalty_dfallhigh&amp;#39;,&amp;#39;penalty_frez_spring&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following that, you can further specify the namesto be presented in the table.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;present-underscores-as-text&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Present underscores as text&lt;/h4&gt;
+&lt;p&gt;Underscores won’t be printed in the final table because it is recognized as a special character in R and Latex. To print underscore as text, use &lt;code&gt;\&lt;/code&gt; to skip. See an example below. This also applies to other special characters (i.e. dollar sign). The code below will print &lt;code&gt;DDhigh_fall&lt;/code&gt; in the table.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customize-the-t-statistics-and-p-values&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Customize the t statistics and p values&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;stargazer&lt;/code&gt; allows users to manually specify the coefficients, t statistics, and p values. This could be extremely helpful when it comes to robust errors which are not reported in original regression results.&lt;/p&gt;
+&lt;p&gt;To do this in &lt;code&gt;stargazer&lt;/code&gt;, use &lt;code&gt;coef&lt;/code&gt;, &lt;code&gt;se&lt;/code&gt;, &lt;code&gt;t&lt;/code&gt;, and &lt;code&gt;p&lt;/code&gt; parameters. See the example below. I first specify the coefficients I want to report in the table (which should be consistent with the &lt;code&gt;keep&lt;/code&gt; parameter). &lt;code&gt;mreg5&lt;/code&gt;, &lt;code&gt;mrpenalty.1&lt;/code&gt;, and &lt;code&gt;mrpenalty.1&lt;/code&gt; are objects that resulted from the &lt;code&gt;coeftest&lt;/code&gt; function. Similarly, &lt;code&gt;se&lt;/code&gt; parameter corresponds to the robust standard errors in those objects.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;coef = list(mreg5[,1][c(4,8)], mrpenalty.1[,1][c(4,8,20,21)], mrpenalty.2[,1][c(4,8,23,27)])
+se = list(mreg5[,2][c(4,8)], mrpenalty.1[,2][c(4,8,20,21)], mrpenalty.2[,2][c(4,8,23,27)])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-lines-in-the-table&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Add lines in the table&lt;/h4&gt;
+&lt;p&gt;In addition to the main regression results, you can manually add lines to report the fixed effects. The number of elements in each line should be consistent with the column numbers.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;add.lines = list(c(&amp;#39;County fixed effect&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Linear time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Quadratic time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Climate and air pollution data in China</title>
+      <link>https://yabin-da.com/data/climate-and-air-pollution-data-in-china/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/data/climate-and-air-pollution-data-in-china/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#data-on-pm5.2&#34;&gt;Data on PM5.2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-on-so2&#34;&gt;Data on SO2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-on-co2-emissions&#34;&gt;Data on CO2 emissions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;There is an increasing body of literature investigating the environmental problems in China, including air pollution, water pollution, etc. The studies cover a range of topics, such as evaluations of environmental regulations, the health effects of air pollution, and such.&lt;/p&gt;
+&lt;p&gt;I have also repeatedly seen paper discussing the environmental regulations in the political economy arena. For instance, a recent paper by &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0095069621000231?dgcid=raven_sd_aip_email&#34;&gt;Wu and Cao (2021)&lt;/a&gt; examine the effect of local environment regulation outcomes, i.e., local pollution, on leaders’ chances of promotion.&lt;/p&gt;
+&lt;p&gt;This post intends to collect and summarize the sources for pollutants (primarily air pollution) to facilitate future studies.&lt;/p&gt;
+&lt;div id=&#34;data-on-pm5.2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data on PM5.2&lt;/h3&gt;
+&lt;div id=&#34;global-annual-pm2.5-grids-from-modis-misr-and-seawifs-aerosol-optical-depth-aod-with-gwr-v1-1998-2016&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, v1 (1998 –2016)&lt;/h4&gt;
+&lt;p&gt;To access the data set, click this &lt;a href=&#34;https://sedac.ciesin.columbia.edu/data/set/sdei-global-annual-gwr-pm2-5-modis-misr-seawifs-aod&#34;&gt;link&lt;/a&gt;. The data consist of annual concentrations (micrograms per cubic meter) of ground-level fine particulate matter (PM2.5), with dust and sea-salt removed.&lt;/p&gt;
+&lt;p&gt;Spatial resolution: Global; Gridded at 0.01 degree * 0.01 degree (Note that analysis using this fine scale is not recommended. Users are encouraged to aggregate the fine-scaled data to perform analysis at larger spatial scales).&lt;/p&gt;
+&lt;p&gt;Temporal resolution: Annually (1998-2016)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tracking-air-pollution-in-china&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Tracking Air Pollution in China&lt;/h4&gt;
+&lt;p&gt;This website provides near real-time daily PM2.5 retrievals from multiple data sources in China, including ground measurements, satellite retrievals, dynamically updated emission inventories, operational chemical transport model simulations and other ancillary data. The research team used a two-stage machine learning model to develop the database. &lt;em&gt;Note that this website also provides ozone data&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;To access the data, click this &lt;a href=&#34;http://tapdata.org/&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;For PM2.5&lt;/p&gt;
+&lt;p&gt;Spatial resolution: 10km * 10km in China&lt;/p&gt;
+&lt;p&gt;Temporal resolution: Daily average (since 2000 in a timely manner)&lt;/p&gt;
+&lt;p&gt;More information and citation: &lt;a href=&#34;https://arxiv.org/ftp/arxiv/papers/2103/2103.06520.pdf&#34;&gt;link1&lt;/a&gt; and &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S1352231020306555&#34;&gt;link2&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For ozone&lt;/p&gt;
+&lt;p&gt;Spatial resolution: 10km * 10km in China&lt;/p&gt;
+&lt;p&gt;Temporal resolution: Maximum daily 8 h average (MDA8). Check this &lt;a href=&#34;https://www.asl-associates.com/cal8hr.htm&#34;&gt;page&lt;/a&gt; to see how to calculate the MDA8.&lt;/p&gt;
+&lt;p&gt;More information and citation: &lt;a href=&#34;https://pubs.acs.org/doi/10.1021/acs.est.0c03098&#34;&gt;link&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-on-so2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data on SO2&lt;/h3&gt;
+&lt;div id=&#34;omiaura-sulphur-dioxide-so2-total-column-daily-l2-global-gridded-0.125-degree-x-0.125-degree-v3-omso2g&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;OMI/Aura Sulphur Dioxide (SO2) Total Column Daily L2 Global Gridded 0.125 degree x 0.125 degree V3 (OMSO2G)&lt;/h4&gt;
+&lt;p&gt;To access the data set, click this &lt;a href=&#34;https://disc.gsfc.nasa.gov/datasets/OMSO2G_003/summary&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Spatial resolution: Global; Gridded at 0.125x0.125 degree.&lt;/p&gt;
+&lt;p&gt;Temporal resolution: Daily.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-on-co2-emissions&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data on CO2 emissions&lt;/h3&gt;
+&lt;p&gt;Traditionally, CO2 emissions could be calculated based on the consumption of primary energy (i.e. coal, crude oil, and natural gas) and their &lt;a href=&#34;https://www.ipcc.ch/site/assets/uploads/2019/12/03COP25_2019-Refinement.pdf&#34;&gt;carbon emission factors&lt;/a&gt;. However, data on primary energy usage are available only at the province level. I occasionally see papers directly measuring CO2 emissions using novel methods (machine learning) and data (nighttime lights data), which I think is very interesting.&lt;/p&gt;
+&lt;p&gt;It should be noted that the basic idea of the direct calculation is to run a regression of province-level emission (calculated using primary energy use) on nighttime light data and then use the estimated coefficients to predict emissions at finer scales (city level and county level). These novel carbon emission data can be directly used in empirical studies though I have not seen such application in the literature.&lt;/p&gt;
+&lt;p&gt;I create a separate section in this post to collect those CO2 emission data sources to facilitate future studies. Researchers are recommended to read the paper first before they apply the associated data to their study.&lt;/p&gt;
+&lt;div id=&#34;county-level-emission-estimated-using-nighttime-light-data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;County-level emission estimated using nighttime light data&lt;/h4&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.nature.com/articles/s41597-020-00736-3&#34;&gt;paper&lt;/a&gt; was published in Scientific Reports. The authors use nighttime light data obtained from two sources to estimate county-level carbon emissions from 1997-2017.&lt;/p&gt;
+&lt;p&gt;The data can be accessed from &lt;a href=&#34;https://figshare.com/collections/County-level_CO2_emissions_and_sequestration_in_China/5136302/2&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;city-level-emission-estimated-using-nighttime-light-data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;City-level emission estimated using nighttime light data&lt;/h4&gt;
+&lt;p&gt;This &lt;a href=&#34;https://www.nature.com/articles/s41598-021-81754-y&#34;&gt;paper&lt;/a&gt; was also published in Scientific Reports. Using nighttime light data, the paper estimates the city-level emission data from 1992-2017.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to do clustering for panel data model in R</title>
+      <link>https://yabin-da.com/notes_in_r/how-to-do-clustering-for-panel-data-model-in-r/</link>
+      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/how-to-do-clustering-for-panel-data-model-in-r/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#an-introduction-of-clustering-in-panel-data-models&#34;&gt;An introduction of clustering in panel data models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-in-r&#34;&gt;Clustering in R&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#importing-the-data&#34;&gt;Importing the data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#running-the-fixed-effect-model&#34;&gt;Running the fixed effect model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-the-standard-erros&#34;&gt;Clustering the standard erros&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#takeaways&#34;&gt;Takeaways&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;an-introduction-of-clustering-in-panel-data-models&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;An introduction of clustering in panel data models&lt;/h3&gt;
+&lt;p&gt;In my last post, I briefly introduced standard error clustering in panel data settings. In this post, I will continue the topic and present how to do the clustering in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Before we move to the coding part, I’d like to clarify several things. First, the panel model I focus on in this post refers to the fixed effect panel data model, which is distinct from the random effect model. These two models differ from each other in terms of the assumption of the unobserved individual effects. The random effect model assumes the individual effects are unrelated to the independent variables, whereas the fixed effect model allows the presence of arbitrary correlations. You are encouraged to go over the textbook by Wooldridge (2010) if you want to learn more.&lt;/p&gt;
+&lt;p&gt;In practice, the fixed effect model is much more privileged than the random effect model. Because we suspect there exist unobserved individual effects that are correlated with the covariates and we use the fixed effect model to control for the unobservables to alleviate omitted variable bias.&lt;/p&gt;
+&lt;p&gt;Back to our topic, clustering in the fixed effect model is straightforward. We can either cluster at &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (individual level) or &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; (time level). The former case is robust to heterogeneity and serial correlation within the individual, whereas the latter one allows correlations across individuals yet is unable to take account of the serial correlations.&lt;/p&gt;
+&lt;p&gt;You may ask how to determine which level to cluster at? The rule of thumb is that in panels where you have a large number of individuals and a short period, you should cluster at the individual level. Analogously, if you have a few individuals that were observed during a long time slot, you should cluster at the time level.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can also “cluster” at both individual and time levels (also known as two-way clustering). See &lt;a href=&#34;https://cran.r-project.org/web/packages/multiwayvcov/multiwayvcov.pdf&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Clustering in the random effect model is slightly different than that in the fixed effect counterpart. With a few more assumptions (again refer to Wooldridge (2010) for more details), we can use GLS to estimate standard errors. In such cases, we gain efficiency (because we have a smaller number of unknowns to estimate in the variance and covariance matrix), however, the payoff is the standard errors are less robust because we imposed additional assumptions in the first place. Thus, in some circumstances, regular clustering is also recommended in random effect model settings.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-in-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Clustering in R&lt;/h3&gt;
+&lt;p&gt;Before we perform clustering, we need to run the panel data model first. You can either use the &lt;code&gt;lm&lt;/code&gt; function or the &lt;code&gt;plm&lt;/code&gt; function from the &lt;code&gt;plm&lt;/code&gt; package. I personally prefer the latter over the former. Thus, in this post, I am going to stick with the &lt;code&gt;plm&lt;/code&gt; package.&lt;/p&gt;
+&lt;div id=&#34;importing-the-data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Importing the data&lt;/h4&gt;
+&lt;p&gt;I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from &lt;a href=&#34;https://drive.google.com/file/d/1Y8gxJVhkyzX1rEznbXq3atC75ndhlGUz/view?usp=sharing&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse) 
+library(plm)
+library(lmtest)
+library(clubSandwich)
+library(sandwich)
+
+df &amp;lt;- read_csv(&amp;#39;dataforclustering.csv&amp;#39;,
+               col_types = cols(new_code = col_character()))
+
+head(df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   new_code  Year wheat  tavg    pc
+##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 130402    1987  1.64  8.15 103. 
+## 2 130402    1988  1.62  8.29 177. 
+## 3 130402    1989  5.37  9.17  95.4
+## 4 130402    1999  4.75 10.3   41.4
+## 5 130402    2000  4.75  9.29  88.9
+## 6 130402    2001  4.75  8.83 151.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;new_code&lt;/code&gt; represents the counties (individuals).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Year&lt;/code&gt; indicates the time index.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wheat&lt;/code&gt; refers to winter wheat yield in tons/hectare.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tavg&lt;/code&gt; stands for the average temperature over the growing season (October to May).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pc&lt;/code&gt; is the accumulation of precipitation over the growing season.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;running-the-fixed-effect-model&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Running the fixed effect model&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note I only included the county fixed effect in the model.
+reg &amp;lt;- df %&amp;gt;%
+  pdata.frame(index = c(&amp;#39;new_code&amp;#39;,&amp;#39;Year&amp;#39;)) %&amp;gt;% # specify the inidivual and year index
+  plm(formula = log(wheat) ~ tavg + I(tavg^2) + pc + I(pc^2), 
+      data = ., effect = &amp;#39;individual&amp;#39;, model = &amp;#39;within&amp;#39;)
+
+summary(reg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Oneway (individual) effect Within Model
+## 
+## Call:
+## plm(formula = log(wheat) ~ tavg + I(tavg^2) + pc + I(pc^2), data = ., 
+##     effect = &amp;quot;individual&amp;quot;, model = &amp;quot;within&amp;quot;)
+## 
+## Unbalanced Panel: n = 352, T = 10-34, N = 8867
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -7.158354 -0.132313  0.081255  0.255566  1.144955 
+## 
+## Coefficients:
+##              Estimate  Std. Error t-value  Pr(&amp;gt;|t|)    
+## tavg       4.4441e-01  5.0411e-02  8.8156 &amp;lt; 2.2e-16 ***
+## I(tavg^2) -8.5789e-03  2.6044e-03 -3.2940 0.0009917 ***
+## pc         1.8988e-03  2.0575e-04  9.2285 &amp;lt; 2.2e-16 ***
+## I(pc^2)   -2.6568e-06  3.3927e-07 -7.8309 5.425e-15 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Total Sum of Squares:    2107.6
+## Residual Sum of Squares: 1726.4
+## R-Squared:      0.18087
+## Adj. R-Squared: 0.1467
+## F-statistic: 469.818 on 4 and 8511 DF, p-value: &amp;lt; 2.22e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As can be been, with raw (no clustering) standard errors, we got statistically significant coefficients on temperature and precipitation. We then move forward to clustering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-the-standard-erros&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Clustering the standard erros&lt;/h4&gt;
+&lt;p&gt;There are three functions available to do the clustering.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can use the &lt;code&gt;vcovHC&lt;/code&gt; function in the &lt;code&gt;plm&lt;/code&gt; package to construct the variance-covariance matrix.&lt;/li&gt;
+&lt;li&gt;Alternatively, you can use the &lt;code&gt;vcovHC&lt;/code&gt; function from the &lt;code&gt;sandwich&lt;/code&gt; package to do the task.&lt;/li&gt;
+&lt;li&gt;Or &lt;code&gt;vcovCR&lt;/code&gt; function from the &lt;code&gt;clubSandwich&lt;/code&gt; package to do the task.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The first approach: vcovHC from the plm package
+# &amp;#39;arellano&amp;#39; is the recommanded method as it does not 
+# impose restrictions on the structure of the variance-covariance matrix.
+# cluster = &amp;#39;group&amp;#39; indicates we cluster at county level
+# type = &amp;#39;HC3&amp;#39; is for small-sample adjustment.
+method1 &amp;lt;- coeftest(reg, vcov = function(x) 
+  plm::vcovHC(x, method = &amp;#39;arellano&amp;#39;, cluster = &amp;#39;group&amp;#39;, type = &amp;#39;HC3&amp;#39;))
+
+# The second approach: vcovHC from the sandwich package
+# You may have noticed that there does not exist a parameter for us 
+# to specify the clustering level.
+method2 &amp;lt;- coeftest(reg, vcov = function(x) 
+  sandwich::vcovHC(x, type = &amp;#39;HC3&amp;#39;))
+
+# The third approach: vcovHC from the clubSandwich package
+# type = &amp;#39;CR2&amp;#39; is recommanded for small-sample adjustment.
+# cluster = df$new_code indicates we cluster at the individual level.
+method3 &amp;lt;- coeftest(reg, vcov = function(x) 
+  clubSandwich::vcovCR(x, type = &amp;#39;CR2&amp;#39;, cluster = df$new_code))
+
+# Compare the estimated standard errors
+
+comse &amp;lt;- bind_cols(method1[,2], method2[,2], method3[,2]) %&amp;gt;% 
+  rename(&amp;#39;plm&amp;#39; = &amp;#39;...1&amp;#39;,
+         &amp;#39;sandwich&amp;#39; = &amp;#39;...2&amp;#39;,
+         &amp;#39;clubsandwich&amp;#39; = &amp;#39;...3&amp;#39;) %&amp;gt;% print(.)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
+##           plm    sandwich clubsandwich
+##         &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 0.0721      0.0721       0.0724     
+## 2 0.00360     0.00360      0.00361    
+## 3 0.000233    0.000233     0.000234   
+## 4 0.000000375 0.000000375  0.000000377&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see, &lt;code&gt;plm&lt;/code&gt; and &lt;code&gt;sandwich&lt;/code&gt; gave us identical clustered standard errors, whereas &lt;code&gt;clubsanwich&lt;/code&gt; returned slightly larger standard errors. Note that in the analysis above, we clustered at the county (individual) level.&lt;/p&gt;
+&lt;p&gt;Things are different if we clustered at the year (time) level. Simply change the &lt;code&gt;cluster = &#39;group&#39;&lt;/code&gt; to &lt;code&gt;cluster = &#39;time&#39;&lt;/code&gt; in method one, and adjust &lt;code&gt;cluster = df$new_code&lt;/code&gt; to &lt;code&gt;cluster = df$Year&lt;/code&gt; in method three. See below. The &lt;code&gt;vcovHC&lt;/code&gt; function from the &lt;code&gt;sandwich&lt;/code&gt; package does not allow us to choose which level to cluster the standard errors at.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;method1_time &amp;lt;- coeftest(reg, vcov = function(x) 
+  plm::vcovHC(x, method = &amp;#39;arellano&amp;#39;, cluster = &amp;#39;time&amp;#39;, type = &amp;#39;HC3&amp;#39;))
+
+method3_time &amp;lt;- coeftest(reg, vcov = function(x) 
+  clubSandwich::vcovCR(x, type = &amp;#39;CR2&amp;#39;, cluster = df$Year))
+
+comse_time &amp;lt;- bind_cols(method1_time[,2], method2[,2], method3_time[,2]) %&amp;gt;% 
+  rename(&amp;#39;plm&amp;#39; = &amp;#39;...1&amp;#39;,
+         &amp;#39;sandwich&amp;#39; = &amp;#39;...2&amp;#39;,
+         &amp;#39;clubsandwich&amp;#39; = &amp;#39;...3&amp;#39;) %&amp;gt;% print(.)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
+##          plm    sandwich clubsandwich
+##        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 0.189      0.0721        0.208     
+## 2 0.00865    0.00360       0.00996   
+## 3 0.00114    0.000233      0.00124   
+## 4 0.00000138 0.000000375   0.00000150&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;takeaways&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Takeaways&lt;/h3&gt;
+&lt;p&gt;In applications where you cluster standard errors at the individual level, all three methods should work just fine. However, if you want to cluster at the time level (or other alternative levels), you may refer to the embedded &lt;code&gt;vcovHC&lt;/code&gt; function in the &lt;code&gt;plm&lt;/code&gt; package or the &lt;code&gt;vcovCR&lt;/code&gt; function from the &lt;code&gt;clubSandwich&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;Well, actually I would say it’s better to just stick with the &lt;code&gt;plm&lt;/code&gt; and/or &lt;code&gt;clubSandwich&lt;/code&gt;approaches regardless of what level your standard errors were clustered at. The &lt;code&gt;sandwich&lt;/code&gt; package is sort of particularly designed for clustering in &lt;code&gt;lm&lt;/code&gt; or &lt;code&gt;glm&lt;/code&gt; regressions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;Jeffrey M Wooldridge, 2010. “Econometric Analysis of Cross Section and Panel Data,” MIT Press Books, The MIT Press, edition 2.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mirco-level data in China</title>
+      <link>https://yabin-da.com/data/mircochina/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/data/mircochina/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-health-and-nutrition-survey-chns&#34;&gt;China Health and Nutrition Survey (CHNS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-longitudinal-healthy-longevity-survey-clhls&#34;&gt;&lt;strong&gt;Chinese Longitudinal Healthy Longevity Survey (CLHLS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-general-social-survey-cgss&#34;&gt;Chinese General Social Survey (CGSS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#urban-household-survey-uhs&#34;&gt;Urban Household Survey (UHS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-family-panel-studies-cfps&#34;&gt;&lt;strong&gt;Chinese Family Panel Studies (CFPS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-health-and-retirement-longitudinal-study-charls&#34;&gt;&lt;strong&gt;China Health and Retirement Longitudinal Study (CHARLS)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-longitudinal-aging-social-survey-class&#34;&gt;China Longitudinal Aging Social Survey (CLASS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-china-urban-labor-survey-culs&#34;&gt;The China Urban Labor Survey (CULS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-chinese-social-survey-css&#34;&gt;The Chinese Social Survey (CSS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rural-urban-migration-in-china&#34;&gt;&lt;strong&gt;Rural-Urban Migration in China&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#china-education-panel-survey&#34;&gt;&lt;strong&gt;China Education Panel Survey&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-household-income-project&#34;&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chinese-household-income-project-1&#34;&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This section is designated to summerize commonly used mirco data for China. Most of the data were collected through surveys conducted by government and universities. I will update this document when I find new data sources in the literature. I will also attach papers that adpoted these data set.&lt;/p&gt;
+&lt;p&gt;Note that Chinese National Survey Data Arhive provides plenty of mrico-data. Most of the dataset below can be accessed there. See the &lt;a href=&#34;http://cnsda.ruc.edu.cn/index.php&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;The Open Research Data Platform of Peking University holds the China Survey Data Archive, from which you might find some data that are not commonly used. See the &lt;a href=&#34;https://opendata.pku.edu.cn/dataverse/CSDA&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-health-and-nutrition-survey-chns&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;China Health and Nutrition Survey (CHNS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1991, 1993, 1997, 2000, 2004, 2006, 2009, 2015, and ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The survey was designed to test the health effects of nutrition and family planning policies, and study how the role of China’s social and economic changes in the health and nutritional status of the population as a whole. Survey covering households, nutrition, health, adults, children, and communities.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, households, communities&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.cpc.unc.edu/projects/china&#34; class=&#34;uri&#34;&gt;http://www.cpc.unc.edu/projects/china&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Publicly available&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Relate applied papers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chengzheng Li and Zheng Pan (2020). How do extremely high temperatures affect labor market performance? Evidence from rural China. &lt;em&gt;Empirical Economcis&lt;/em&gt;. &lt;a href=&#34;https://link.springer.com/article/10.1007/s00181-020-01954-9#:~:text=The%20female%20labor%20force%20in,consequences%20of%20unfavorable%20temperature%20shocks.&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-longitudinal-healthy-longevity-survey-clhls&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Longitudinal Healthy Longevity Survey (CLHLS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1998, 2000, 2002, 2005 (not sure whether it’s ongoing or not)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The objectives of this project was to study the impact of human health and longevity of the social, behavioral, environmental and biological factors, to fill the gaps of scientific research on aging and health information based on health policy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://w3.pku.edu.cn/academic/ageing/index.html&#34; class=&#34;uri&#34;&gt;http://w3.pku.edu.cn/academic/ageing/index.html&lt;/a&gt;
+The website appears not working.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need to download, sign, and fax the DATA USE AGREEMENT to Dr. Liu.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-general-social-survey-cgss&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Chinese General Social Survey (CGSS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2003 to 2017 (data for 2017 was recently available in Oct. 2020), except for 2004.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The CGSS is aimed to systematically monitor the changing relationship between social structure and quality of life in both urban and rural China. Social structure refers to dimensions of social group and organization as well as networks of social relationships. Quality of life is the objective and subjective aspects of the people well-being both at the individual and aggregate levels. The CGSS aims to collect quantitative data about (1) measures of social structure, its stability and change, (2) measures of quality of life, objective and subjective, and (3) measures of underlying mechanisms linking social structure and quality of life.
+In the newest available 2017 survey, we can find data on the usage of internet for individual and household.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual and household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://cgss.ruc.edu.cn/index.php?r=index/index&#34; class=&#34;uri&#34;&gt;http://cgss.ruc.edu.cn/index.php?r=index/index&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need registeration.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;urban-household-survey-uhs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Urban Household Survey (UHS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;From 1986 to 1992; from 1993 to 1997&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The Urban Household Survey aims to study the conditions and standard of living of urban households. With the use of sampling techniques and daily accounting method, the survey collects data from non-agricultural households in different cities and counties. It records household information about income and consumption expenditure, demographic characteristics, work and employment, accommodation and other family related matters. This is a continuous, large scale social-economic survey, which can be traced back to 1955. The survey became regularized and professionalized since 1984. The USC collections start with 1986.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://ww2.usc.cuhk.edu.hk/DCS/Catalog.aspx&#34; class=&#34;uri&#34;&gt;http://ww2.usc.cuhk.edu.hk/DCS/Catalog.aspx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Need to purchase from the University of Hong Kong&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Additional note&lt;/p&gt;
+&lt;p&gt;The Rural Household Survey should also exist, yet I did not find.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-family-panel-studies-cfps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Family Panel Studies (CFPS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2010-2016 ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;China Family Panel Studies (CFPS) is a nationally representative, annual longitudinal survey of Chinese communities, families, and individuals launched in 2010 by the Institute of Social Science Survey (ISSS) of Peking University, China. The CFPS is designed to collect individual-, family-, and community-level longitudinal data in contemporary China. The studies focus on the economic, as well as the non-economic, wellbeing of the Chinese population, with a wealth of information covering such topics as economic activities, education outcomes, family dynamics and relationships, migration, and health. The CFPS is funded by the Chinese government through Peking University. The CFPS promises to provide to the academic community the most comprehensive and highest-quality survey data on contemporary China. Three key features of the CFPS are worth noting here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.isss.pku.edu.cn/cfps/en/index.htm&#34; class=&#34;uri&#34;&gt;http://www.isss.pku.edu.cn/cfps/en/index.htm&lt;/a&gt;
+Another website: &lt;a href=&#34;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/45LCSO&#34; class=&#34;uri&#34;&gt;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/45LCSO&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration form&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-health-and-retirement-longitudinal-study-charls&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;China Health and Retirement Longitudinal Study (CHARLS)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Starting from 2011 and conducted every two years, ongoing&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The China Health and Retirement Longitudinal Study (CHARLS) aims to collect a high quality nationally representative sample of Chinese residents ages 45 and older to serve the needs of scientific research on the elderly. The baseline national wave of CHARLS is being fielded in 2011 and includes about 10,000 households and 17,500 individuals in 150 counties/districts and 450 villages/resident committees. The individuals will be followed up every two years. All data will be made public one year after the end of data collection.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://charls.pku.edu.cn/pages/data/111/en.html&#34; class=&#34;uri&#34;&gt;http://charls.pku.edu.cn/pages/data/111/en.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-longitudinal-aging-social-survey-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;China Longitudinal Aging Social Survey (CLASS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2011 and 2012 (in trail), 2014 (baseline survey), 2016 and 2018 (following up survey)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;CLASS is a large-scale nationwide social survey project directed by NSRC. By collecting social and economic data of the Chinese aging population regularly and systematically on both individual and community level, CLASS aims at understanding various problems and challenges that Chinese people would face during the aging process, and evaluating the real effects which various social security policies have achieved in improving the life-qualities of the older population. Survey trails were conducted for 2011 and 2012. The baseline survey was conducted in 2014. The following suvery was schedualed for 2016 and 2018.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://class.ruc.edu.cn/index.php?r=Index/index&#34; class=&#34;uri&#34;&gt;http://class.ruc.edu.cn/index.php?r=Index/index&lt;/a&gt;
+Access through: &lt;a href=&#34;http://cnsda.ruc.edu.cn/&#34; class=&#34;uri&#34;&gt;http://cnsda.ruc.edu.cn/&lt;/a&gt;
+As of Oct 2, 2020, only the 2011 and 2012 data are available.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-china-urban-labor-survey-culs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The China Urban Labor Survey (CULS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2001, 2005 and 2010&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The CULS was administered in five large Chinese cities: Shanghai, Shenyang, Wuhan, Xian and Fuzhou. The survey was administered by the Institute for Population Studies at the Chinese Academy of Social Sciences (CASS-IPS), in collaboration with local offices of the National Statistical Bureau in each of the five cities. In four of the cities the surveys were conducted by the urban survey unit of the provincial statistical bureau (the cheng diao dui) and in Shenyang by the enterprise survey unit.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household, community, and China urban adult cognitive ability&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/XMFDUI&#34; class=&#34;uri&#34;&gt;https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/XMFDUI&lt;/a&gt;
+Note that only the data in 2001 is available through the website above.
+Data in 2005 and 2010 should be available at Chinese Academy of Social Science (CASS), according to this &lt;a href=&#34;https://www.imf.org/external/pubs/ft/wp/2015/wp15151.pdf&#34;&gt;report&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration required&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-chinese-social-survey-css&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Chinese Social Survey (CSS)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;2006, 2008, 2011, 2013, 2015, 2017, and on goin&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The Chinese Social Survey was initiated by the Institute of Sociology of the Chinese Academy of Social Sciences in 2005. The survey covers 31 provinces, including 151 districts/counties, 604 villages. Each wave of survey covers 7000 to 10000 households. Information on labor empolyment, household structure, household income, social ties, social insurances, etc can be found in the data set.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access (in Chinese)&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://css.cssn.cn/css_sy/xmjs/xmgk/&#34; class=&#34;uri&#34;&gt;http://css.cssn.cn/css_sy/xmjs/xmgk/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Application is needed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rural-urban-migration-in-china&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Rural-Urban Migration in China&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Probably started from 2008 or 2009. Currently data for 2016-2018 is publicly available.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;RUMiC is a longitudinal survey conducted every year, collecting data about migrants’ health, education, employment, social networks, household income and expenditure, housing conditions, and place of origin. The annual sample size consists of 5,000 migrant households living in 15 cities across 9 major provinces with the highest level of rural to urban migration.&lt;/p&gt;
+&lt;p&gt;In 2017, SDC successfully implemented the 10th wave of RUMiC. In this wave, a Computer-Assisted Personal Interviewing (CAPI) system replaced the traditional paper-and-pencil method and significantly improved data quality. In 2018 and 2019, all households participating in the 2016 or 2017 waves were interviewed by phone using the Computer-Assisted Telephone Interviewing (CATI) system, successfully tracing about 3,000 and nearly 2,500 households, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&#34; class=&#34;uri&#34;&gt;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Application form is needed. The applicant is required to provide a research proposal.&lt;/p&gt;
+&lt;p&gt;See the website above for detailed information.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;china-education-panel-survey&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;China Education Panel Survey&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;Currently 2013-2014, ongoing, will last for over 30 years&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;The China Education Panel Survey (CEPS) is a large-scale, nationally representative, longitudinal survey starting with two cohorts – the 7th and 9th graders in the 2013-2014 academic year. Documenting educational processes and transitions by which students progress through various educational stages, the CEPS aims at explaining the linkages between individuals’ educational outcomes and multiple contexts of families, school processes, communities and social structure, and further studying the effects of educational outcomes during people’s life course.&lt;/p&gt;
+&lt;p&gt;The CEPS applies a stratified, multistage sampling design with probability proportional to size (PPS), randomly selecting a school-based, nationally representative sample of approximately 20,000 students in 438 classrooms of 112 schools in 28 county-level units in mainland China. The baseline survey of CEPS was completed in the 2013-2014 academic year, conducted by National Survey Research Center (NSRC) at Renmin University of China. The data are currently available for academic research. Follow-up surveys are annual as the sample adolescents matriculate throughout the junior-high stage and in the 1st, 3rd, 7th, 8th, 17th and 27th year after they graduate from junior-high. CEPS will last more than 30 years, during which a new cohort of 7th graders will be started in a 10-year interval.&lt;/p&gt;
+&lt;p&gt;The student questionnaire includes topics such as students’ demographic characteristics, mobility and migration status, childhood experience, health status, household structure, parent-child interactions, in-school performance, extra curricular activities, relationship with teachers and peers, social behavior development, and expectations for the future.&lt;/p&gt;
+&lt;p&gt;Parent questionnaire consists of questions about parents’ demographic characteristics and lifestyles, parent-child interactions, educational environment and investment for child, community environment, parent-teacher interactions, and parents’ perceptions of school education and expectations for the future of the child.&lt;/p&gt;
+&lt;p&gt;Information on homeroom, teach characteristics, school administrators are also provided.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&#34; class=&#34;uri&#34;&gt;https://sdc-iesr.jnu.edu.cn/sy_15947/main.htm&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://cnsda.ruc.edu.cn/index.php?r=projects/view&amp;amp;id=72810330&#34; class=&#34;uri&#34;&gt;http://cnsda.ruc.edu.cn/index.php?r=projects/view&amp;amp;id=72810330&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-household-income-project&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1996, 2003, 2008, and 2013 covering income and expenditure information in 1988, 1995, 2002, 2007, and 2013, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;To track the dynamics of income distribution in China, the Chinese Household Income Project (CHIP) has conducted five waves of household surveys, in 1989, 1996, 2003, 2008 and 2013. They covered the income and expenditure information in 1988, 1995, 2002, 2007 and 2013 respectively and called CHIP1988, CHIP1995, CHIP2002, CHIP2007, and CHIP2013.&lt;/p&gt;
+&lt;p&gt;All the CHIP waves contain surveys of urban and rural households. In view of the increased importance of rural-to-urban migration, and because the urban and rural household subsamples do not adequately cover migrants, the 2002 survey added a survey of rural-to-urban migrants. Thus, the 2002 CHIP survey includes three subsamples. The same procedure was adopted for the 2007 survey, which is also composed of three parts: the urban household survey, the rural household survey, and the rural-to-urban migrant household survey. This structure reflects China’s urban-rural division and the increased number of rural individuals who have migrated into the urban areas, especially during the last two decades.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note that this data set includes data on rural-to-urban migration for year 2002, 2008, and 2009. The migration data should be consistent with the &lt;em&gt;Rural-Urban Migration in China&lt;/em&gt; which is also introduced in this collection. &lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed. See this &lt;a href=&#34;http://www.ciidbnu.org/chip/about.asp?lang=EN&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chinese-household-income-project-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;strong&gt;Chinese Household Income Project&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Year of survey&lt;/p&gt;
+&lt;p&gt;1989, 1996, 2003, 2008, and 2013 covering income and expenditure information in 1988, 1995, 2002, 2007, and 2013, respectively.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Summary of data&lt;/p&gt;
+&lt;p&gt;To track the dynamics of income distribution in China, the Chinese Household Income Project (CHIP) has conducted five waves of household surveys, in 1989, 1996, 2003, 2008 and 2013. They covered the income and expenditure information in 1988, 1995, 2002, 2007 and 2013 respectively and called CHIP1988, CHIP1995, CHIP2002, CHIP2007, and CHIP2013.&lt;/p&gt;
+&lt;p&gt;All the CHIP waves contain surveys of urban and rural households. In view of the increased importance of rural-to-urban migration, and because the urban and rural household subsamples do not adequately cover migrants, the 2002 survey added a survey of rural-to-urban migrants. Thus, the 2002 CHIP survey includes three subsamples. The same procedure was adopted for the 2007 survey, which is also composed of three parts: the urban household survey, the rural household survey, and the rural-to-urban migrant household survey. This structure reflects China’s urban-rural division and the increased number of rural individuals who have migrated into the urban areas, especially during the last two decades.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note that this data set includes data on rural-to-urban migration for year 2002, 2008, and 2009. The migration data should be consistent with the &lt;em&gt;Rural-Urban Migration in China&lt;/em&gt; which is also introduced in this collection. &lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unit of analysis&lt;/p&gt;
+&lt;p&gt;Individual, household&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data access&lt;/p&gt;
+&lt;p&gt;The website is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;
+The website for downloading is: &lt;a href=&#34;http://www.ciidbnu.org/chip/index.asp?lang=EN&#34; class=&#34;uri&#34;&gt;http://www.ciidbnu.org/chip/index.asp?lang=EN&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Availiability&lt;/p&gt;
+&lt;p&gt;Registeration is needed. See this &lt;a href=&#34;http://www.ciidbnu.org/chip/about.asp?lang=EN&#34;&gt;website&lt;/a&gt; for details.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

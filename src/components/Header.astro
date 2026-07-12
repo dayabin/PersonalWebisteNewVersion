@@ -1,0 +1,23 @@
+---
+const { pathname = '/' } = Astro.props;
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Research', href: '/research/' },
+  { label: 'Teaching', href: '/teaching/' },
+  { label: 'Resources', href: '/resources/' },
+  { label: 'Writing', href: '/writing/' },
+  { label: 'Gallery', href: '/gallery/' },
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Yabin Da home">Yabin Da</a>
+  <nav aria-label="Primary navigation">
+    <ul>
+      {nav.map((item) => (
+        <li><a class:list={[pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? 'active' : '']} href={item.href}>{item.label}</a></li>
+      ))}
+      <li><a href="/uploads/yabinda.pdf">CV <span aria-hidden="true">↗</span></a></li>
+    </ul>
+  </nav>
+</header>

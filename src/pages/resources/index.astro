@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLegacyPages } from '../../lib/legacy-content';
+const dataGuides = getLegacyPages('data');
+const notes = getLegacyPages('notes_in_r');
+---
+
+<BaseLayout title="Resources" description="Data guides and practical R notes curated by Yabin Da for students and researchers.">
+  <header class="page-intro">
+    <p class="eyebrow">Resources</p>
+    <h1>Useful material for empirical research.</h1>
+    <p>I maintain these guides and notes to make environmental and economic research easier to start, reproduce, and extend.</p>
+  </header>
+  <section class="section-block resource-section">
+    <div class="section-heading compact-heading"><p class="eyebrow">Data guides</p><h2>Finding and understanding data</h2></div>
+    <div class="content-list">{dataGuides.map((item, index) => <a class="content-row" href={`/data/${item.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.summary}</p></div><span aria-hidden="true">↗</span></a>)}</div>
+  </section>
+  <section class="section-block resource-section" id="notes">
+    <div class="section-heading compact-heading"><p class="eyebrow">Notes in R</p><h2>Methods and research workflow</h2></div>
+    <div class="content-list">{notes.map((item, index) => <a class="content-row" href={`/notes_in_r/${item.slug}/`}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.summary}</p></div><span aria-hidden="true">↗</span></a>)}</div>
+  </section>
+</BaseLayout>

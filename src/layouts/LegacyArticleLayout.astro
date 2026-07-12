@@ -1,0 +1,21 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { LegacyPage } from '../lib/legacy-content';
+
+const { page, sectionTitle, sectionHref } = Astro.props as {
+  page: LegacyPage;
+  sectionTitle: string;
+  sectionHref: string;
+};
+---
+
+<BaseLayout title={page.title} description={page.summary}>
+  <article class="legacy-article">
+    <a class="back-link" href={sectionHref}>← Back to {sectionTitle.toLowerCase()}</a>
+    <header>
+      <p class="eyebrow">{sectionTitle}{page.date && ` · ${page.date.slice(0, 4)}`}</p>
+      <h1>{page.title}</h1>
+    </header>
+    <div class="legacy-prose" set:html={page.body} />
+  </article>
+</BaseLayout>

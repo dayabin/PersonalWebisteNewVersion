@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes_in_rs | Yabin Da</title>
+    <link>https://yabin-da.com/notes_in_r/</link>
+      <atom:link href="https://yabin-da.com/notes_in_r/index.xml" rel="self" type="application/rss+xml" />
+    <description>Notes_in_rs</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Notes_in_rs</title>
+      <link>https://yabin-da.com/notes_in_r/</link>
+    </image>
+    
+    <item>
+      <title>Creating a separate section for working papers on your website</title>
+      <link>https://yabin-da.com/notes_in_r/creating-a-section-for-working-paper/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/creating-a-section-for-working-paper/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I spent quite some time figuring out how to present publications and working papers independently in separate sections. Most importantly, I’d like working papers to be displayed in the same format as a publication. See examples on my website.&lt;/p&gt;
+&lt;p&gt;However, it turned out not easy. I first created a &lt;code&gt;workingpaper.md&lt;/code&gt; file in the &lt;code&gt;home&lt;/code&gt; folder and set the &lt;code&gt;page_type = &#34;publication&#34;&lt;/code&gt;. Simoutaounsly, I created a new folder named &lt;code&gt;workingpaper&lt;/code&gt; to store the working papers. After deployment, the website ended up displaying publications in the &lt;code&gt;publication&lt;/code&gt; folder instead of the working papers in the newly created &lt;code&gt;working paper&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;I further explored by changing the &lt;code&gt;page_type = &#34;workingpaper&#34;&lt;/code&gt;. This time the working papers were displayed on the website. The problem was that they displayed as a post NOT in a publication format.&lt;/p&gt;
+&lt;p&gt;I thus posted this question in the discussion section of the &lt;code&gt;wowchemy&lt;/code&gt;. See the original &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/discussions/2298#discussioncomment-765481&#34;&gt;post&lt;/a&gt;. The problem was solved perfectly.&lt;/p&gt;
+&lt;p&gt;Specifically,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a new &lt;code&gt;workingpaper.md&lt;/code&gt; file in &lt;code&gt;./content/home/&lt;/code&gt; folder (you can simply copy the &lt;code&gt;publications.md&lt;/code&gt; file and rename it). In the &lt;code&gt;workingpaper.md&lt;/code&gt; file, set &lt;code&gt;page_type = &#34;publication&#34;&lt;/code&gt; and also set &lt;code&gt;content.filter.publication_type = &#34;3&#34;&lt;/code&gt; (&lt;strong&gt;This is important!!&lt;/strong&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;code&gt;./content/home/publications.md&lt;/code&gt; and set &lt;code&gt;content.filter.publication_type = &#34;2&#34;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Import pulications and working papers in the &lt;code&gt;./content/publication/&lt;/code&gt; folder (following this &lt;a href=&#34;https://www.yabin-da.com/notes_in_r/blogdownwebsite/#add-publications-to-your-website&#34;&gt;post&lt;/a&gt; to import). Simply set the &lt;code&gt;publication_types: [&#34;2&#34;]&lt;/code&gt; or &lt;code&gt;publication_types: [&#34;3&#34;]&lt;/code&gt; in the associated &lt;code&gt;index.md&lt;/code&gt; file for that publication/working paper.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Deploy the website. We are all set!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Problems I encountered while creating tables for regression results in R</title>
+      <link>https://yabin-da.com/notes_in_r/problems-i-encountered-while-creating-tables-for-regression-results-in-r/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/problems-i-encountered-while-creating-tables-for-regression-results-in-r/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#select-variables-to-be-reported-in-the-table&#34;&gt;Select variables to be reported in the table&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#present-underscores-as-text&#34;&gt;Present underscores as text&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-the-t-statistics-and-p-values&#34;&gt;Customize the t statistics and p values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-lines-in-the-table&#34;&gt;Add lines in the table&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In many circumstances, we need to create nice tables from regression results and present the table in beamers. As an R user, I primarily use the &lt;code&gt;stargazer&lt;/code&gt; package to do the job. I think it is powerful enough and can accommodate most of the cases. An alternative package is &lt;code&gt;kableExtra&lt;/code&gt;, which I find is particularly useful when you are trying to create tables for data frames.&lt;/p&gt;
+&lt;p&gt;In this post, I will take notes on the problems I encountered while using the &lt;code&gt;stargazer&lt;/code&gt; to provide a reference for myself and hopefully can also help others.&lt;/p&gt;
+&lt;p&gt;Below is an example of the code. &lt;code&gt;reg&lt;/code&gt;, &lt;code&gt;rpenalty.1&lt;/code&gt;, and &lt;code&gt;rpenalty.2&lt;/code&gt; are the three regressions I report.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;stargazer(reg5, rpenalty.1, rpenalty.2, 
+no.space = T, font.size = &amp;#39;footnotesize&amp;#39;, single.row = F,
+type = &amp;#39;latex&amp;#39;, header = F,
+column.labels = c(&amp;#39;Baseline panel&amp;#39;,&amp;#39;Partial penalty&amp;#39;, &amp;#39;Full penalty&amp;#39;),
+keep = c(&amp;#39;dfallhigh&amp;#39;,&amp;#39;frez_spring&amp;#39;,&amp;#39;penalty_dfallhigh&amp;#39;,&amp;#39;penalty_frez_spring&amp;#39;),
+covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;),
+coef = list(mreg5[,1][c(4,8)], mrpenalty.1[,1][c(4,8,20,21)], mrpenalty.2[,1][c(4,8,23,27)]),
+se = list(mreg5[,2][c(4,8)], mrpenalty.1[,2][c(4,8,20,21)], mrpenalty.2[,2][c(4,8,23,27)]),
+t = list(mreg5[,3][c(4,8)], mrpenalty.1[,3][c(4,8,20,21)], mrpenalty.2[,3][c(4,8,23,27)]),
+p = list(mreg5[,4][c(4,8)], mrpenalty.1[,4][c(4,8,20,21)], mrpenalty.2[,4][c(4,8,23,27)]),
+model.names = F,dep.var.caption = &amp;#39;Winter wheat yields&amp;#39;,
+dep.var.labels.include = F,omit.stat = c(&amp;quot;rsq&amp;quot;, &amp;quot;f&amp;quot;,&amp;#39;ser&amp;#39;),
+ci = F, digits = 3, model.numbers = T,
+add.lines = list(c(&amp;#39;County fixed effect&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Linear time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Quadratic time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The created table looks like below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/notes_in_r/2021-05-07-problems-i-encountered-while-creating-tables-for-regression-results.en_files/reg_table.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div id=&#34;select-variables-to-be-reported-in-the-table&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Select variables to be reported in the table&lt;/h4&gt;
+&lt;p&gt;This can be done by using the &lt;code&gt;keep&lt;/code&gt; or &lt;code&gt;omit&lt;/code&gt; parameter in &lt;code&gt;stargazer&lt;/code&gt;. My feeling is that &lt;code&gt;keep&lt;/code&gt; is more convenient. You just need to specify the names of variables (in the regression) you want to present in the final table. See an example below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;keep = c(&amp;#39;dfallhigh&amp;#39;,&amp;#39;frez_spring&amp;#39;,&amp;#39;penalty_dfallhigh&amp;#39;,&amp;#39;penalty_frez_spring&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following that, you can further specify the namesto be presented in the table.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;present-underscores-as-text&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Present underscores as text&lt;/h4&gt;
+&lt;p&gt;Underscores won’t be printed in the final table because it is recognized as a special character in R and Latex. To print underscore as text, use &lt;code&gt;\&lt;/code&gt; to skip. See an example below. This also applies to other special characters (i.e. dollar sign). The code below will print &lt;code&gt;DDhigh_fall&lt;/code&gt; in the table.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+covariate.labels = c(&amp;#39;DDhigh\\_fall&amp;#39;,&amp;#39;Frez\\_spring&amp;#39;,&amp;#39;DDhigh\\_fall\\_penalty&amp;#39;,
+                               &amp;#39;Frez\\_spring\\_penalty&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customize-the-t-statistics-and-p-values&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Customize the t statistics and p values&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;stargazer&lt;/code&gt; allows users to manually specify the coefficients, t statistics, and p values. This could be extremely helpful when it comes to robust errors which are not reported in original regression results.&lt;/p&gt;
+&lt;p&gt;To do this in &lt;code&gt;stargazer&lt;/code&gt;, use &lt;code&gt;coef&lt;/code&gt;, &lt;code&gt;se&lt;/code&gt;, &lt;code&gt;t&lt;/code&gt;, and &lt;code&gt;p&lt;/code&gt; parameters. See the example below. I first specify the coefficients I want to report in the table (which should be consistent with the &lt;code&gt;keep&lt;/code&gt; parameter). &lt;code&gt;mreg5&lt;/code&gt;, &lt;code&gt;mrpenalty.1&lt;/code&gt;, and &lt;code&gt;mrpenalty.1&lt;/code&gt; are objects that resulted from the &lt;code&gt;coeftest&lt;/code&gt; function. Similarly, &lt;code&gt;se&lt;/code&gt; parameter corresponds to the robust standard errors in those objects.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;coef = list(mreg5[,1][c(4,8)], mrpenalty.1[,1][c(4,8,20,21)], mrpenalty.2[,1][c(4,8,23,27)])
+se = list(mreg5[,2][c(4,8)], mrpenalty.1[,2][c(4,8,20,21)], mrpenalty.2[,2][c(4,8,23,27)])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-lines-in-the-table&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Add lines in the table&lt;/h4&gt;
+&lt;p&gt;In addition to the main regression results, you can manually add lines to report the fixed effects. The number of elements in each line should be consistent with the column numbers.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;add.lines = list(c(&amp;#39;County fixed effect&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Linear time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;),
+                           c(&amp;#39;Quadratic time trend&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;,&amp;#39;Yes&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to do clustering for panel data model in R</title>
+      <link>https://yabin-da.com/notes_in_r/how-to-do-clustering-for-panel-data-model-in-r/</link>
+      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/how-to-do-clustering-for-panel-data-model-in-r/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#an-introduction-of-clustering-in-panel-data-models&#34;&gt;An introduction of clustering in panel data models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-in-r&#34;&gt;Clustering in R&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#importing-the-data&#34;&gt;Importing the data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#running-the-fixed-effect-model&#34;&gt;Running the fixed effect model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-the-standard-erros&#34;&gt;Clustering the standard erros&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#takeaways&#34;&gt;Takeaways&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;an-introduction-of-clustering-in-panel-data-models&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;An introduction of clustering in panel data models&lt;/h3&gt;
+&lt;p&gt;In my last post, I briefly introduced standard error clustering in panel data settings. In this post, I will continue the topic and present how to do the clustering in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Before we move to the coding part, I’d like to clarify several things. First, the panel model I focus on in this post refers to the fixed effect panel data model, which is distinct from the random effect model. These two models differ from each other in terms of the assumption of the unobserved individual effects. The random effect model assumes the individual effects are unrelated to the independent variables, whereas the fixed effect model allows the presence of arbitrary correlations. You are encouraged to go over the textbook by Wooldridge (2010) if you want to learn more.&lt;/p&gt;
+&lt;p&gt;In practice, the fixed effect model is much more privileged than the random effect model. Because we suspect there exist unobserved individual effects that are correlated with the covariates and we use the fixed effect model to control for the unobservables to alleviate omitted variable bias.&lt;/p&gt;
+&lt;p&gt;Back to our topic, clustering in the fixed effect model is straightforward. We can either cluster at &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (individual level) or &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; (time level). The former case is robust to heterogeneity and serial correlation within the individual, whereas the latter one allows correlations across individuals yet is unable to take account of the serial correlations.&lt;/p&gt;
+&lt;p&gt;You may ask how to determine which level to cluster at? The rule of thumb is that in panels where you have a large number of individuals and a short period, you should cluster at the individual level. Analogously, if you have a few individuals that were observed during a long time slot, you should cluster at the time level.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can also “cluster” at both individual and time levels (also known as two-way clustering). See &lt;a href=&#34;https://cran.r-project.org/web/packages/multiwayvcov/multiwayvcov.pdf&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Clustering in the random effect model is slightly different than that in the fixed effect counterpart. With a few more assumptions (again refer to Wooldridge (2010) for more details), we can use GLS to estimate standard errors. In such cases, we gain efficiency (because we have a smaller number of unknowns to estimate in the variance and covariance matrix), however, the payoff is the standard errors are less robust because we imposed additional assumptions in the first place. Thus, in some circumstances, regular clustering is also recommended in random effect model settings.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-in-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Clustering in R&lt;/h3&gt;
+&lt;p&gt;Before we perform clustering, we need to run the panel data model first. You can either use the &lt;code&gt;lm&lt;/code&gt; function or the &lt;code&gt;plm&lt;/code&gt; function from the &lt;code&gt;plm&lt;/code&gt; package. I personally prefer the latter over the former. Thus, in this post, I am going to stick with the &lt;code&gt;plm&lt;/code&gt; package.&lt;/p&gt;
+&lt;div id=&#34;importing-the-data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Importing the data&lt;/h4&gt;
+&lt;p&gt;I am going to run a panel data model to examine the effects of weather conditions on crop yields. The data can be downloaded from &lt;a href=&#34;https://drive.google.com/file/d/1Y8gxJVhkyzX1rEznbXq3atC75ndhlGUz/view?usp=sharing&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse) 
+library(plm)
+library(lmtest)
+library(clubSandwich)
+library(sandwich)
+
+df &amp;lt;- read_csv(&amp;#39;dataforclustering.csv&amp;#39;,
+               col_types = cols(new_code = col_character()))
+
+head(df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   new_code  Year wheat  tavg    pc
+##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 130402    1987  1.64  8.15 103. 
+## 2 130402    1988  1.62  8.29 177. 
+## 3 130402    1989  5.37  9.17  95.4
+## 4 130402    1999  4.75 10.3   41.4
+## 5 130402    2000  4.75  9.29  88.9
+## 6 130402    2001  4.75  8.83 151.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;new_code&lt;/code&gt; represents the counties (individuals).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Year&lt;/code&gt; indicates the time index.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wheat&lt;/code&gt; refers to winter wheat yield in tons/hectare.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tavg&lt;/code&gt; stands for the average temperature over the growing season (October to May).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pc&lt;/code&gt; is the accumulation of precipitation over the growing season.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;running-the-fixed-effect-model&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Running the fixed effect model&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note I only included the county fixed effect in the model.
+reg &amp;lt;- df %&amp;gt;%
+  pdata.frame(index = c(&amp;#39;new_code&amp;#39;,&amp;#39;Year&amp;#39;)) %&amp;gt;% # specify the inidivual and year index
+  plm(formula = log(wheat) ~ tavg + I(tavg^2) + pc + I(pc^2), 
+      data = ., effect = &amp;#39;individual&amp;#39;, model = &amp;#39;within&amp;#39;)
+
+summary(reg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Oneway (individual) effect Within Model
+## 
+## Call:
+## plm(formula = log(wheat) ~ tavg + I(tavg^2) + pc + I(pc^2), data = ., 
+##     effect = &amp;quot;individual&amp;quot;, model = &amp;quot;within&amp;quot;)
+## 
+## Unbalanced Panel: n = 352, T = 10-34, N = 8867
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -7.158354 -0.132313  0.081255  0.255566  1.144955 
+## 
+## Coefficients:
+##              Estimate  Std. Error t-value  Pr(&amp;gt;|t|)    
+## tavg       4.4441e-01  5.0411e-02  8.8156 &amp;lt; 2.2e-16 ***
+## I(tavg^2) -8.5789e-03  2.6044e-03 -3.2940 0.0009917 ***
+## pc         1.8988e-03  2.0575e-04  9.2285 &amp;lt; 2.2e-16 ***
+## I(pc^2)   -2.6568e-06  3.3927e-07 -7.8309 5.425e-15 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Total Sum of Squares:    2107.6
+## Residual Sum of Squares: 1726.4
+## R-Squared:      0.18087
+## Adj. R-Squared: 0.1467
+## F-statistic: 469.818 on 4 and 8511 DF, p-value: &amp;lt; 2.22e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As can be been, with raw (no clustering) standard errors, we got statistically significant coefficients on temperature and precipitation. We then move forward to clustering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-the-standard-erros&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Clustering the standard erros&lt;/h4&gt;
+&lt;p&gt;There are three functions available to do the clustering.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can use the &lt;code&gt;vcovHC&lt;/code&gt; function in the &lt;code&gt;plm&lt;/code&gt; package to construct the variance-covariance matrix.&lt;/li&gt;
+&lt;li&gt;Alternatively, you can use the &lt;code&gt;vcovHC&lt;/code&gt; function from the &lt;code&gt;sandwich&lt;/code&gt; package to do the task.&lt;/li&gt;
+&lt;li&gt;Or &lt;code&gt;vcovCR&lt;/code&gt; function from the &lt;code&gt;clubSandwich&lt;/code&gt; package to do the task.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The first approach: vcovHC from the plm package
+# &amp;#39;arellano&amp;#39; is the recommanded method as it does not 
+# impose restrictions on the structure of the variance-covariance matrix.
+# cluster = &amp;#39;group&amp;#39; indicates we cluster at county level
+# type = &amp;#39;HC3&amp;#39; is for small-sample adjustment.
+method1 &amp;lt;- coeftest(reg, vcov = function(x) 
+  plm::vcovHC(x, method = &amp;#39;arellano&amp;#39;, cluster = &amp;#39;group&amp;#39;, type = &amp;#39;HC3&amp;#39;))
+
+# The second approach: vcovHC from the sandwich package
+# You may have noticed that there does not exist a parameter for us 
+# to specify the clustering level.
+method2 &amp;lt;- coeftest(reg, vcov = function(x) 
+  sandwich::vcovHC(x, type = &amp;#39;HC3&amp;#39;))
+
+# The third approach: vcovHC from the clubSandwich package
+# type = &amp;#39;CR2&amp;#39; is recommanded for small-sample adjustment.
+# cluster = df$new_code indicates we cluster at the individual level.
+method3 &amp;lt;- coeftest(reg, vcov = function(x) 
+  clubSandwich::vcovCR(x, type = &amp;#39;CR2&amp;#39;, cluster = df$new_code))
+
+# Compare the estimated standard errors
+
+comse &amp;lt;- bind_cols(method1[,2], method2[,2], method3[,2]) %&amp;gt;% 
+  rename(&amp;#39;plm&amp;#39; = &amp;#39;...1&amp;#39;,
+         &amp;#39;sandwich&amp;#39; = &amp;#39;...2&amp;#39;,
+         &amp;#39;clubsandwich&amp;#39; = &amp;#39;...3&amp;#39;) %&amp;gt;% print(.)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
+##           plm    sandwich clubsandwich
+##         &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 0.0721      0.0721       0.0724     
+## 2 0.00360     0.00360      0.00361    
+## 3 0.000233    0.000233     0.000234   
+## 4 0.000000375 0.000000375  0.000000377&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see, &lt;code&gt;plm&lt;/code&gt; and &lt;code&gt;sandwich&lt;/code&gt; gave us identical clustered standard errors, whereas &lt;code&gt;clubsanwich&lt;/code&gt; returned slightly larger standard errors. Note that in the analysis above, we clustered at the county (individual) level.&lt;/p&gt;
+&lt;p&gt;Things are different if we clustered at the year (time) level. Simply change the &lt;code&gt;cluster = &#39;group&#39;&lt;/code&gt; to &lt;code&gt;cluster = &#39;time&#39;&lt;/code&gt; in method one, and adjust &lt;code&gt;cluster = df$new_code&lt;/code&gt; to &lt;code&gt;cluster = df$Year&lt;/code&gt; in method three. See below. The &lt;code&gt;vcovHC&lt;/code&gt; function from the &lt;code&gt;sandwich&lt;/code&gt; package does not allow us to choose which level to cluster the standard errors at.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;method1_time &amp;lt;- coeftest(reg, vcov = function(x) 
+  plm::vcovHC(x, method = &amp;#39;arellano&amp;#39;, cluster = &amp;#39;time&amp;#39;, type = &amp;#39;HC3&amp;#39;))
+
+method3_time &amp;lt;- coeftest(reg, vcov = function(x) 
+  clubSandwich::vcovCR(x, type = &amp;#39;CR2&amp;#39;, cluster = df$Year))
+
+comse_time &amp;lt;- bind_cols(method1_time[,2], method2[,2], method3_time[,2]) %&amp;gt;% 
+  rename(&amp;#39;plm&amp;#39; = &amp;#39;...1&amp;#39;,
+         &amp;#39;sandwich&amp;#39; = &amp;#39;...2&amp;#39;,
+         &amp;#39;clubsandwich&amp;#39; = &amp;#39;...3&amp;#39;) %&amp;gt;% print(.)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
+##          plm    sandwich clubsandwich
+##        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 0.189      0.0721        0.208     
+## 2 0.00865    0.00360       0.00996   
+## 3 0.00114    0.000233      0.00124   
+## 4 0.00000138 0.000000375   0.00000150&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;takeaways&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Takeaways&lt;/h3&gt;
+&lt;p&gt;In applications where you cluster standard errors at the individual level, all three methods should work just fine. However, if you want to cluster at the time level (or other alternative levels), you may refer to the embedded &lt;code&gt;vcovHC&lt;/code&gt; function in the &lt;code&gt;plm&lt;/code&gt; package or the &lt;code&gt;vcovCR&lt;/code&gt; function from the &lt;code&gt;clubSandwich&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;Well, actually I would say it’s better to just stick with the &lt;code&gt;plm&lt;/code&gt; and/or &lt;code&gt;clubSandwich&lt;/code&gt;approaches regardless of what level your standard errors were clustered at. The &lt;code&gt;sandwich&lt;/code&gt; package is sort of particularly designed for clustering in &lt;code&gt;lm&lt;/code&gt; or &lt;code&gt;glm&lt;/code&gt; regressions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;Jeffrey M Wooldridge, 2010. “Econometric Analysis of Cross Section and Panel Data,” MIT Press Books, The MIT Press, edition 2.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Inference in Casual Settings</title>
+      <link>https://yabin-da.com/notes_in_r/statistical-inference-in-casual-settings/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/statistical-inference-in-casual-settings/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#robust-standard-errors&#34;&gt;Robust standard errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-in-group-data&#34;&gt;Clustering in group data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#serial-correlation-in-panel-data&#34;&gt;Serial correlation in panel data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;There are particularly two concerns regarding the statistical inferences on causal effects: correlations within groups, and serial correlation. The first concern fits the group data, whereas the second concern matches the panel data settings. Here for group data, I mean data observed within treatment groups (of course), for instance, test scores of students within the same class, wages of individuals within the same state, etc. In other words, there is no time dimension in the data. For the panel data, in contrast, we observe each student/worker multiple times and construct a panel (months, years, etc.). Both cases are common in casual studies, however, the latter one is more privileged, thanks for the development of Difference in Difference (DiD).&lt;/p&gt;
+&lt;p&gt;In this note, I will address the statistical inference concerns on casual effect studies, such as the bias in robust standard error, correlations within groups, and serial correlations. In practice, some of these concerns are well stressed, however, the rest of them are largely ignored. This will lend practitioners to over-reject the null hypothesis of no effects and conclude a casual effect that does not exist.&lt;/p&gt;
+&lt;p&gt;Numerous approaches are available to fix these concerns, yet, they are confusing for beginners (at least for me), who may find it difficult to choose the &lt;strong&gt;&lt;em&gt;correct&lt;/em&gt;&lt;/strong&gt; one to fix their specific problem. This post attempts to provide a guide for beginners.&lt;/p&gt;
+&lt;p&gt;Below, I firstly introduce some background information on robust standard errors. Following that, I discuss the clustering problem in group data. Thirdly, we focus on the serial correlation in panel data. Finally, I close the note.&lt;/p&gt;
+&lt;p&gt;You are highly recommended to consult the seminal work by Angrist and Pischke: Mostly Harmless Econometrics for technical details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;robust-standard-errors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Robust standard errors&lt;/h3&gt;
+&lt;p&gt;Before we move to the clustering and serial correlation, I’d like to pave the road by talking about the &lt;em&gt;robust&lt;/em&gt; standard errors first. Robust standard errors are in opposition to the &lt;em&gt;conventional&lt;/em&gt; standard errors which assumes homoskedasticity. This is a strong assumption and frequently fails in practice. The robust standard errors, on other hand, relax this restriction and are preferable in empirical studies.&lt;/p&gt;
+&lt;p&gt;One thing that should be mentioned is that for finite samples, both variance estimators are also &lt;em&gt;biased&lt;/em&gt;. In practice, the bias should be corrected which can be easily done in modern statistical software. The last thing you need to do is to do it right.&lt;/p&gt;
+&lt;p&gt;One can fix the bias of conventional estimators via a simple degree-of-freedom correction. This is also the &lt;em&gt;default&lt;/em&gt; setting in most statistical software. If you are pursuing standard errors under homoskedasticity, you are happy with the default estimates. Things get a little bit complicated in the heteroskedasticity world, yet simple remedies are handy. There are several alternative correction approaches such as &lt;em&gt;HC1, HC2, and HC3&lt;/em&gt;. In application, the estimated standard errors tend to get larger as we go down the list from &lt;em&gt;HC1 to HC3&lt;/em&gt; (Angrist and Pischke 2008). Note that all these corrections aim to fix the bias induced by finite samples. Also, note that heteroskedasticity rarely leads to dramatic changes in inferences if the sample size is large.&lt;/p&gt;
+&lt;p&gt;One largely ignored concern is the &lt;em&gt;robust&lt;/em&gt; estimators are more biased than the conventional ones when we have homoskedasticity or the heteroskedasticity is moderate (Angrist and Pischke 2008). In these cases, we may end up with robust standard errors even lower than the conventional standard error and consequently over-reject the null hypothesis of no effect. That says if you are confident that you have homoskedasticity or you have reasons to believe the heteroskedasticity is moderate, you should go after a conventional standard error framework.&lt;/p&gt;
+&lt;p&gt;There are no golden rules to determine whether the heteroskedasticity is moderate or not. In practices, the heteroskedasticity setting way dominates the homoskedasticity counterpart. In such cases, I think the &lt;em&gt;HC2&lt;/em&gt; correction should do the job in most cases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-in-group-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Clustering in group data&lt;/h3&gt;
+&lt;p&gt;I just discussed the robust standard errors in the cross-sectional regressions. For group data, things get complicated. Recall that the group data here has no time dimension to distinguish with the panel data which I will talk about shortly. A simple example is the test scores of students from different classes and schools.&lt;/p&gt;
+&lt;p&gt;You can of course think about this type of estimate as a regular cross-sectional regression. However, the statistical inference you draw from this simple cross-sectional setting will be problematic even though with corrected robust standard errors. That is because you missed the potential correlations within the group, for instance, test scores of students from the same class tend to correlate with each other. This omission of correction within group will bias the standard errors downward and lead you to mistakenly over-reject the null hypothesis.&lt;/p&gt;
+&lt;p&gt;The bias is largely guided by the Moulton factor (Angrist and Pischke 2008) which increases with group size (the overall sample size is fixed). Intuitively, larger group size indicates fewer groups (clusters), in which case there is less independent information in the sample (because we assume there is no correlation across clusters).&lt;/p&gt;
+&lt;p&gt;To fix the bias stemmed from within-group correlations, we can either&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;inflate the conventional standard errors by the Moulton factor. For technical notes please refer to (Angrist and Pischke 2008). The factor is supplied as descriptive statistics in some software packages (&lt;em&gt;loneway&lt;/em&gt; command in Stata).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cluster at the group level, like clusters in panel data which we will cover shortly. The concern here is cluster errors are unlikely to be reliable with few clusters. Recall that the clustered variance-covariance matrix is derived by averaging across clusters. With few clusters, this moment estimate tends to be inconsistent.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;average the individual level data to group level and perform a regular WLS regression with group sizes as weights. The &lt;em&gt;premise&lt;/em&gt; for this approach is the treatment variable only varies at the group level. In practices, we always have covariates that vary at the individual level. In such cases, we need to transform the individual-level covariates to covariate-adjusted group effects. Specifically, first run a regression of the outcome on a full set of group dummies and the covariates (note that the treatment variable is absent from the regression). Then run the WLS regression of estimated group effects (the group dummies from the first regression) on the treatment variables. The group-level estimates are preferable to the clustering approach in the context of few clusters.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;serial-correlation-in-panel-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Serial correlation in panel data&lt;/h3&gt;
+&lt;p&gt;Unlike the group data, panel data has a time dimension in it, for instance, wages varying across years. In many cases, we expect these observations are correlated over time. Serial correlations are well documented in general panel data settings, i.e. fixed effect and random effect panel data models. In those general settings, there are no treatment variables (i.e. binary treatment variable), nor are treated groups and control groups. A simple example for such setting is the regression of crop yields on weather variables using county-level data. To address serial correlations in counties, you can cluster at the county level. To further address the spatial correlation across counties within states, we can cluster at a higher level, say state level (this is the nonparametric way, you can also choose the parametric approach by assuming that the spatial correlation follows some parametric function forms).&lt;/p&gt;
+&lt;p&gt;Panel data in the causal effect settings, particularly the Two-Way Fixed Effects DiD, is different from the general panel data settings. In these cases, we have treatment groups, control groups, treatment variables that vary at group (state) level, and covariates that are observed at the individual (county) level. The error terms in such settings could be correlated within/across counties, as well as within/across states. In practice, correlations within/across counties are commonly fixed by clustering at the state-year level under the assumption that there are no correlations across states and years.&lt;/p&gt;
+&lt;p&gt;However, this assumption could be easily violated in empirical studies. For instance, if a state experienced an economic shock in one year, we expect the shock to persist to next year. The ignored serial correlations can seriously bias the standard error estimates (Bertrand, Duflo, and Mullainathan 2004). Fortunately, we have alternative ways to fix the problem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The simplest and most widely applied approach is to pass the clustering cell one level higher. Say, we cluster at the state level rather than the state-year level. The problem here is the number of clusters is reduced and consequently leads the standard error estimates less precise. The empirical question is what is the minimum number of clusters that will render us reliable inference. The short answer is 42. I recommend you to refer to Angrist and Pischke (2008) for more details.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;An alternative approach is to introduce a state-specific trend into the model to account for serial correlation. Angrist and Pischke (2008) did not talk about this approach in their book, however, I think it makes sense. If the state trend is controlled, we are at least partly free from the serial correlation problems.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;In this post, I discussed the statistical inference in regression analysis with a focus on causal inference. For a simple cross-sectional regression, you may need to take care of the heterogeneity by constructing robust standard errors. Besides, you can also go further by performing finite-sample corrections to mitigate biases in standard errors. Most modern statistical software allows you to do it very easily.&lt;/p&gt;
+&lt;p&gt;In the grouped data, you need to take care of the potential correlations within groups. To do so, you can either cluster standard errors at the group level, which is appealing if you have a reasonable number of clusters; alternatively, you can also average the individual level data to group level and perform a regular WLS regression with group sizes as weights. This approach is promising if you have limited clusters. You are always recommended to do a sensitivity analysis to compare the standard errors estimated from these two approaches.&lt;/p&gt;
+&lt;p&gt;Lastly, for the panel data in causal inference setting, clustering at the group-year level has still dominated the literature though the estimated standard errors could be significantly biased downward because of ignoring the serial correlation, which leads to the practitioners to over-reject the null hypothesis. To mitigate the bias, you can cluster at the group-level instead. The downside is we will have fewer clusters and experience computational burdens.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;Angrist, J.D., and J.-S. Pischke. 2008. Mostly Harmless Econometrics: An Empiricist’s Companion. Princeton University Press.&lt;/p&gt;
+&lt;p&gt;Bertrand, M., E. Duflo, and S. Mullainathan. 2004. “How Much Should We Trust Differences-In-Differences Estimates?” The Quarterly Journal of Economics 119(1):249–275.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A TAMU LaTex beamer template in R Markdown</title>
+      <link>https://yabin-da.com/notes_in_r/a-latex-template-for-beamer-presentation-in-r-markdown/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/a-latex-template-for-beamer-presentation-in-r-markdown/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#download-the-tamu-template&#34;&gt;Download the TAMU template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#include-tamu-logo&#34;&gt;Include TAMU LOGO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#maroon-color&#34;&gt;Maroon color&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-changes-i-made-to-the-template&#34;&gt;Other changes I made to the template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-the-template-in-r-markdown&#34;&gt;Using the template in R Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-include-latex-tables-in-r-markdown&#34;&gt;How to include LaTex tables in R Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;I really like beamer presentations (slides) in the LaTex manner. It’s very neat and looks pretty professional. These beamer presentations are particularly preferable in academics.&lt;/p&gt;
+&lt;p&gt;There is no need for you to build a LaTex beamer from the very beginning. Plenty of templates are available, just GOOGLE it. You may even find templates that are officially provided by your university.&lt;/p&gt;
+&lt;p&gt;The advantage of LaTex is that it’s very flexible, yet sometimes maybe too flexible and difficult to pick up for beginners. So I decided to move to R Markdown which I am more familiar with and I think is easier than LaTex.&lt;/p&gt;
+&lt;p&gt;The problem with R Markdown beamer is that the official cookbook only covers limited features. In most cases, it’s better to use a LaTex &lt;strong&gt;template&lt;/strong&gt; to start with in R Markdown. In this way, you can do all the fancy customization in the LaTex template and in R Markdown you just fill the content of your slides.&lt;/p&gt;
+&lt;p&gt;I found this nice LaTex template developed by &lt;a href=&#34;http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/&#34;&gt;Dr. Steven V. Miller&lt;/a&gt;. He eliminated unnecessary navigation and blank lines to make the best use of available spaces. From his website, you can learn how to customize the template based on your needs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;download-the-tamu-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Download the TAMU template&lt;/h3&gt;
+&lt;p&gt;Here from my &lt;a href=&#34;https://github.com/dayabin/TAMUBeamer&#34;&gt;Github&lt;/a&gt;, you can directly download the TAMU template with maroon color and TAMU logo (&lt;code&gt;TAMUTemplate.tex&lt;/code&gt;). You can also find an example of TAMU beamer presentation there (&lt;code&gt;TAMUBeamer.pdf&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Below I will briefly introduce the changes I made to Dr. Miller’s original template. Before you start your editing, you are recommended to quickly go over the template to have a basic idea of what’s going on there.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;include-tamu-logo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Include TAMU LOGO&lt;/h3&gt;
+&lt;p&gt;You may want to include TAMU logo in your title page of your slide. Information about TAMU branding, including logo, color, font, etc. can be found from &lt;a href=&#34;https://brandguide.tamu.edu/visual-style/logos/downloads.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To include, go to the template and navigate to the code section like below. Here I use an absolute path. You just need to replace with paths on your local machine.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+\titlegraphic{\includegraphics[width=0.4\paperwidth]{C:/work/TAMUBeamer/tamu/tamu.png}} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;maroon-color&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Maroon color&lt;/h3&gt;
+&lt;p&gt;To customize colors in the template, you can go to the code section below. I define two colors, &lt;code&gt;tamumaroon&lt;/code&gt; and &lt;code&gt;tamuwhite&lt;/code&gt;. In the second part of the code section, you can customize colors for frame title, title, block title, etc.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;% Some optional colors. Change or add as you see fit.
+%---------------------------------------------------
+\definecolor{tamumaroon}{HTML}{500000}
+\definecolor{tamuwhite}{HTML}{FFFFFF}
+
+
+% Some optional color adjustments to Beamer. Change as you see fit.
+%------------------------------------------------------------------
+\setbeamercolor{frametitle}{fg=tamuwhite,bg=tamumaroon}
+\setbeamercolor{title}{fg=tamuwhite,bg=tamumaroon}
+\setbeamercolor{local structure}{fg=tamumaroon}
+\setbeamercolor{section in toc}{fg=tamuwhite,bg=tamumaroon}
+\setbeamercolor{subsection in toc}{fg=tamuwhite,bg=tamumaroon}
+\setbeamercolor{footline}{fg=tamumaroon, bg=tamuwhite}
+\setbeamercolor{block title}{fg=tamuwhite, bg=tamumaroon}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-changes-i-made-to-the-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Other changes I made to the template&lt;/h3&gt;
+&lt;p&gt;I also slightly edited the original template based on suggestions by a contributor at Stackoverflow. See the post &lt;a href=&#34;https://stackoverflow.com/questions/64374791/page-number-not-showing-in-r-markdown-beamer-while-using-a-latex-template/64375699?noredirect=1#comment113835188_64375699&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-the-template-in-r-markdown&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Using the template in R Markdown&lt;/h3&gt;
+&lt;p&gt;The YAML header in R Markdown would like something below. You need to specify the path where you store the template. Here I created a folder particularly for the template. Here again I use an absolute path.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+---
+title: &amp;quot;TAMUBeamer&amp;quot;
+subtitle: &amp;quot;&amp;quot;
+author: Yabin Da
+date: &amp;quot;2021-01-17&amp;quot;
+institute: Department of Agricultural Economics
+fontsize: 10pt
+output:
+ beamer_presentation:
+    template: C:/work/TAMUBeamer/TAMUBeamer/TAMUTemplate.tex
+    keep_tex: true
+    slide_level: 3
+make149: true
+
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You should set &lt;code&gt;keep_tex:true&lt;/code&gt;, which will retain the LaTex file that actually creates your beamer slides. I found it’s very intuitive for troubleshooting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-include-latex-tables-in-r-markdown&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How to include LaTex tables in R Markdown&lt;/h3&gt;
+&lt;p&gt;At the end of this post, I want say something about how to include LaTex tables in beamer presentation in R Markdown.&lt;/p&gt;
+&lt;p&gt;According to my experience, there are two different types of tables: user-defined tables and regression result tables.&lt;/p&gt;
+&lt;p&gt;For the first scenario, it can be a data frame containing data or other important information that you want to present as a table in your presentation. In this case, you’d better refer to the &lt;code&gt;kbl&lt;/code&gt; function from the &lt;code&gt;kableExtra&lt;/code&gt; package. It has numerous features and is easy to customize based on your needs. You are highly recommended to check out this &lt;a href=&#34;https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview&#34;&gt;website&lt;/a&gt; for more detailed information.&lt;/p&gt;
+&lt;p&gt;Below I show a code example and the created table in beamer slide.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- read_csv(&amp;#39;cutoff.csv&amp;#39;)
+
+df %&amp;gt;%
+  kbl(booktabs = T,caption = &amp;#39;Estimated temperature thresholds for each of the seasons&amp;#39;, linesep = &amp;quot;&amp;quot;) %&amp;gt;%
+  kable_styling(full_width = F, font_size = 7) %&amp;gt;% 
+  footnote(general = &amp;quot;\\\\tiny{Note: The lower threshold is restricted to be at least 5 °C above zero and 10 °C below the maximum temperature. The upper threshold is set to be at least 5 °C above the lower threshold and 5 °C below the maximum temperature. Relaxing those restrictions do not significantly change the results.}&amp;quot;,footnote_as_chunk = T,
+           threeparttable = T, escape = F,
+           general_title = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-10-17-a-latex-template-for-beamer-presentation-in-r-markdown.en_files/table1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here I’d like to emphasize two more things. Firstly, the default font for table note is &lt;code&gt;footnote&lt;/code&gt;. If you have a very long note, you may need change to &lt;code&gt;tiny&lt;/code&gt; (see the &lt;code&gt;footnote&lt;/code&gt; in the code chunk). But do REMEMBER to set the &lt;code&gt;escape = F&lt;/code&gt;, otherwise the &lt;code&gt;\\\\tiny&lt;/code&gt; command won’t be rendered by R Markdown.&lt;/p&gt;
+&lt;p&gt;Secondly, by default the footnote will be a list below the table. That means the word &lt;code&gt;Note:&lt;/code&gt; will be in the row of the note. The content of the note starts at the second row. You can set &lt;code&gt;footnote_as_chunk = T&lt;/code&gt; to fix this problem.&lt;/p&gt;
+&lt;p&gt;However, the appearance of the footnote is still wired (see the image below). Therefore, I set the &lt;code&gt;general_title = &#34;&#34;&lt;/code&gt; to remove the default &lt;code&gt;Note:&lt;/code&gt; and directly start my note with &lt;code&gt;Note:&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-10-17-a-latex-template-for-beamer-presentation-in-r-markdown.en_files/table2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To be continued for the regression result tables.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Start your first post with blogdown website</title>
+      <link>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#start-your-first-post&#34;&gt;Start your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-your-first-post&#34;&gt;Customize your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-embed-images-in-your-website&#34;&gt;How to embed images in your website&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-via-insert-image-in-addins&#34;&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-with-knitrinclude_graphic&#34;&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After you successfully create your website with &lt;code&gt;blogdown&lt;/code&gt;, you may want to start your first post right away. In this short section, I am going to briefly introduce how to create a new post with &lt;code&gt;blogdown&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;start-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Start your first post&lt;/h3&gt;
+&lt;p&gt;I highly recommend you start your post using the &lt;code&gt;New Post&lt;/code&gt; button in &lt;code&gt;Addins&lt;/code&gt; in &lt;code&gt;RStudio&lt;/code&gt;. See the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot1.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;It’s followed by an interface, see the figure below. You can easily fill up the basic information for your new post, such as &lt;code&gt;Title&lt;/code&gt;, &lt;code&gt;Author&lt;/code&gt;, and &lt;code&gt;Date&lt;/code&gt;. The &lt;code&gt;Subdirectory&lt;/code&gt; will allow you to specify the type of this new post, either it can be a post or publication or talk etc.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Categories&lt;/code&gt; and &lt;code&gt;Tags&lt;/code&gt; fields will automatically display the existing categories and tags. But you can add new ones directly in the fields. The &lt;code&gt;Filename&lt;/code&gt; will be automatically generated. Finally, you are free to choose the &lt;code&gt;Format&lt;/code&gt; you are comfortable with. The differences between these three formats are explained &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot2.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customize-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Customize your first post&lt;/h3&gt;
+&lt;p&gt;After you click &lt;code&gt;Done&lt;/code&gt;, the associated &lt;code&gt;.Rmd&lt;/code&gt; file (if you chose the &lt;code&gt;.Rmd&lt;/code&gt; format) will show up in the respective folder under the &lt;code&gt;content&lt;/code&gt; folder. The &lt;code&gt;YAML&lt;/code&gt; front matter will also be created in the &lt;code&gt;.Rmd&lt;/code&gt; file. You can easily customize the &lt;code&gt;YAML&lt;/code&gt; front matter based on your needs.&lt;/p&gt;
+&lt;p&gt;For instance, if the post is a draft and is not ready to display on your website, you can simply add &lt;code&gt;draft: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;. When you are ready to publish the post, simply delete the &lt;code&gt;draft: true&lt;/code&gt; or set &lt;code&gt;true&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;. Additionally, if you want to feature this post, just add &lt;code&gt;feature: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another useful trick is that if you are writing a long post and wish to display the table of content in the post, you can add the followings to your &lt;code&gt;YAML&lt;/code&gt; front matter.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-embed-images-in-your-website&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How to embed images in your website&lt;/h3&gt;
+&lt;p&gt;One benefit of creating website with &lt;code&gt;blogdown&lt;/code&gt; is that it allows you to execute &lt;code&gt;R&lt;/code&gt; code chunks in the &lt;code&gt;Rmd&lt;/code&gt; files. That means you can easily add &lt;code&gt;R&lt;/code&gt; plots on your website. In this section, I will focus on how to insert external images instead.&lt;/p&gt;
+&lt;p&gt;It should be noted that all static content (i.e. images, data, etc.) on your website should be stored in the &lt;code&gt;static&lt;/code&gt; folder. You can create new folders inside the &lt;code&gt;static&lt;/code&gt; folder to organize static contents for each of the post.&lt;/p&gt;
+&lt;p&gt;Also note that the static contents will be automatically copied to the &lt;code&gt;public&lt;/code&gt; folder after we deploy the website.&lt;/p&gt;
+&lt;div id=&#34;insert-images-via-insert-image-in-addins&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;This is the easiest way to do the job. In the interface below, you can specify the &lt;code&gt;Width&lt;/code&gt; and &lt;code&gt;Height&lt;/code&gt; of the figure.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;Target file path&lt;/code&gt; will be automatically created and target to the &lt;code&gt;static&lt;/code&gt; folder. That says the inserted images will be automatically copied to the &lt;code&gt;static&lt;/code&gt; folder, regardless of the original image path.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After you click &lt;code&gt;done&lt;/code&gt;, the figure will be inserted by the code below. You can see that the image is placed to the automatically created folder &lt;code&gt;static/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files&lt;/code&gt; that is associated with the post.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![](/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The images will show up on your website. (see the armadillo below).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;insert-images-with-knitrinclude_graphic&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;In some cases, you may want to insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt; which is a function rooted in &lt;code&gt;R markdown&lt;/code&gt; and more straightforward.&lt;/p&gt;
+&lt;p&gt;The trick here is to correctly specify the image path. As I mentioned in the preceding section, the default path for static content is the &lt;code&gt;static&lt;/code&gt; folder. That means &lt;code&gt;R&lt;/code&gt; will search for the image in the default &lt;code&gt;static&lt;/code&gt; folder. So in order to successfully insert the external image, you should place the image in the &lt;code&gt;static&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;As &lt;code&gt;Knitr&lt;/code&gt; does not automatically create new folder under the &lt;code&gt;static&lt;/code&gt; folder, it’s recommended that you create new folders manually and store static contents (i.e. images) separately for each post. See the code chunk below.&lt;/p&gt;
+&lt;p&gt;Please remember to set the &lt;code&gt;error = FALSE&lt;/code&gt; in the &lt;code&gt;include_graphics&lt;/code&gt;, otherwise you will end up with errors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&amp;quot;, 
+                        error = False)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next you can customize the code chunk options to add figure caption, adjust figure alignment, output width, etc. See the example below.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; alt=&#34;This is a figure with smaller size&#34; width=&#34;50%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: This is a figure with smaller size
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building your personal website with R blogdown</title>
+      <link>https://yabin-da.com/notes_in_r/blogdownwebsite/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/blogdownwebsite/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#why-i-chose-blogdown-to-build-my-personal-website&#34;&gt;Why I chose blogdown to build my personal website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resources-for-building-website-with-blogdown&#34;&gt;Resources for building website with blogdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#potential-problems-with-the-template&#34;&gt;Potential problems with the template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#custermize-your-webiste&#34;&gt;Custermize your webiste&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-tips-that-might-be-useful-for-you&#34;&gt;Other tips that might be useful for you&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#add-publications-to-your-website&#34;&gt;Add publications to your website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;why-i-chose-blogdown-to-build-my-personal-website&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why I chose blogdown to build my personal website&lt;/h3&gt;
+&lt;p&gt;I used to host a personal website with &lt;code&gt;google site&lt;/code&gt;, which is nice and friendly to begninners. However in certain cases, google site may not be that handy. For instance, it is not compatible with &lt;code&gt;R markdown&lt;/code&gt; files. You are not allowed to upload html files generated by &lt;code&gt;R markdown&lt;/code&gt; to your Google site (technically you can do this by embedding the html codes, see &lt;a href=&#34;https://www.steegle.com/google-sites/how-to/insert-custom-code&#34;&gt;this&lt;/a&gt;, but that’s not what I wanted).&lt;/p&gt;
+&lt;p&gt;So if you plan to regularly share posts (such as html files or &lt;code&gt;R markdown&lt;/code&gt; files) on your website, &lt;code&gt;google site&lt;/code&gt; will probably let you down. Note that &lt;code&gt;Markdown&lt;/code&gt; file and &lt;code&gt;R markdown&lt;/code&gt; file are not the same though very similar, see the differences explained by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;Yihui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here comes the &lt;code&gt;blogdown&lt;/code&gt; package, which is designed for building personal websites. More importantly, it is a package rooted in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;RStuido&lt;/code&gt; and fully compatible with other &lt;code&gt;R&lt;/code&gt; components. If you are comfortable with &lt;code&gt;R&lt;/code&gt; programming, &lt;code&gt;blogdown&lt;/code&gt; will satisfy you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources-for-building-website-with-blogdown&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Resources for building website with blogdown&lt;/h3&gt;
+&lt;p&gt;There are countless resources and instructions available to guide you through step by step. See two good examples below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intuitive instructions by &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A throughout instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, before you hit the road, I’d like provide additional advice based on my experiences and hopefully you can benefit from it.&lt;/p&gt;
+&lt;p&gt;The basic idea is that you are not actually “creating” a website, instead, you customize a template. For instance, the template I used is called &lt;code&gt;Hugo Academic&lt;/code&gt;. A collection of templates can be found from &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After you finish the customization, you are highly recommended to deploy your website with &lt;code&gt;Github&lt;/code&gt; and &lt;code&gt;Netlify&lt;/code&gt;. Should you not worry about for this, because the instructions I provided above cover the whole process in details.&lt;/p&gt;
+&lt;p&gt;Long story in short, you can follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction and customize your website on your &lt;strong&gt;local machine&lt;/strong&gt; (this is the &lt;strong&gt;first step&lt;/strong&gt;), and then upload your website folder to a newly created repository in &lt;code&gt;Github&lt;/code&gt; (this is the &lt;strong&gt;second step&lt;/strong&gt;). To do that, you can either create a new repository directly on &lt;code&gt;Github&lt;/code&gt;, or you can take advantage of &lt;code&gt;Github Desktop&lt;/code&gt;. The &lt;strong&gt;third step&lt;/strong&gt; is to deploy using &lt;code&gt;Netlify&lt;/code&gt;, which is quite straightforward.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can also follow the step by step instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;, which is the official guide to create website using &lt;code&gt;hugo&lt;/code&gt; (the workhourse used in the blogdown package). That means the instruction is a general cookbook and is not particularly written for &lt;code&gt;R blogdown&lt;/code&gt;. For the &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt; instruction, you need to set up your &lt;code&gt;Github&lt;/code&gt; repository first and customize directly in &lt;code&gt;Github&lt;/code&gt;. The final deploying process is similar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The punchline is&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you are comfortable with &lt;code&gt;RStiduo&lt;/code&gt; and &lt;code&gt;R markdown&lt;/code&gt;, you may want to follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction.&lt;/li&gt;
+&lt;li&gt;If you are more familiar with &lt;code&gt;Github&lt;/code&gt;, you can try the instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;potential-problems-with-the-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Potential problems with the template&lt;/h3&gt;
+&lt;p&gt;If you follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction, you may encounter problems with the &lt;code&gt;gcushen/hugo-academic&lt;/code&gt; template. Remember to change the template to &lt;code&gt;wowchemy/starter-academic&lt;/code&gt;. See the snapshot below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;custermize-your-webiste&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Custermize your webiste&lt;/h3&gt;
+&lt;p&gt;After you complete your webiste using the template, you can move forward to custermizing the template based on your preference. To start with, follow this instruction &lt;a href=&#34;https://wowchemy.com/docs/getting-started/get-started/&#34;&gt;here&lt;/a&gt; to select a color theme and font theme for your website.&lt;/p&gt;
+&lt;p&gt;Then follow this &lt;a href=&#34;https://wowchemy.com/docs/getting-started/page-builder/&#34;&gt;instruction&lt;/a&gt; to custermize your homepage. You can delete unnecessary sections and create new sections based on your needs.&lt;/p&gt;
+&lt;p&gt;I know there are lots of stuff there but do not get yourself overwhelmed. Just try to play with it and you will be like a professional sooner or later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-tips-that-might-be-useful-for-you&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Other tips that might be useful for you&lt;/h3&gt;
+&lt;div id=&#34;add-publications-to-your-website&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Add publications to your website&lt;/h4&gt;
+&lt;p&gt;You can either automatically add publications through &lt;code&gt;*.bib&lt;/code&gt; BibTex files or manually add using &lt;code&gt;hugo&lt;/code&gt; command. See the instruction from &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-a-publication&#34;&gt;Wowchemy&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Automatically&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;You need to create a list of your own publication and export it as a &lt;code&gt;*.bib&lt;/code&gt; file. I highly recommend you do this with &lt;a href=&#34;https://www.zotero.org/&#34;&gt;Zotero&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you have installed the &lt;a href=&#34;https://www.anaconda.com/&#34;&gt;Anaconda&lt;/a&gt;, that says you have &lt;code&gt;Python&lt;/code&gt; installed on your computer. You can proceed by installing &lt;code&gt;academic&lt;/code&gt;. To do this, open your Terminal under &lt;code&gt;Anaconda&lt;/code&gt; (You can find it in the Window start menu, if you are using a Windows system), see the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot2.png&#34; /&gt;&lt;!-- --&gt;
+And then type the following command in the opened Terminal.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U academic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following that, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to your website folder in the terminal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot3.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, you will be able to import your publications with the command below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;academic import --bibtex &amp;lt;path_to_your/publications.bib&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here &lt;code&gt;&amp;lt;path_to_your/publications.bib&amp;gt;&lt;/code&gt; is the pah of your &lt;code&gt;bib&lt;/code&gt; file. Do &lt;strong&gt;remove&lt;/strong&gt; the &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; while you are pasting the path to the terminal. See the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot4.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now you should be able to see your publications in the &lt;code&gt;content/publication/&lt;/code&gt; folder of your website folder.&lt;/p&gt;
+&lt;p&gt;Note that the command will automatically create separate folders for each of your publications.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In each of the publication folder, you can customize the &lt;code&gt;index.md&lt;/code&gt; file based on your needs, such as adding &lt;code&gt;author_notes&lt;/code&gt;, &lt;code&gt;tags&lt;/code&gt;, and &lt;code&gt;publication_types&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To highly your name in the author list&lt;/strong&gt;, open the &lt;code&gt;config\params.toml&lt;/code&gt; file in your website folder, and set &lt;code&gt;highlight_superuser = true&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Manually&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Initially, I did not go over the approach of manually adding publications. However, later on, I figured out it’s quite useful when you have updates on your publication list such as a working paper or new publications. In these cases, the manually adding approach is handy and more convenient.
+Below I follow the instruction in &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-a-publication&#34;&gt;Wowchemy&lt;/a&gt; and briefly show you how to do the task. It’s very simple and just one line of code.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Follow the second step in the automatically adding publication approach and open your Terminal under &lt;code&gt;Anaconda&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Before you type any commands in the terminal, you need to first navigate to your website folder using the &lt;code&gt;cd&lt;/code&gt; command (see the second step in the automatic adding method).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then you simply type the code below to add your working papers and new publications, where &lt;code&gt;&amp;lt;my-publication&amp;gt;&lt;/code&gt; is the name of your publication, using hyphens (-) instead of spaces. Again do remember to remove the &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;hugo new --kind publication publication/&amp;lt;my-publication&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This command will automatically create a publication file in your &lt;code&gt;content/publication/&amp;lt;my-publication&amp;gt;/index.md&lt;/code&gt; folder. You can customize and add your inputs to the &lt;code&gt;index.md&lt;/code&gt;. Your updates will show up on your website after you deploy it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

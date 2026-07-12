@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fun | Yabin Da</title>
+    <link>https://yabin-da.com/category/fun/</link>
+      <atom:link href="https://yabin-da.com/category/fun/index.xml" rel="self" type="application/rss+xml" />
+    <description>Fun</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Fun</title>
+      <link>https://yabin-da.com/category/fun/</link>
+    </image>
+    
+    <item>
+      <title>Statistical Inference in Casual Settings</title>
+      <link>https://yabin-da.com/notes_in_r/statistical-inference-in-casual-settings/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/statistical-inference-in-casual-settings/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#robust-standard-errors&#34;&gt;Robust standard errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clustering-in-group-data&#34;&gt;Clustering in group data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#serial-correlation-in-panel-data&#34;&gt;Serial correlation in panel data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reference&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;There are particularly two concerns regarding the statistical inferences on causal effects: correlations within groups, and serial correlation. The first concern fits the group data, whereas the second concern matches the panel data settings. Here for group data, I mean data observed within treatment groups (of course), for instance, test scores of students within the same class, wages of individuals within the same state, etc. In other words, there is no time dimension in the data. For the panel data, in contrast, we observe each student/worker multiple times and construct a panel (months, years, etc.). Both cases are common in casual studies, however, the latter one is more privileged, thanks for the development of Difference in Difference (DiD).&lt;/p&gt;
+&lt;p&gt;In this note, I will address the statistical inference concerns on casual effect studies, such as the bias in robust standard error, correlations within groups, and serial correlations. In practice, some of these concerns are well stressed, however, the rest of them are largely ignored. This will lend practitioners to over-reject the null hypothesis of no effects and conclude a casual effect that does not exist.&lt;/p&gt;
+&lt;p&gt;Numerous approaches are available to fix these concerns, yet, they are confusing for beginners (at least for me), who may find it difficult to choose the &lt;strong&gt;&lt;em&gt;correct&lt;/em&gt;&lt;/strong&gt; one to fix their specific problem. This post attempts to provide a guide for beginners.&lt;/p&gt;
+&lt;p&gt;Below, I firstly introduce some background information on robust standard errors. Following that, I discuss the clustering problem in group data. Thirdly, we focus on the serial correlation in panel data. Finally, I close the note.&lt;/p&gt;
+&lt;p&gt;You are highly recommended to consult the seminal work by Angrist and Pischke: Mostly Harmless Econometrics for technical details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;robust-standard-errors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Robust standard errors&lt;/h3&gt;
+&lt;p&gt;Before we move to the clustering and serial correlation, I’d like to pave the road by talking about the &lt;em&gt;robust&lt;/em&gt; standard errors first. Robust standard errors are in opposition to the &lt;em&gt;conventional&lt;/em&gt; standard errors which assumes homoskedasticity. This is a strong assumption and frequently fails in practice. The robust standard errors, on other hand, relax this restriction and are preferable in empirical studies.&lt;/p&gt;
+&lt;p&gt;One thing that should be mentioned is that for finite samples, both variance estimators are also &lt;em&gt;biased&lt;/em&gt;. In practice, the bias should be corrected which can be easily done in modern statistical software. The last thing you need to do is to do it right.&lt;/p&gt;
+&lt;p&gt;One can fix the bias of conventional estimators via a simple degree-of-freedom correction. This is also the &lt;em&gt;default&lt;/em&gt; setting in most statistical software. If you are pursuing standard errors under homoskedasticity, you are happy with the default estimates. Things get a little bit complicated in the heteroskedasticity world, yet simple remedies are handy. There are several alternative correction approaches such as &lt;em&gt;HC1, HC2, and HC3&lt;/em&gt;. In application, the estimated standard errors tend to get larger as we go down the list from &lt;em&gt;HC1 to HC3&lt;/em&gt; (Angrist and Pischke 2008). Note that all these corrections aim to fix the bias induced by finite samples. Also, note that heteroskedasticity rarely leads to dramatic changes in inferences if the sample size is large.&lt;/p&gt;
+&lt;p&gt;One largely ignored concern is the &lt;em&gt;robust&lt;/em&gt; estimators are more biased than the conventional ones when we have homoskedasticity or the heteroskedasticity is moderate (Angrist and Pischke 2008). In these cases, we may end up with robust standard errors even lower than the conventional standard error and consequently over-reject the null hypothesis of no effect. That says if you are confident that you have homoskedasticity or you have reasons to believe the heteroskedasticity is moderate, you should go after a conventional standard error framework.&lt;/p&gt;
+&lt;p&gt;There are no golden rules to determine whether the heteroskedasticity is moderate or not. In practices, the heteroskedasticity setting way dominates the homoskedasticity counterpart. In such cases, I think the &lt;em&gt;HC2&lt;/em&gt; correction should do the job in most cases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clustering-in-group-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Clustering in group data&lt;/h3&gt;
+&lt;p&gt;I just discussed the robust standard errors in the cross-sectional regressions. For group data, things get complicated. Recall that the group data here has no time dimension to distinguish with the panel data which I will talk about shortly. A simple example is the test scores of students from different classes and schools.&lt;/p&gt;
+&lt;p&gt;You can of course think about this type of estimate as a regular cross-sectional regression. However, the statistical inference you draw from this simple cross-sectional setting will be problematic even though with corrected robust standard errors. That is because you missed the potential correlations within the group, for instance, test scores of students from the same class tend to correlate with each other. This omission of correction within group will bias the standard errors downward and lead you to mistakenly over-reject the null hypothesis.&lt;/p&gt;
+&lt;p&gt;The bias is largely guided by the Moulton factor (Angrist and Pischke 2008) which increases with group size (the overall sample size is fixed). Intuitively, larger group size indicates fewer groups (clusters), in which case there is less independent information in the sample (because we assume there is no correlation across clusters).&lt;/p&gt;
+&lt;p&gt;To fix the bias stemmed from within-group correlations, we can either&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;inflate the conventional standard errors by the Moulton factor. For technical notes please refer to (Angrist and Pischke 2008). The factor is supplied as descriptive statistics in some software packages (&lt;em&gt;loneway&lt;/em&gt; command in Stata).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cluster at the group level, like clusters in panel data which we will cover shortly. The concern here is cluster errors are unlikely to be reliable with few clusters. Recall that the clustered variance-covariance matrix is derived by averaging across clusters. With few clusters, this moment estimate tends to be inconsistent.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;average the individual level data to group level and perform a regular WLS regression with group sizes as weights. The &lt;em&gt;premise&lt;/em&gt; for this approach is the treatment variable only varies at the group level. In practices, we always have covariates that vary at the individual level. In such cases, we need to transform the individual-level covariates to covariate-adjusted group effects. Specifically, first run a regression of the outcome on a full set of group dummies and the covariates (note that the treatment variable is absent from the regression). Then run the WLS regression of estimated group effects (the group dummies from the first regression) on the treatment variables. The group-level estimates are preferable to the clustering approach in the context of few clusters.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;serial-correlation-in-panel-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Serial correlation in panel data&lt;/h3&gt;
+&lt;p&gt;Unlike the group data, panel data has a time dimension in it, for instance, wages varying across years. In many cases, we expect these observations are correlated over time. Serial correlations are well documented in general panel data settings, i.e. fixed effect and random effect panel data models. In those general settings, there are no treatment variables (i.e. binary treatment variable), nor are treated groups and control groups. A simple example for such setting is the regression of crop yields on weather variables using county-level data. To address serial correlations in counties, you can cluster at the county level. To further address the spatial correlation across counties within states, we can cluster at a higher level, say state level (this is the nonparametric way, you can also choose the parametric approach by assuming that the spatial correlation follows some parametric function forms).&lt;/p&gt;
+&lt;p&gt;Panel data in the causal effect settings, particularly the Two-Way Fixed Effects DiD, is different from the general panel data settings. In these cases, we have treatment groups, control groups, treatment variables that vary at group (state) level, and covariates that are observed at the individual (county) level. The error terms in such settings could be correlated within/across counties, as well as within/across states. In practice, correlations within/across counties are commonly fixed by clustering at the state-year level under the assumption that there are no correlations across states and years.&lt;/p&gt;
+&lt;p&gt;However, this assumption could be easily violated in empirical studies. For instance, if a state experienced an economic shock in one year, we expect the shock to persist to next year. The ignored serial correlations can seriously bias the standard error estimates (Bertrand, Duflo, and Mullainathan 2004). Fortunately, we have alternative ways to fix the problem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The simplest and most widely applied approach is to pass the clustering cell one level higher. Say, we cluster at the state level rather than the state-year level. The problem here is the number of clusters is reduced and consequently leads the standard error estimates less precise. The empirical question is what is the minimum number of clusters that will render us reliable inference. The short answer is 42. I recommend you to refer to Angrist and Pischke (2008) for more details.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;An alternative approach is to introduce a state-specific trend into the model to account for serial correlation. Angrist and Pischke (2008) did not talk about this approach in their book, however, I think it makes sense. If the state trend is controlled, we are at least partly free from the serial correlation problems.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;In this post, I discussed the statistical inference in regression analysis with a focus on causal inference. For a simple cross-sectional regression, you may need to take care of the heterogeneity by constructing robust standard errors. Besides, you can also go further by performing finite-sample corrections to mitigate biases in standard errors. Most modern statistical software allows you to do it very easily.&lt;/p&gt;
+&lt;p&gt;In the grouped data, you need to take care of the potential correlations within groups. To do so, you can either cluster standard errors at the group level, which is appealing if you have a reasonable number of clusters; alternatively, you can also average the individual level data to group level and perform a regular WLS regression with group sizes as weights. This approach is promising if you have limited clusters. You are always recommended to do a sensitivity analysis to compare the standard errors estimated from these two approaches.&lt;/p&gt;
+&lt;p&gt;Lastly, for the panel data in causal inference setting, clustering at the group-year level has still dominated the literature though the estimated standard errors could be significantly biased downward because of ignoring the serial correlation, which leads to the practitioners to over-reject the null hypothesis. To mitigate the bias, you can cluster at the group-level instead. The downside is we will have fewer clusters and experience computational burdens.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;Angrist, J.D., and J.-S. Pischke. 2008. Mostly Harmless Econometrics: An Empiricist’s Companion. Princeton University Press.&lt;/p&gt;
+&lt;p&gt;Bertrand, M., E. Duflo, and S. Mullainathan. 2004. “How Much Should We Trust Differences-In-Differences Estimates?” The Quarterly Journal of Economics 119(1):249–275.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wireless ANC Headphone: Bose QC35 II v.s. Jabra Elite 85h</title>
+      <link>https://yabin-da.com/regular_post/wireless-anc-headphone-bose-qc35-ii-v-s-jabra-elite-85h/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/regular_post/wireless-anc-headphone-bose-qc35-ii-v-s-jabra-elite-85h/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#comfortability&#34;&gt;Comfortability&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sound-quality&#34;&gt;Sound quality&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#anc&#34;&gt;ANC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#battery-life-and-charging&#34;&gt;Battery life and charging&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#call-quality&#34;&gt;Call quality&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#versatilities&#34;&gt;Versatilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sennhesier-hd-450bt-and-jbl-live-650btnc&#34;&gt;Sennhesier HD 450BT and JBL LIVE 650BTNC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;I would have never dug into the wireless ANC headphone arena until I accidentally put on a pair of Bose QC 35 II at Walmart while I was actually about to buy some toilet papers. My feeling was that these headphones are AMAZING!&lt;/p&gt;
+&lt;p&gt;ANC stands for Activate Noise Canceling. As entitled, wireless ANC headphones can block low and frequency noises. With them putting on, you would drown yourself in your world. These headphones are particularly needed by people who frequently fly around.&lt;/p&gt;
+&lt;p&gt;The leaders in the current market are Sony and Bose. And normally, their headphones are very expensive (at least for me). Thanks to Black Friday, you can find decent promotions on both brands, as well as other well-known audio brands such as Sennheiser, JBL, Beats, Jabra, Skullcandy, etc. If you missed the sales, don’t worry. I expect the prices for these current models will continue to drop because the manufacturers will release their new models next year.&lt;/p&gt;
+&lt;p&gt;I constantly checked out the headphone deals from a variety of sources, and I am particularly interested in the Bose QC 35 II which is considered one of the most comfortable headphones in the market. I went to the Best Buy in my town and was able to try Bose headphones and Sony counterparts. Somehow, I did not find the Sony’s is more appealing than Bose even with the newest Sony WH-1000XM4 ($278 with Black Friday promotion). Thus, I focused on Bose, Sennheiser, and JBL.&lt;/p&gt;
+&lt;p&gt;Specifically, I purchased and compared Bose QC 35 II ($199), Jabra Elite 85h ($149), Sennheiser HD 450BT ($99), and JBL LIVE 650BTNC ($99). You can find them at Amazon. From the prices, you can tell that the Bose QC 35 II compete with the Jabra Elite 85H, whereas the latter two are in the same production line.&lt;/p&gt;
+&lt;p&gt;In this post, I am going to share my experiences with Bose QC 35 II and Jabra Elite 85H, and briefly talk about the Sennheiser HD 450BT and JBL LIVE 650BTNC. For these over-ear headphones, what I care about most are comfortability, sound quality, ANC performance, battery life, maybe call quality, and other versatilities.&lt;/p&gt;
+&lt;p&gt;In my situation, the question is whether I spend ($199) for Bose which is outdated (a model of 2017), or go for Jabra which is newer (released 2019) and cheaper ($50 less than Bose)?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;comfortability&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Comfortability&lt;/h3&gt;
+&lt;p&gt;The Bose QC 35 II is indeed one of the most comfortable headphones, and it deserves that.&lt;/p&gt;
+&lt;p&gt;The common problems with over-ear headphones are they become uncomfortable after wearing for a couple of hours. As the earcups keep pushing and pressing your ears, they start to sweat and get tired. The top of your head will also start to feel light pains duo to the headband. In these cases, you need to take off your headphone and have a break for half an hour before you put them back on.&lt;/p&gt;
+&lt;p&gt;With Bose QC 35 II, you are unlikely to have any of these problems. The earcups are large thus they can cover and fit your ears very well. The large earcups also facilitate breathability so you won’t be sweating. You can wear this pair of headphones for an entire day without any problems.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yabin-da.com/post/2020-11-28-wireless-anc-headphone-bose-qc35-ii-v-s-jabra-elite-85h.en_files/Bose.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;The Bose QC 35 II&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;On the other hand, the Jabra is also very comfortable however less so than the Bose. But don’t get me wrong. This does not mean the Jabra is uncomfortable. You won’t even notice the differences if you have not tried the Bose before. My overall feeling is that the Jabra is a little bit tighter than Bose. That means the earcups and headband put more pressure to your ears and head. After a considerable period of time of wearing, your ears get warm and tired, your head though won’t hurt much. This may be a problem at summertime however is unlikely to be a dealbreaker.&lt;/p&gt;
+&lt;p&gt;Another problem with Jabra is the cushions squeak when you squeeze them (think about the sound coming from the Wheezy in Toy Story).&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yabin-da.com/post/2020-11-28-wireless-anc-headphone-bose-qc35-ii-v-s-jabra-elite-85h.en_files/Jabra.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;The Jabra Elite 85h&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Overall, the Bose wins this round of the competition.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sound-quality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sound quality&lt;/h3&gt;
+&lt;p&gt;First of all, I am not a professional nor an autophile, so what I am about to describe is just my experience. In general, I think the sound quality of Bose is slightly better than that on the Jabra. I tested with two songs, Nobody’s Love by Maroon 5 and Lemonade by Internet Money.&lt;/p&gt;
+&lt;p&gt;My overall feeling is that Bose has a clearer, juicier, and more neutral sound, whereas the sound on Jabra is deeper and heavier. I personally would prefer Bose over Jabra. But this is very much a subjective thing. You may have a different taste and find you enjoy the heavier music.&lt;/p&gt;
+&lt;p&gt;Overall, the Bose again wins this round of the competition I think&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anc&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;ANC&lt;/h3&gt;
+&lt;p&gt;To be honest, I cannot truly tell the difference in ANC performance between Bose and Jabra. Both of them block a huge amount of noise. The Bose may perform slightly better, but I cannot even convince myself of this.&lt;/p&gt;
+&lt;p&gt;Overall, I would call a draw in this round of the competition.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;battery-life-and-charging&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Battery life and charging&lt;/h3&gt;
+&lt;p&gt;The Jabra has a much longer battery life (claimed 36h with ANC on) than Bose (claimed 20h with ANC). Additionally, Jabra is charged with USB-C whereas Bose has a micro-USB. That matters when it comes to the fast-charing feature. With 15 minutes charging, you can enjoy a 5-hour playing on Jabra. On Bose, this number will reduce to 2.5 hours.&lt;/p&gt;
+&lt;p&gt;Overall, Jabra is obviously the winner in this round of the competition.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;call-quality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Call quality&lt;/h3&gt;
+&lt;p&gt;I did not test the call quality directly, since most of the time, I connect the headphone with my laptop. Jabra has six more microphones than Bose (8 vs 2), which makes Jabra win this round of the competition.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versatilities&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Versatilities&lt;/h3&gt;
+&lt;p&gt;Jabra has more features which I think are worth noting. On the Bose side, given it’s a 2017/2018 model, you shall not expect that much.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Jabra will automatically pause your music when you take them off, thanks to the sensors inside the earcups. Moreover, if you fold the headphone or swivel the earcups to flat, the headphone will automatically power off.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Jabra has a more robust smartphone App. You can do lots of things with it. For instance, you can set up a sleep mode to save battery life. You can also customize the EQ, but I never touch it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Bluetooth version on Jabra is 5.0 whereas in Bose is 4.2.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Both Jabra and Bose can pair with two devices simultaneously. However, switching between devices turns out to be more convenient with Bose.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sennhesier-hd-450bt-and-jbl-live-650btnc&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sennhesier HD 450BT and JBL LIVE 650BTNC&lt;/h3&gt;
+&lt;p&gt;I bought Sennihesier HD 450BT from Best Buy and returned it on the second day. The only problem is this pair of headphones is uncomfortable because the earcups are very small. It hurts your ears and head and makes your ears sweat. Anything else is excellent with GREAT sound quality and high-performance ANC. People with small heads and ears may find this pair of headphones attractive.&lt;/p&gt;
+&lt;p&gt;The JBL LIVE 650BTNC has a similar problem and I think it is even tighter than the Sennihesier. This pair of headphone is technically on-ear instead of over-ear. I returned it anyway.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;I was hesitant about which one to keep: Bose or Jabra? The Jabra is still appealing not only because of its price is $50 less than Bose, but it also has more promising features. But the Bose is indeed comfortable to wear.&lt;/p&gt;
+&lt;p&gt;Then came the dealbreaker. I noticed that I can get a $30 student discount from the Bose webiste. Luckily, I can also get some cash back from Rakuton (roughly $19). All together, these promotions finally reduce the price to $169 and it led to my final decision: the Bose.&lt;/p&gt;
+&lt;p&gt;I hope you all can get the your desired headphones with decent price.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Start your first post with blogdown website</title>
+      <link>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/start-your-first-post-with-blogdown-website/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#start-your-first-post&#34;&gt;Start your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-your-first-post&#34;&gt;Customize your first post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-embed-images-in-your-website&#34;&gt;How to embed images in your website&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-via-insert-image-in-addins&#34;&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#insert-images-with-knitrinclude_graphic&#34;&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After you successfully create your website with &lt;code&gt;blogdown&lt;/code&gt;, you may want to start your first post right away. In this short section, I am going to briefly introduce how to create a new post with &lt;code&gt;blogdown&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;start-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Start your first post&lt;/h3&gt;
+&lt;p&gt;I highly recommend you start your post using the &lt;code&gt;New Post&lt;/code&gt; button in &lt;code&gt;Addins&lt;/code&gt; in &lt;code&gt;RStudio&lt;/code&gt;. See the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot1.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;It’s followed by an interface, see the figure below. You can easily fill up the basic information for your new post, such as &lt;code&gt;Title&lt;/code&gt;, &lt;code&gt;Author&lt;/code&gt;, and &lt;code&gt;Date&lt;/code&gt;. The &lt;code&gt;Subdirectory&lt;/code&gt; will allow you to specify the type of this new post, either it can be a post or publication or talk etc.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Categories&lt;/code&gt; and &lt;code&gt;Tags&lt;/code&gt; fields will automatically display the existing categories and tags. But you can add new ones directly in the fields. The &lt;code&gt;Filename&lt;/code&gt; will be automatically generated. Finally, you are free to choose the &lt;code&gt;Format&lt;/code&gt; you are comfortable with. The differences between these three formats are explained &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot2.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customize-your-first-post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Customize your first post&lt;/h3&gt;
+&lt;p&gt;After you click &lt;code&gt;Done&lt;/code&gt;, the associated &lt;code&gt;.Rmd&lt;/code&gt; file (if you chose the &lt;code&gt;.Rmd&lt;/code&gt; format) will show up in the respective folder under the &lt;code&gt;content&lt;/code&gt; folder. The &lt;code&gt;YAML&lt;/code&gt; front matter will also be created in the &lt;code&gt;.Rmd&lt;/code&gt; file. You can easily customize the &lt;code&gt;YAML&lt;/code&gt; front matter based on your needs.&lt;/p&gt;
+&lt;p&gt;For instance, if the post is a draft and is not ready to display on your website, you can simply add &lt;code&gt;draft: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;. When you are ready to publish the post, simply delete the &lt;code&gt;draft: true&lt;/code&gt; or set &lt;code&gt;true&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;. Additionally, if you want to feature this post, just add &lt;code&gt;feature: true&lt;/code&gt; in the &lt;code&gt;YAML&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another useful trick is that if you are writing a long post and wish to display the table of content in the post, you can add the followings to your &lt;code&gt;YAML&lt;/code&gt; front matter.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 4
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-embed-images-in-your-website&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How to embed images in your website&lt;/h3&gt;
+&lt;p&gt;One benefit of creating website with &lt;code&gt;blogdown&lt;/code&gt; is that it allows you to execute &lt;code&gt;R&lt;/code&gt; code chunks in the &lt;code&gt;Rmd&lt;/code&gt; files. That means you can easily add &lt;code&gt;R&lt;/code&gt; plots on your website. In this section, I will focus on how to insert external images instead.&lt;/p&gt;
+&lt;p&gt;It should be noted that all static content (i.e. images, data, etc.) on your website should be stored in the &lt;code&gt;static&lt;/code&gt; folder. You can create new folders inside the &lt;code&gt;static&lt;/code&gt; folder to organize static contents for each of the post.&lt;/p&gt;
+&lt;p&gt;Also note that the static contents will be automatically copied to the &lt;code&gt;public&lt;/code&gt; folder after we deploy the website.&lt;/p&gt;
+&lt;div id=&#34;insert-images-via-insert-image-in-addins&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images via &lt;code&gt;Insert Image&lt;/code&gt; in &lt;code&gt;Addins&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;This is the easiest way to do the job. In the interface below, you can specify the &lt;code&gt;Width&lt;/code&gt; and &lt;code&gt;Height&lt;/code&gt; of the figure.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;Target file path&lt;/code&gt; will be automatically created and target to the &lt;code&gt;static&lt;/code&gt; folder. That says the inserted images will be automatically copied to the &lt;code&gt;static&lt;/code&gt; folder, regardless of the original image path.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After you click &lt;code&gt;done&lt;/code&gt;, the figure will be inserted by the code below. You can see that the image is placed to the automatically created folder &lt;code&gt;static/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files&lt;/code&gt; that is associated with the post.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![](/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The images will show up on your website. (see the armadillo below).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;insert-images-with-knitrinclude_graphic&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;In some cases, you may want to insert images with &lt;code&gt;Knitr::include_graphic&lt;/code&gt; which is a function rooted in &lt;code&gt;R markdown&lt;/code&gt; and more straightforward.&lt;/p&gt;
+&lt;p&gt;The trick here is to correctly specify the image path. As I mentioned in the preceding section, the default path for static content is the &lt;code&gt;static&lt;/code&gt; folder. That means &lt;code&gt;R&lt;/code&gt; will search for the image in the default &lt;code&gt;static&lt;/code&gt; folder. So in order to successfully insert the external image, you should place the image in the &lt;code&gt;static&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;As &lt;code&gt;Knitr&lt;/code&gt; does not automatically create new folder under the &lt;code&gt;static&lt;/code&gt; folder, it’s recommended that you create new folders manually and store static contents (i.e. images) separately for each post. See the code chunk below.&lt;/p&gt;
+&lt;p&gt;Please remember to set the &lt;code&gt;error = FALSE&lt;/code&gt; in the &lt;code&gt;include_graphics&lt;/code&gt;, otherwise you will end up with errors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(&amp;quot;/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/plot3.png&amp;quot;, 
+                        error = False)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next you can customize the code chunk options to add figure caption, adjust figure alignment, output width, etc. See the example below.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://yabin-da.com/post/2020-09-29-start-your-first-post-with-blogdown-website.en_files/IMG_20190313_120505.jpg&#34; alt=&#34;This is a figure with smaller size&#34; width=&#34;50%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: This is a figure with smaller size
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building your personal website with R blogdown</title>
+      <link>https://yabin-da.com/notes_in_r/blogdownwebsite/</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yabin-da.com/notes_in_r/blogdownwebsite/</guid>
+      <description>
+&lt;script src=&#34;https://yabin-da.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#why-i-chose-blogdown-to-build-my-personal-website&#34;&gt;Why I chose blogdown to build my personal website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resources-for-building-website-with-blogdown&#34;&gt;Resources for building website with blogdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#potential-problems-with-the-template&#34;&gt;Potential problems with the template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#custermize-your-webiste&#34;&gt;Custermize your webiste&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-tips-that-might-be-useful-for-you&#34;&gt;Other tips that might be useful for you&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#add-publications-to-your-website&#34;&gt;Add publications to your website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;why-i-chose-blogdown-to-build-my-personal-website&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why I chose blogdown to build my personal website&lt;/h3&gt;
+&lt;p&gt;I used to host a personal website with &lt;code&gt;google site&lt;/code&gt;, which is nice and friendly to begninners. However in certain cases, google site may not be that handy. For instance, it is not compatible with &lt;code&gt;R markdown&lt;/code&gt; files. You are not allowed to upload html files generated by &lt;code&gt;R markdown&lt;/code&gt; to your Google site (technically you can do this by embedding the html codes, see &lt;a href=&#34;https://www.steegle.com/google-sites/how-to/insert-custom-code&#34;&gt;this&lt;/a&gt;, but that’s not what I wanted).&lt;/p&gt;
+&lt;p&gt;So if you plan to regularly share posts (such as html files or &lt;code&gt;R markdown&lt;/code&gt; files) on your website, &lt;code&gt;google site&lt;/code&gt; will probably let you down. Note that &lt;code&gt;Markdown&lt;/code&gt; file and &lt;code&gt;R markdown&lt;/code&gt; file are not the same though very similar, see the differences explained by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;Yihui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here comes the &lt;code&gt;blogdown&lt;/code&gt; package, which is designed for building personal websites. More importantly, it is a package rooted in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;RStuido&lt;/code&gt; and fully compatible with other &lt;code&gt;R&lt;/code&gt; components. If you are comfortable with &lt;code&gt;R&lt;/code&gt; programming, &lt;code&gt;blogdown&lt;/code&gt; will satisfy you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources-for-building-website-with-blogdown&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Resources for building website with blogdown&lt;/h3&gt;
+&lt;p&gt;There are countless resources and instructions available to guide you through step by step. See two good examples below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intuitive instructions by &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A throughout instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, before you hit the road, I’d like provide additional advice based on my experiences and hopefully you can benefit from it.&lt;/p&gt;
+&lt;p&gt;The basic idea is that you are not actually “creating” a website, instead, you customize a template. For instance, the template I used is called &lt;code&gt;Hugo Academic&lt;/code&gt;. A collection of templates can be found from &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After you finish the customization, you are highly recommended to deploy your website with &lt;code&gt;Github&lt;/code&gt; and &lt;code&gt;Netlify&lt;/code&gt;. Should you not worry about for this, because the instructions I provided above cover the whole process in details.&lt;/p&gt;
+&lt;p&gt;Long story in short, you can follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction and customize your website on your &lt;strong&gt;local machine&lt;/strong&gt; (this is the &lt;strong&gt;first step&lt;/strong&gt;), and then upload your website folder to a newly created repository in &lt;code&gt;Github&lt;/code&gt; (this is the &lt;strong&gt;second step&lt;/strong&gt;). To do that, you can either create a new repository directly on &lt;code&gt;Github&lt;/code&gt;, or you can take advantage of &lt;code&gt;Github Desktop&lt;/code&gt;. The &lt;strong&gt;third step&lt;/strong&gt; is to deploy using &lt;code&gt;Netlify&lt;/code&gt;, which is quite straightforward.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can also follow the step by step instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;, which is the official guide to create website using &lt;code&gt;hugo&lt;/code&gt; (the workhourse used in the blogdown package). That means the instruction is a general cookbook and is not particularly written for &lt;code&gt;R blogdown&lt;/code&gt;. For the &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt; instruction, you need to set up your &lt;code&gt;Github&lt;/code&gt; repository first and customize directly in &lt;code&gt;Github&lt;/code&gt;. The final deploying process is similar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The punchline is&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you are comfortable with &lt;code&gt;RStiduo&lt;/code&gt; and &lt;code&gt;R markdown&lt;/code&gt;, you may want to follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction.&lt;/li&gt;
+&lt;li&gt;If you are more familiar with &lt;code&gt;Github&lt;/code&gt;, you can try the instruction by &lt;a href=&#34;https://wowchemy.com/docs/install/&#34;&gt;Wowchemy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;potential-problems-with-the-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Potential problems with the template&lt;/h3&gt;
+&lt;p&gt;If you follow &lt;a href=&#34;https://annielyu.com/2020/01/12/blogdown-website/&#34;&gt;Annie Lyu&lt;/a&gt;’s instruction, you may encounter problems with the &lt;code&gt;gcushen/hugo-academic&lt;/code&gt; template. Remember to change the template to &lt;code&gt;wowchemy/starter-academic&lt;/code&gt;. See the snapshot below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;custermize-your-webiste&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Custermize your webiste&lt;/h3&gt;
+&lt;p&gt;After you complete your webiste using the template, you can move forward to custermizing the template based on your preference. To start with, follow this instruction &lt;a href=&#34;https://wowchemy.com/docs/getting-started/get-started/&#34;&gt;here&lt;/a&gt; to select a color theme and font theme for your website.&lt;/p&gt;
+&lt;p&gt;Then follow this &lt;a href=&#34;https://wowchemy.com/docs/getting-started/page-builder/&#34;&gt;instruction&lt;/a&gt; to custermize your homepage. You can delete unnecessary sections and create new sections based on your needs.&lt;/p&gt;
+&lt;p&gt;I know there are lots of stuff there but do not get yourself overwhelmed. Just try to play with it and you will be like a professional sooner or later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-tips-that-might-be-useful-for-you&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Other tips that might be useful for you&lt;/h3&gt;
+&lt;div id=&#34;add-publications-to-your-website&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Add publications to your website&lt;/h4&gt;
+&lt;p&gt;You can either automatically add publications through &lt;code&gt;*.bib&lt;/code&gt; BibTex files or manually add using &lt;code&gt;hugo&lt;/code&gt; command. See the instruction from &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-a-publication&#34;&gt;Wowchemy&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Automatically&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;You need to create a list of your own publication and export it as a &lt;code&gt;*.bib&lt;/code&gt; file. I highly recommend you do this with &lt;a href=&#34;https://www.zotero.org/&#34;&gt;Zotero&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you have installed the &lt;a href=&#34;https://www.anaconda.com/&#34;&gt;Anaconda&lt;/a&gt;, that says you have &lt;code&gt;Python&lt;/code&gt; installed on your computer. You can proceed by installing &lt;code&gt;academic&lt;/code&gt;. To do this, open your Terminal under &lt;code&gt;Anaconda&lt;/code&gt; (You can find it in the Window start menu, if you are using a Windows system), see the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot2.png&#34; /&gt;&lt;!-- --&gt;
+And then type the following command in the opened Terminal.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U academic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following that, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to your website folder in the terminal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot3.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, you will be able to import your publications with the command below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;academic import --bibtex &amp;lt;path_to_your/publications.bib&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here &lt;code&gt;&amp;lt;path_to_your/publications.bib&amp;gt;&lt;/code&gt; is the pah of your &lt;code&gt;bib&lt;/code&gt; file. Do &lt;strong&gt;remove&lt;/strong&gt; the &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; while you are pasting the path to the terminal. See the figure below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yabin-da.com/post/2020-09-24-blogdownwebsite.en_files/plot4.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now you should be able to see your publications in the &lt;code&gt;content/publication/&lt;/code&gt; folder of your website folder.&lt;/p&gt;
+&lt;p&gt;Note that the command will automatically create separate folders for each of your publications.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In each of the publication folder, you can customize the &lt;code&gt;index.md&lt;/code&gt; file based on your needs, such as adding &lt;code&gt;author_notes&lt;/code&gt;, &lt;code&gt;tags&lt;/code&gt;, and &lt;code&gt;publication_types&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To highly your name in the author list&lt;/strong&gt;, open the &lt;code&gt;config\params.toml&lt;/code&gt; file in your website folder, and set &lt;code&gt;highlight_superuser = true&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Manually&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Initially, I did not go over the approach of manually adding publications. However, later on, I figured out it’s quite useful when you have updates on your publication list such as a working paper or new publications. In these cases, the manually adding approach is handy and more convenient.
+Below I follow the instruction in &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-a-publication&#34;&gt;Wowchemy&lt;/a&gt; and briefly show you how to do the task. It’s very simple and just one line of code.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Follow the second step in the automatically adding publication approach and open your Terminal under &lt;code&gt;Anaconda&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Before you type any commands in the terminal, you need to first navigate to your website folder using the &lt;code&gt;cd&lt;/code&gt; command (see the second step in the automatic adding method).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then you simply type the code below to add your working papers and new publications, where &lt;code&gt;&amp;lt;my-publication&amp;gt;&lt;/code&gt; is the name of your publication, using hyphens (-) instead of spaces. Again do remember to remove the &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;hugo new --kind publication publication/&amp;lt;my-publication&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This command will automatically create a publication file in your &lt;code&gt;content/publication/&amp;lt;my-publication&amp;gt;/index.md&lt;/code&gt; folder. You can customize and add your inputs to the &lt;code&gt;index.md&lt;/code&gt;. Your updates will show up on your website after you deploy it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

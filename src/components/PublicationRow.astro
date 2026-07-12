@@ -1,0 +1,18 @@
+---
+import type { PublicationEntry } from '../lib/publications';
+import { formatAuthors, publicationSlug, publicationYear } from '../lib/publications';
+
+const { entry, index, compact = false } = Astro.props as { entry: PublicationEntry; index: number; compact?: boolean };
+const slug = publicationSlug(entry);
+---
+
+<article class:list={['publication-row', compact && 'compact']}>
+  <p class="publication-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
+  <div>
+    <p class="eyebrow">{publicationYear(entry.data.date)} · {entry.data.publication_types === 'manuscript' ? 'Working paper' : 'Journal article'}</p>
+    <h3><a href={`/publication/${slug}/`}>{entry.data.title}</a></h3>
+    <p class="publication-authors">{formatAuthors(entry.data.authors)}</p>
+    {entry.data.publication && <p class="publication-venue" set:html={String(entry.data.publication).replaceAll('*', '')} />}
+  </div>
+  <a class="row-arrow" href={`/publication/${slug}/`} aria-label={`Read ${entry.data.title}`}><span aria-hidden="true">↗</span></a>
+</article>

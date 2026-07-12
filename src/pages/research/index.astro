@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicationRow from '../../components/PublicationRow.astro';
+import { isWorkingPaper, sortPublications } from '../../lib/publications';
+
+const all = sortPublications(await getCollection('publications'));
+const workingPapers = all.filter(isWorkingPaper);
+const journalArticles = all.filter((entry) => !isWorkingPaper(entry));
+---
+
+<BaseLayout title="Research" description="Publications and working papers by Yabin Da on environmental economics, climate change, energy, agriculture, and applied econometrics.">
+  <header class="page-intro">
+    <p class="eyebrow">Research</p>
+    <h1>Evidence for understanding the impacts of a changing climate.</h1>
+    <p>My research examines how climate change affects agriculture, energy systems, households, and economic welfare—and how policy and adaptation can shape those outcomes.</p>
+  </header>
+
+  <section class="section-block research-section">
+    <div class="section-heading compact-heading"><p class="eyebrow">Publications</p><h2>Journal articles</h2></div>
+    <div class="publication-list">{journalArticles.map((entry, index) => <PublicationRow entry={entry} index={index} />)}</div>
+  </section>
+
+  {workingPapers.length > 0 && (
+    <section class="section-block research-section">
+      <div class="section-heading compact-heading"><p class="eyebrow">Working papers</p><h2>Research in progress</h2></div>
+      <div class="publication-list">{workingPapers.map((entry, index) => <PublicationRow entry={entry} index={index} />)}</div>
+    </section>
+  )}
+</BaseLayout>

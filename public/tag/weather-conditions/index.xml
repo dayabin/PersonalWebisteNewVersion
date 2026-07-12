@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>&#34;Weather conditions&#34; | Yabin Da</title>
+    <link>https://yabin-da.com/tag/weather-conditions/</link>
+      <atom:link href="https://yabin-da.com/tag/weather-conditions/index.xml" rel="self" type="application/rss+xml" />
+    <description>&#34;Weather conditions&#34;</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>Yabin Da© 2021</copyright><lastBuildDate>Mon, 09 Nov 2020 11:17:33 -0600</lastBuildDate>
+    <image>
+      <url>https://yabin-da.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>&#34;Weather conditions&#34;</title>
+      <link>https://yabin-da.com/tag/weather-conditions/</link>
+    </image>
+    
+    <item>
+      <title>How do weather and climate change impact the COVID-19 pandemic? Evidence from the Chinese mainland</title>
+      <link>https://yabin-da.com/publication/workingpaper-covid19/</link>
+      <pubDate>Mon, 09 Nov 2020 11:17:33 -0600</pubDate>
+      <guid>https://yabin-da.com/publication/workingpaper-covid19/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
