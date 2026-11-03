@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "pnpm run check && pnpm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
 
 [[headers]]
   for = "/*"

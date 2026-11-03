@@ -5,7 +5,7 @@ import PublicationRow from '../components/PublicationRow.astro';
 import { sortPublications } from '../lib/publications';
 
 const publications = sortPublications(await getCollection('publications'));
-const preferred = ['winterwheat', 'anhuielectricity', 'ozonepaper'];
+const preferred = ['carbonmarket-energypoverty', 'winterwheat', 'anhuielectricity', 'ozonepaper'];
 const selected = preferred
   .map((slug) => publications.find((entry) => entry.id.startsWith(slug)))
   .filter((entry) => entry !== undefined);

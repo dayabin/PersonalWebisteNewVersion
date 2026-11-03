@@ -12,7 +12,7 @@ const slug = publicationSlug(entry);
     <p class="eyebrow">{publicationYear(entry.data.date)} · {entry.data.publication_types === 'manuscript' ? 'Working paper' : 'Journal article'}</p>
     <h3><a href={`/publication/${slug}/`}>{entry.data.title}</a></h3>
     <p class="publication-authors">{formatAuthors(entry.data.authors)}</p>
-    {entry.data.publication && <p class="publication-venue" set:html={String(entry.data.publication).replaceAll('*', '')} />}
+    {entry.data.publication && <p class="publication-venue">{entry.data.publication.replaceAll('*', '')}</p>}
   </div>
   <a class="row-arrow" href={`/publication/${slug}/`} aria-label={`Read ${entry.data.title}`}><span aria-hidden="true">↗</span></a>
 </article>

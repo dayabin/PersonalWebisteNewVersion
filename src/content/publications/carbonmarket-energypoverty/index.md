@@ -1,12 +1,14 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "The role of carbon trading market on energy poverty alleviation in rural area in China"
+title: "Carbon trading and rural energy poverty: household-level evidence from China"
 authors:
 - Shuo Zhang
+- Zhen Zhong
+- Bruce McCarl
 - admin
-date: 2024-07-18T22:45:47-06:00
-#doi:
+date: 2026-11-02
+doi: https://doi.org/10.1007/s10584-026-04331-0
 
 # Schedule page publish date (NOT publication's date).
 
@@ -16,10 +18,10 @@ date: 2024-07-18T22:45:47-06:00
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: manuscript
+publication_types: article-journal
 
 # Publication name and optional abbreviated publication name.
-publication: "*Working paper*"
+publication: "*Climatic Change* 179: 242"
 publication_short: ""
 abstract: ""
 
@@ -37,7 +39,7 @@ links:
 #   url: https://academic.oup.com/erae/advance-article/doi/10.1093/erae/jbae015/7685860 
 #   icon_pack: fab
 #   icon: twitter
-# url_pdf: https://academic.oup.com/erae/advance-article/doi/10.1093/erae/jbae015/7685860  
+url_pdf: https://link.springer.com/article/10.1007/s10584-026-04331-0
 # url_code:
 # url_dataset:
 # url_poster:

@@ -67,33 +67,35 @@ const photographs = [
   </section>
 
   <script>
-    const root = document.querySelector('[data-gallery]');
-    if (root) {
-      const main = root.querySelector('[data-gallery-main]');
+    function setupGallery(root: HTMLElement) {
+      const main = root.querySelector<HTMLImageElement>('[data-gallery-main]');
       const counter = root.querySelector('[data-gallery-counter]');
       const year = root.querySelector('[data-gallery-year]');
-      const thumbs = [...root.querySelectorAll('[data-gallery-thumb]')];
+      const thumbs = [...root.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]')];
+      const pageIndicator = root.querySelector('[data-gallery-page]');
+      if (!main || !counter || !year || !pageIndicator || thumbs.length === 0) return;
       const total = thumbs.length;
       const pageSize = 6;
       const pageCount = Math.ceil(total / pageSize);
       let current = 0;
       let thumbPage = 0;
 
-      const renderThumbPage = (nextPage) => {
+      const renderThumbPage = (nextPage: number) => {
         thumbPage = (nextPage + pageCount) % pageCount;
         thumbs.forEach((thumb) => {
           thumb.hidden = Number(thumb.dataset.page) !== thumbPage;
         });
-        root.querySelector('[data-gallery-page]').textContent = `${String(thumbPage + 1).padStart(2, '0')} / ${String(pageCount).padStart(2, '0')}`;
+        pageIndicator.textContent = `${String(thumbPage + 1).padStart(2, '0')} / ${String(pageCount).padStart(2, '0')}`;
       };
 
-      const show = (next) => {
+      const show = (next: number) => {
         current = (next + total) % total;
         const selected = thumbs[current];
+        if (!selected?.dataset.src) return;
         main.src = selected.dataset.src;
         main.alt = `Photograph ${current + 1} from Yabin Da's visual archive`;
         counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-        year.textContent = selected.dataset.year;
+        year.textContent = selected.dataset.year ?? '';
         thumbs.forEach((thumb, index) => {
           const active = index === current;
           thumb.classList.toggle('active', active);
@@ -103,14 +105,16 @@ const photographs = [
       };
 
       thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => show(index)));
-      root.querySelector('[data-gallery-prev]').addEventListener('click', () => show(current - 1));
-      root.querySelector('[data-gallery-next]').addEventListener('click', () => show(current + 1));
-      root.querySelector('[data-gallery-page-prev]').addEventListener('click', () => renderThumbPage(thumbPage - 1));
-      root.querySelector('[data-gallery-page-next]').addEventListener('click', () => renderThumbPage(thumbPage + 1));
+      root.querySelector('[data-gallery-prev]')?.addEventListener('click', () => show(current - 1));
+      root.querySelector('[data-gallery-next]')?.addEventListener('click', () => show(current + 1));
+      root.querySelector('[data-gallery-page-prev]')?.addEventListener('click', () => renderThumbPage(thumbPage - 1));
+      root.querySelector('[data-gallery-page-next]')?.addEventListener('click', () => renderThumbPage(thumbPage + 1));
       root.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowLeft') show(current - 1);
         if (event.key === 'ArrowRight') show(current + 1);
       });
     }
+    const root = document.querySelector<HTMLElement>('[data-gallery]');
+    if (root) setupGallery(root);
   </script>
 </BaseLayout>
