@@ -7,6 +7,8 @@ const publications = defineCollection({
   schema: z.object({
     title: z.string().min(1),
     authors: z.array(z.string()).default([]),
+    corresponding_authors: z.array(z.string()).default([]),
+    shared_first_authors: z.array(z.string()).default([]),
     date: z.coerce.date(),
     publication_types: z.enum(['article-journal', 'manuscript']),
     publication: z.string().default(''),

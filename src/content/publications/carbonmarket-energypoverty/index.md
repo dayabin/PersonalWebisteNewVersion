@@ -7,6 +7,7 @@ authors:
 - Zhen Zhong
 - Bruce McCarl
 - admin
+corresponding_authors: ["admin"]
 date: 2026-11-02
 doi: https://doi.org/10.1007/s10584-026-04331-0
 

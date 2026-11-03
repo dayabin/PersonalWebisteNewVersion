@@ -1,6 +1,7 @@
 ---
+import AuthorList from './AuthorList.astro';
 import type { PublicationEntry } from '../lib/publications';
-import { formatAuthors, publicationSlug, publicationYear } from '../lib/publications';
+import { publicationSlug, publicationYear } from '../lib/publications';
 
 const { entry, index, compact = false } = Astro.props as { entry: PublicationEntry; index: number; compact?: boolean };
 const slug = publicationSlug(entry);
@@ -11,7 +12,7 @@ const slug = publicationSlug(entry);
   <div>
     <p class="eyebrow">{publicationYear(entry.data.date)} · {entry.data.publication_types === 'manuscript' ? 'Working paper' : 'Journal article'}</p>
     <h3><a href={`/publication/${slug}/`}>{entry.data.title}</a></h3>
-    <p class="publication-authors">{formatAuthors(entry.data.authors)}</p>
+    <p class="publication-authors"><AuthorList entry={entry} /></p>
     {entry.data.publication && <p class="publication-venue">{entry.data.publication.replaceAll('*', '')}</p>}
   </div>
   <a class="row-arrow" href={`/publication/${slug}/`} aria-label={`Read ${entry.data.title}`}><span aria-hidden="true">↗</span></a>

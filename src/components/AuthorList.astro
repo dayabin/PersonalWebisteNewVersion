@@ -1,0 +1,16 @@
+---
+import type { PublicationEntry } from '../lib/publications';
+const { entry } = Astro.props as { entry: PublicationEntry };
+const authors = entry.data.authors.map((value) => ({
+  name: value === 'admin' ? 'Yabin Da' : value,
+  own: value === 'admin' || value === 'Yabin Da',
+  corresponding: entry.data.corresponding_authors.includes(value),
+  sharedFirst: entry.data.shared_first_authors.includes(value),
+}));
+---
+{authors.map((author, index) => <Fragment>{index > 0 ? ', ' : ''}<span class="author-name">{author.own ? <strong>{author.name}</strong> : author.name}{author.corresponding && <sup aria-label="Corresponding author" title="Corresponding author">*</sup>}{author.sharedFirst && <sup aria-label="Shared first authorship" title="Shared first authorship">#</sup>}</span></Fragment>)}
+<style>
+  .author-name { display: inline-block; }
+  strong { font-weight: 700; color: var(--ink); }
+  sup { font-size: 0.7em; line-height: 0; vertical-align: super; margin-left: 0.08em; }
+</style>

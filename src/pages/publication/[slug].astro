@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
+import AuthorList from '../../components/AuthorList.astro';
+import AuthorshipLegend from '../../components/AuthorshipLegend.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatAuthors, publicationSlug, publicationYear } from '../../lib/publications';
+import { publicationSlug, publicationYear } from '../../lib/publications';
 
 export async function getStaticPaths() {
   const entries = await getCollection('publications');
@@ -19,8 +21,9 @@ const type = entry.data.publication_types === 'manuscript' ? 'Working paper' : '
     <header>
       <p class="eyebrow">{type} · {publicationYear(entry.data.date)}</p>
       <h1>{entry.data.title}</h1>
-      <p class="publication-page-authors">{formatAuthors(entry.data.authors)}</p>
+      <p class="publication-page-authors"><AuthorList entry={entry} /></p>
       {entry.data.publication && <p class="publication-page-venue">{entry.data.publication.replaceAll('*', '')}</p>}
+      <AuthorshipLegend />
       <div class="publication-actions">
         {entry.data.url_pdf && <a class="button-link" href={entry.data.url_pdf}>View paper <span aria-hidden="true">↗</span></a>}
         {entry.data.doi && <a class="text-link" href={entry.data.doi}>DOI <span aria-hidden="true">↗</span></a>}

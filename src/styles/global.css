@@ -208,7 +208,7 @@ h3 { font-size: clamp(1.35rem, 2vw, 2rem); letter-spacing: -0.02em; }
 .pathway {
   position: relative;
   display: grid;
-  grid-template-columns: 44px minmax(190px, 0.72fr) minmax(300px, 1fr) 24px;
+  grid-template-columns: 44px minmax(0, 0.72fr) minmax(0, 1fr) 24px;
   align-items: center;
   gap: clamp(18px, 2.4vw, 38px);
   padding: 32px 8px 32px 0;

@@ -7,6 +7,7 @@ authors:
 - Yangyang Xu
 - Fujin Yi
 - Bruce McCarl
+corresponding_authors: ["admin"]
 date: 2024-08-09T22:45:47-06:00
 doi: https://doi.org/10.1093/erae/jbae015
 

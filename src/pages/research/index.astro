@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorshipLegend from '../../components/AuthorshipLegend.astro';
 import PublicationRow from '../../components/PublicationRow.astro';
 import { isWorkingPaper, sortPublications } from '../../lib/publications';
 
@@ -17,7 +18,7 @@ const journalArticles = all.filter((entry) => !isWorkingPaper(entry));
   </header>
 
   <section class="section-block research-section">
-    <div class="section-heading compact-heading"><p class="eyebrow">Publications</p><h2>Journal articles</h2></div>
+    <div class="section-heading compact-heading"><p class="eyebrow">Publications</p><h2>Journal articles</h2><AuthorshipLegend /></div>
     <div class="publication-list">{journalArticles.map((entry, index) => <PublicationRow entry={entry} index={index} />)}</div>
   </section>
 
